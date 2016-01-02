@@ -1,0 +1,114 @@
+# You may add here your
+# server {
+#	...
+# }
+# statements for each of your virtual hosts to this file
+
+##
+# You should look at the following URL's in order to grasp a solid understanding
+# of Nginx configuration files in order to fully unleash the power of Nginx.
+# http://wiki.nginx.org/Pitfalls
+# http://wiki.nginx.org/QuickStart
+# http://wiki.nginx.org/Configuration
+#
+# Generally, you will want to move this file somewhere, and start with a clean
+# file but keep this around for reference. Or just disable in sites-enabled.
+#
+# Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
+##
+
+upstream odoo8 {
+server 127.0.0.1:8069 weight=1 fail_timeout=0;
+}
+
+upstream odoo8-im {
+server 127.0.0.1:8072 weight=1 fail_timeout=0;
+}
+
+# Odoo
+
+server {
+	listen 80;
+	server_name _;
+	client_max_body_size 8192m;
+
+	# Strict Transport Security
+	add_header Strict-Transport-Security max-age=2592000;
+	rewrite ^/.*$ https://$host$request_uri? permanent;
+	access_log    /var/log/nginx/www-odoo-access.log;
+	error_log     /var/log/nginx/www-odoo-error.log;
+}
+
+server {
+	# server port and name
+	listen 443;
+	server_name _;
+
+	# Specifies the maximum accepted body size of a client request,
+	# as indicated by the request header Content-Length.
+	client_max_body_size 200m;
+
+	# add ssl specific settings
+	keepalive_timeout 60;
+	ssl on;
+	ssl_certificate     /etc/nginx/ssl/cert.pem;
+	ssl_certificate_key /etc/nginx/ssl/private.key;
+
+	# limit ciphers
+	ssl_ciphers HIGH:!ADH:!MD5;
+	ssl_protocols SSLv3 TLSv1;
+	ssl_prefer_server_ciphers on;
+
+	# increase proxy buffer to handle some OpenERP web requests
+	proxy_buffers 16 64k;
+	proxy_buffer_size 128k;
+
+	#general proxy settings
+	# force timeouts if the backend dies
+	proxy_connect_timeout 1200s;
+	proxy_send_timeout 1200s;
+	proxy_read_timeout 1200s;
+	proxy_next_upstream error timeout invalid_header http_500 http_502 http_503;
+
+	# set headers
+	proxy_set_header Host $host;
+	proxy_set_header X-Real-IP $remote_addr;
+	proxy_set_header X-Forward-For $proxy_add_x_forwarded_for;
+
+	# Let the OpenERP web service know that we're using HTTPS, otherwise
+	# it will generate URL using http:// and not https://
+	proxy_set_header X-Forwarded-Proto https;
+
+	# by default, do not forward anything
+	proxy_redirect off;
+	proxy_buffering off;
+
+	location / {
+		proxy_pass http://odoo8;
+	}
+
+	location /longpolling {
+		proxy_pass http://odoo8-im;
+	}
+
+	location /munin/static/ {
+                alias /etc/munin/static/;
+                expires modified +1w;
+        }
+
+        location /munin/ {
+                auth_basic            "Restricted";
+                auth_basic_user_file  /etc/nginx/htpasswd;
+                alias /var/cache/munin/www/;
+                expires modified +310s;
+        }
+        
+	# cache some static data in memory for 60mins.
+	# under heavy load this should relieve stress on the OpenERP web interface a bit.
+	location /web/static/ {
+		proxy_cache_valid 200 60m;
+		proxy_buffering on;
+		expires 864000;
+		proxy_pass http://odoo8;
+	}
+}
