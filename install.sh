@@ -104,24 +104,25 @@ mkdir /var/log/odoo
 chown odoo:odoo /var/log/odoo
 cp /opt/odoo/OCB/debian/logrotate /etc/logrotate.d/odoo-server
 chmod 755 /etc/logrotate.d/odoo-server
-wget https://raw.githubusercontent.com/fcoach66/odoo/8.0/debian/openerp.init.d -O /etc/init.d/odoo-server
+wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/openerp.init.d -O /etc/init.d/odoo-server
 sudo chmod +x /etc/init.d/odoo-server
 sudo update-rc.d odoo-server defaults
 su - odoo -c "mkdir -p /opt/odoo/addons"
 su - odoo -c "/opt/odoo/OCB/odoo.py --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/OCB/openerp/addons,/opt/odoo/OCB/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
 mv /opt/odoo/odoo.conf /etc/odoo-server.conf
 chown odoo:odoo /etc/odoo-server.conf
-wget https://raw.githubusercontent.com/fcoach66/odoo/8.0/debian/odoo.nginx -O /etc/nginx/sites-available/odoo.nginx
+sed -i "s/db_password = False/db_password = odoo/g" /etc/odoo-server.conf
+wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/odoo.nginx -O /etc/nginx/sites-available/odoo.nginx
 rm /etc/nginx/sites-enabled/default 
 ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
-old1="xmlrpc_interface = "
-new1="xmlrpc_interface = 127.0.0.1"
+# old1="xmlrpc_interface = "
+# new1="xmlrpc_interface = 127.0.0.1"
 # old2="netrpc_interface = "
 # new2="netrpc_interface = 127.0.0.1"
-sed -i "s/$old1/$new1/g" /etc/odoo-server.conf
+# sed -i "s/$old1/$new1/g" /etc/odoo-server.conf
 # sed -i "s/$old2/$new2/g" /etc/odoo-server.conf
 mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
-wget https://raw.githubusercontent.com/fcoach66/odoo/8.0/debian/nginx.conf -O /etc/nginx/nginx.conf
+wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/nginx.conf -O /etc/nginx/nginx.conf
 htpasswd -cb /etc/nginx/htpasswd odoo odoo
 
 echo "Installazione Odoo 8.0 moduli l10n-italy"
