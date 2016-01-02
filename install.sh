@@ -156,7 +156,7 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_ricevute_bancarie /o
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_sale /opt/odoo/addons/l10n_it_sale"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_split_payment /opt/odoo/addons/l10n_it_split_payment"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_vat_registries /opt/odoo/addons/l10n_it_vat_registries"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_withholding_tax /opt/odoo/addons/l10n_it_withholding_tax"
+# su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_withholding_tax /opt/odoo/addons/l10n_it_withholding_tax"
 
 
 echo "Installazione Odoo 8.0 moduli partner-contact"
@@ -383,6 +383,7 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/stock-logistics-barcode/tr_barcode_on_t
 echo "Installazione Odoo 8.0 modulo l10n-italy l10n_it_withholding_tax"
 su - odoo -c "mkdir -p /opt/odoo/source/elbati"
 su - odoo -c "git clone -b porting_withholding_tax_8 --single-branch https://github.com/eLBati/l10n-italy /opt/odoo/source/elbati/l10n-italy-withholding_tax"
+su - odoo -c "ln -s /opt/odoo/source/elbati/l10n-italy-withholding_tax/l10n_it_withholding_tax /opt/odoo/addons/l10n_it_withholding_tax"
 
 echo "Installazione Odoo 8.0 moduli yelizariev addons-yelizariev"
 su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/yelizariev/addons-yelizariev /opt/odoo/source/yelizariev/addons-yelizariev"
