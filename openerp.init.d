@@ -12,7 +12,7 @@
 ## more info: http://wiki.debian.org/LSBInitScripts
 
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/bin
-DAEMON=/opt/odoo/OCB/openerp-server
+DAEMON=/opt/odoo/server/openerp-server
 NAME=odoo
 DESC=odoo
 CONFIG=/etc/odoo-server.conf

@@ -74,7 +74,7 @@ adduser odoo --system --group --shell /bin/bash --home /opt/odoo
 sudo -u postgres createuser -s odoo
 sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'odoo';"
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'odoo';"
-su - odoo -c "git clone -b 8.0 --single-branch https://github.com/OCA/OCB.git /opt/odoo/OCB"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/OCA/OCB.git /opt/odoo/server"
 su - odoo -c "mkdir -p /opt/odoo/source/OCA"
 su - odoo -c "git clone -b 8.0 https://github.com/OCA/webkit-tools /opt/odoo/source/OCA/webkit-tools"
 su - odoo -c "mkdir -p /opt/odoo/addons"
@@ -96,8 +96,8 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/reporting-engine/report_xls /opt/odoo/a
 su - odoo -c "ln -s /opt/odoo/source/OCA/reporting-engine/report_xml /opt/odoo/addons/report_xml"
 su - odoo -c "ln -s /opt/odoo/source/OCA/reporting-engine/report_xml_sample /opt/odoo/addons/report_xml_sample"
 su - odoo -c "sed -i "s/admin/odoo/g" /opt/odoo/server/openerp/tools/config.py"
-su - odoo -c "cp /opt/odoo/OCB/addons/web/static/src/img/favicon.ico /opt/odoo/" 
-sed -i "s/'auto_install': True/'auto_install': False/" /opt/odoo/OCB/addons/im_odoo_support/__openerp__.py
+su - odoo -c "cp /opt/odoo/server/addons/web/static/src/img/favicon.ico /opt/odoo/" 
+sed -i "s/'auto_install': True/'auto_install': False/" /opt/odoo/server/addons/im_odoo_support/__openerp__.py
 sudo chown -R odoo:odoo /opt/odoo/server
 sudo chown -R odoo:odoo /opt/odoo
 mkdir /var/log/odoo
@@ -108,7 +108,7 @@ wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/openerp.init
 sudo chmod +x /etc/init.d/odoo-server
 sudo update-rc.d odoo-server defaults
 su - odoo -c "mkdir -p /opt/odoo/addons"
-su - odoo -c "/opt/odoo/OCB/odoo.py --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/OCB/openerp/addons,/opt/odoo/OCB/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
+su - odoo -c "/opt/odoo/server/odoo.py --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/server/openerp/addons,/opt/odoo/server/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
 mv /opt/odoo/odoo.conf /etc/odoo-server.conf
 chown odoo:odoo /etc/odoo-server.conf
 sed -i "s/db_password = False/db_password = odoo/g" /etc/odoo-server.conf
