@@ -1,0 +1,10 @@
+/var/log/odoo/*.log {
+       daily
+       rotate 180
+       copytruncate
+       delaycompress
+       compress
+       notifempty
+       missingok
+       su root root
+}

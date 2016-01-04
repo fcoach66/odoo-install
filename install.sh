@@ -102,7 +102,7 @@ sudo chown -R odoo:odoo /opt/odoo/server
 sudo chown -R odoo:odoo /opt/odoo
 mkdir /var/log/odoo
 chown odoo:odoo /var/log/odoo
-cp /opt/odoo/OCB/debian/logrotate /etc/logrotate.d/odoo-server
+wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/logrotate -O /etc/logrotate.d/odoo-server
 chmod 755 /etc/logrotate.d/odoo-server
 wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/openerp.init.d -O /etc/init.d/odoo-server
 sudo chmod +x /etc/init.d/odoo-server
@@ -1571,3 +1571,20 @@ su - odoo -c "ln -s /opt/odoo/source/vauxoo/addons-vauxoo/website_product_manufa
 su - odoo -c "ln -s /opt/odoo/source/vauxoo/addons-vauxoo/website_product_rss /opt/odoo/addons/website_product_rss"
 su - odoo -c "ln -s /opt/odoo/source/vauxoo/addons-vauxoo/website_rate_product /opt/odoo/addons/website_rate_product"
 su - odoo -c "ln -s /opt/odoo/source/vauxoo/addons-vauxoo/website_variants_extra /opt/odoo/addons/website_variants_extra"
+
+
+echo "Installazione Odoo 8.0 moduli margin-analysis"
+su - odoo -c "mkdir -p /opt/odoo/source/OCA"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/OCA/margin-analysis /opt/odoo/source/OCA/margin-analysis"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_cost_incl_bom /opt/odoo/addons/product_cost_incl_bom"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_cost_incl_bom_price_history /opt/odoo/addons/product_cost_incl_bom_price_history"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_cost_incl_costs_with_bom /opt/odoo/addons/product_cost_incl_costs_with_bom"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_cost_incl_costs_without_bom /opt/odoo/addons/product_cost_incl_costs_without_bom"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_historical_margin /opt/odoo/addons/product_historical_margin"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_historical_margin_report /opt/odoo/addons/product_historical_margin_report"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_price_history /opt/odoo/addons/product_price_history"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_replenishment_cost /opt/odoo/addons/product_replenishment_cost"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_standard_margin /opt/odoo/addons/product_standard_margin"
+su - odoo -c "ln -s /opt/odoo/source/OCA/margin-analysis/product_stock_cost_field_report /opt/odoo/addons/product_stock_cost_field_report"
+
+
