@@ -95,7 +95,7 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/reporting-engine/report_qweb_signer /op
 su - odoo -c "ln -s /opt/odoo/source/OCA/reporting-engine/report_xls /opt/odoo/addons/report_xls"
 su - odoo -c "ln -s /opt/odoo/source/OCA/reporting-engine/report_xml /opt/odoo/addons/report_xml"
 su - odoo -c "ln -s /opt/odoo/source/OCA/reporting-engine/report_xml_sample /opt/odoo/addons/report_xml_sample"
-su - odoo -c "sed -i "s/admin/odoo/g" /opt/odoo/server/openerp/tools/config.py"
+# su - odoo -c "sed -i "s/admin/odoo/g" /opt/odoo/server/openerp/tools/config.py"
 su - odoo -c "cp /opt/odoo/server/addons/web/static/src/img/favicon.ico /opt/odoo/" 
 sed -i "s/'auto_install': True/'auto_install': False/" /opt/odoo/server/addons/im_odoo_support/__openerp__.py
 sudo chown -R odoo:odoo /opt/odoo/server
