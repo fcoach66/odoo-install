@@ -150,7 +150,7 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_fiscalcode /opt/odoo
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_ipa /opt/odoo/addons/l10n_it_ipa"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_partially_deductible_vat /opt/odoo/addons/l10n_it_partially_deductible_vat"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_pec /opt/odoo/addons/l10n_it_pec"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_prima_nota_cassa /opt/odoo/addons/l10n_it_prima_nota_cassa"
+# su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_prima_nota_cassa /opt/odoo/addons/l10n_it_prima_nota_cassa"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_rea /opt/odoo/addons/l10n_it_rea"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_ricevute_bancarie /opt/odoo/addons/l10n_it_ricevute_bancarie"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_sale /opt/odoo/addons/l10n_it_sale"
@@ -2130,5 +2130,11 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/vertical-isp/contract_isp_automatic_inv
 su - odoo -c "ln -s /opt/odoo/source/OCA/vertical-isp/contract_isp_invoice /opt/odoo/addons/contract_isp_invoice"
 su - odoo -c "ln -s /opt/odoo/source/OCA/vertical-isp/contract_isp_package_configurator /opt/odoo/addons/contract_isp_package_configurator"
 su - odoo -c "ln -s /opt/odoo/source/OCA/vertical-isp/product_dependencies /opt/odoo/addons/product_dependencies"
+
+
+echo "Installazione Odoo 8.0 moduli abstract l10n_it_prima_nota_cassa"
+su - odoo -c "mkdir -p /opt/odoo/source/abstract-open-solutions"
+su - odoo -c "git clone -b 8.0-prima-nota-cassa --single-branch https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-l10n_it_prima_nota_cassa"
+su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/l10n-italy-l10n_it_prima_nota_cassa/l10n_it_prima_nota_cassa /opt/odoo/addons/l10n_it_prima_nota_cassa"
 
 
