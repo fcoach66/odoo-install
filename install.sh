@@ -2137,4 +2137,12 @@ su - odoo -c "mkdir -p /opt/odoo/source/abstract-open-solutions"
 su - odoo -c "git clone -b 8.0-prima-nota-cassa --single-branch https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-l10n_it_prima_nota_cassa"
 su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/l10n-italy-l10n_it_prima_nota_cassa/l10n_it_prima_nota_cassa /opt/odoo/addons/l10n_it_prima_nota_cassa"
 
+echo "Installazione Odoo 8.0 moduli abstract intrastat codes"
+su - odoo -c "mkdir -p /opt/odoo/source/abstract-open-solutions"
+su - odoo -c "git clone -b 8.0-intrastat-codes --single-branch https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-intrastat-codes"
+su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/l10n-italy-intrastat-codes/l10n_it_intrastat_codes /opt/odoo/addons/l10n_it_intrastat_codes"
 
+echo "Installazione Odoo 8.0 moduli abstract intrastat review"
+su - odoo -c "mkdir -p /opt/odoo/source/abstract-open-solutions"
+su - odoo -c "git clone -b 8.0-intrastat-review --single-branch https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-intrastat-review"
+su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/l10n-italy-intrastat-review/l10n_it_intrastat /opt/odoo/addons/l10n_it_intrastat"
