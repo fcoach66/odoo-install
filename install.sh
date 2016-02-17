@@ -387,9 +387,6 @@ su - odoo -c "ln -s /opt/odoo/source/elbati/l10n-italy-withholding_tax/l10n_it_w
 
 echo "Installazione Odoo 8.0 moduli yelizariev addons-yelizariev"
 su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/yelizariev/addons-yelizariev /opt/odoo/source/yelizariev/addons-yelizariev"
-su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/access_base /opt/odoo/addons/access_base"
-su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/access_custom /opt/odoo/addons/access_custom"
-su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/access_custom2 /opt/odoo/addons/access_custom2"
 su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/autostaging_base /opt/odoo/addons/autostaging_base"
 su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/autostaging_project_task /opt/odoo/addons/autostaging_project_task"
 su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/base_replace_ref /opt/odoo/addons/base_replace_ref"
@@ -501,6 +498,16 @@ su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/_web_last_view
 su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/web_logo /opt/odoo/addons/web_logo"
 su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/web_polymorphic_field /opt/odoo/addons/web_polymorphic_field"
 su - odoo -c "ln -s /opt/odoo/source/yelizariev/addons-yelizariev/web_sessions_management /opt/odoo/addons/web_sessions_management"
+
+echo "Installazione Odoo 8.0 moduli yelizariev access-addons"
+su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/yelizariev/access-addons /opt/odoo/source/yelizariev/access-addons"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_base /opt/odoo/addons/access_base"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_custom /opt/odoo/addons/access_custom"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_custom2 /opt/odoo/addons/access_custom2"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_restricted /opt/odoo/addons/access_restricted"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_settings_menu /opt/odoo/addons/access_settings_menu"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/hidden_admin /opt/odoo/addons/hidden_admin"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/ir_rule_protected /opt/odoo/addons/ir_rule_protected"
 
 
 echo "Installazione Odoo 8.0 moduli yelizariev pos-addons"
