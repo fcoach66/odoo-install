@@ -964,7 +964,8 @@ su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/commission-commissi
 echo "Installazione Odoo 8.0 moduli abstract l10n_it_reverse_charge"
 su - odoo -c "mkdir -p /opt/odoo/source/abstract-open-solutions"
 su - odoo -c "git clone -b 8.0-reverse-charge --single-branch https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-reverse-charge"
-su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/l10n-italy-reverse-charge/l10n_it_reverse_charge /opt/odoo/addons/l10n_it_reverse_charge"
+su - odoo -c "git clone -b 8.0-abstract-merges --single-branch https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-abstract-merges"
+su - odoo -c "ln -sfn /opt/odoo/source/abstract-open-solutions/l10n-italy-abstract-merges/l10n_it_reverse_charge /opt/odoo/addons/l10n_it_reverse_charge"
 
 
 echo "Installazione Odoo 8.0 moduli reporting-engine"
