@@ -156,7 +156,9 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_ricevute_bancarie /o
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_sale /opt/odoo/addons/l10n_it_sale"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_split_payment /opt/odoo/addons/l10n_it_split_payment"
 su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_vat_registries /opt/odoo/addons/l10n_it_vat_registries"
-# su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_withholding_tax /opt/odoo/addons/l10n_it_withholding_tax"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_withholding_tax /opt/odoo/addons/l10n_it_withholding_tax"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_withholding_tax_payment /opt/odoo/addons/l10n_it_withholding_tax_payment"
+
 
 
 echo "Installazione Odoo 8.0 moduli partner-contact"
