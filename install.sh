@@ -520,11 +520,14 @@ su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/addons-yelizariev/web_tour_ext
 
 echo "Installazione Odoo 8.0 moduli yelizariev access-addons"
 su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/yelizariev/access-addons /opt/odoo/source/yelizariev/access-addons"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_apps /opt/odoo/addons/access_apps"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_apps_website /opt/odoo/addons/access_apps_website"
 su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_base /opt/odoo/addons/access_base"
 su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_custom /opt/odoo/addons/access_custom"
 su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_custom2 /opt/odoo/addons/access_custom2"
 su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_restricted /opt/odoo/addons/access_restricted"
 su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/access_settings_menu /opt/odoo/addons/access_settings_menu"
+su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/group_menu_no_access /opt/odoo/addons/group_menu_no_access"
 su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/hidden_admin /opt/odoo/addons/hidden_admin"
 su - odoo -c "ln -sfn /opt/odoo/source/yelizariev/access-addons/ir_rule_protected /opt/odoo/addons/ir_rule_protected"
 
