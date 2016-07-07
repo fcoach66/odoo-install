@@ -982,13 +982,14 @@ su - odoo -c "ln -sfn /opt/odoo/source/OCA/project-service/service_desk /opt/odo
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/project-service/service_desk_issue /opt/odoo/addons/service_desk_issue"
 
 
-echo "Installazione Odoo 8.0 moduli abstract commission"
-su - odoo -c "mkdir -p /opt/odoo/source/abstract-open-solutions"
-su - odoo -c "git clone -b 8.0-commission-formula --single-branch https://github.com/abstract-open-solutions/commission /opt/odoo/source/abstract-open-solutions/commission-commission-formula"
-su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/commission-commission-formula/hr_commission /opt/odoo/addons/hr_commission"
-su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/commission-commission-formula/sale_commission /opt/odoo/addons/sale_commission"
-su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/commission-commission-formula/sale_commission_formula /opt/odoo/addons/sale_commission_formula"
-su - odoo -c "ln -s /opt/odoo/source/abstract-open-solutions/commission-commission-formula/sale_stock_commission /opt/odoo/addons/sale_stock_commission"
+echo "Installazione Odoo 8.0 moduli commission"
+su - odoo -c "mkdir -p /opt/odoo/source/OCA"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/OCA/commission /opt/odoo/source/OCA/commission"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/commission/contract_commission /opt/odoo/addons/contract_commission"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/commission/hr_commission /opt/odoo/addons/hr_commission"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/commission/sale_commission /opt/odoo/addons/sale_commission"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/commission/sale_commission_formula /opt/odoo/addons/sale_commission_formula"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/commission/sale_stock_commission /opt/odoo/addons/sale_stock_commission"
 
 
 echo "Installazione Odoo 8.0 moduli abstract l10n_it_reverse_charge"
