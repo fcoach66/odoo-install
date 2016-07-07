@@ -1857,6 +1857,7 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/manufacture-reporting/mrp_webkit /opt/o
 
 echo "Installazione Odoo 8.0 moduli knowledge"
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/OCA/knowledge  /opt/odoo/source/OCA/knowledge"
+su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/attachment_edit /opt/odoo/addons/attachment_edit"
 su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/attachment_preview /opt/odoo/addons/attachment_preview"
 su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/attachments_to_filesystem /opt/odoo/addons/attachments_to_filesystem"
 su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/document_choose_directory /opt/odoo/addons/document_choose_directory"
@@ -1866,6 +1867,7 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/document_page /opt/odoo/addon
 su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/document_page_approval /opt/odoo/addons/document_page_approval"
 su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/document_page_multi_company /opt/odoo/addons/document_page_multi_company"
 su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/document_page_partner_id /opt/odoo/addons/document_page_partner_id"
+su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/document_page_tags /opt/odoo/addons/document_page_tags"
 su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/document_reindex /opt/odoo/addons/document_reindex"
 su - odoo -c "ln -s /opt/odoo/source/OCA/knowledge/document_url /opt/odoo/addons/document_url"
 
