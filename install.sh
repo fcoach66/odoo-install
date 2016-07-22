@@ -2162,3 +2162,11 @@ su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/web_calendar_y
 su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/web_fullscreen /opt/odoo/addons/web_fullscreen"
 su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/webservice_interface /opt/odoo/addons/webservice_interface"
 su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/website_calendar_block /opt/odoo/addons/website_calendar_block"
+
+echo "Installazione Odoo 8.0 moduli zeroincombenze l10n-italy-supplemental"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/zeroincombenze/l10n-italy-supplemental /opt/odoo/source/zeroincombenze/l10n-italy-supplemental"
+su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/l10n_it_fiscal /opt/odoo/addons/l10n_it_fiscal"
+su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/l10n_it_spesometro /opt/odoo/addons/l10n_it_spesometro"
+su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/tndb /opt/odoo/addons/tndb"
+
+
