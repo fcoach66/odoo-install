@@ -2136,3 +2136,9 @@ su - odoo -c "ln -sfn /home/odoo/odoodev/source/onesteinbv/addons-onestein/web_c
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/onesteinbv/addons-onestein/web_fullscreen /home/odoo/odoodev/addons/web_fullscreen"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/onesteinbv/addons-onestein/webservice_interface /home/odoo/odoodev/addons/webservice_interface"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/onesteinbv/addons-onestein/website_calendar_block /home/odoo/odoodev/addons/website_calendar_block"
+
+echo "Installazione Odoo 8.0 moduli zeroincombenze l10n-italy-supplemental"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/zeroincombenze/l10n-italy-supplemental /home/odoo/odoodev/source/zeroincombenze/l10n-italy-supplemental"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/zeroincombenze/l10n-italy-supplemental/l10n_it_fiscal /home/odoo/odoodev/addons/l10n_it_fiscal"
+su - odoo -c "ln -sfn /home/odoo/odoodev/zeroincombenze/l10n-italy-supplemental/l10n_it_spesometro /home/odoo/odoodev/addons/l10n_it_spesometro"
+su - odoo -c "ln -sfn /home/odoo/odoodev/zeroincombenze/l10n-italy-supplemental/tndb /home/odoo/odoodev/addons/tndb"
