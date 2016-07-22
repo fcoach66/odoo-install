@@ -2169,4 +2169,13 @@ su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/l1
 su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/l10n_it_spesometro /opt/odoo/addons/l10n_it_spesometro"
 su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/tndb /opt/odoo/addons/tndb"
 
+echo "Installazione Odoo 8.0 moduli odoo-italy-extra"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /opt/odoo/source/fcoach66/odoo-italy-extra"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_base /opt/odoo/addons/l10n_it_aeroo_base"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_ddt /opt/odoo/addons/l10n_it_aeroo_ddt"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_invoice /opt/odoo/addons/l10n_it_aeroo_invoice"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_sale /opt/odoo/addons/l10n_it_aeroo_sale"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/odoo_fcoach66_fix /opt/odoo/addons/odoo_fcoach66_fix"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_additional_text_template /opt/odoo/addons/sale_additional_text_template"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_mandatory_fields /opt/odoo/addons/sale_mandatory_fields"
 
