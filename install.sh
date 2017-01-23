@@ -2162,3 +2162,11 @@ su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/web_calendar_y
 su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/web_fullscreen /opt/odoo/addons/web_fullscreen"
 su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/webservice_interface /opt/odoo/addons/webservice_interface"
 su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/website_calendar_block /opt/odoo/addons/website_calendar_block"
+
+echo "Installazione Odoo 8.0 moduli fcoach66-accounting-report"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/fcoach66-accounting-report  /opt/odoo/source/fcoach66/fcoach66-accounting-report"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_accounting_report_configuration_page /opt/odoo/addons/fcoach66_accounting_report_configuration_page"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_asset_account /opt/odoo/addons/fcoach66_asset_account"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_balance_sheet_aeroo_report /opt/odoo/addons/fcoach66_balance_sheet_aeroo_report"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_liablity_account /opt/odoo/addons/fcoach66_liablity_account"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_trial_balance_aeroo_report /opt/odoo/addons/fcoach66_trial_balance_aeroo_report"
