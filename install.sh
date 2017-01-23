@@ -17,7 +17,8 @@ python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-x
 python-pdftools python-decorator python-openssl python-babel python-imaging python-reportlab-accel python-paramiko python-cups python-software-properties python-pip python-dev build-essential libpq-dev \
 poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot \
 python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 libevent-dev libxslt1-dev \
-libfreetype6-dev libjpeg8-dev python-werkzeug wkhtmltopdf libjpeg-dev pgtune python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils
+libfreetype6-dev libjpeg8-dev python-werkzeug wkhtmltopdf libjpeg-dev pgtune python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils \
+fonts-crosextra-caladea fonts-crosextra-carlito
 
 echo "Installazione pacchetti pip"
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
@@ -2163,6 +2164,7 @@ su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/web_fullscreen
 su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/webservice_interface /opt/odoo/addons/webservice_interface"
 su - odoo -c "ln -sfn /opt/odoo/source/onesteinbv/addons-onestein/website_calendar_block /opt/odoo/addons/website_calendar_block"
 
+<<<<<<< HEAD
 echo "Installazione Odoo 8.0 moduli fcoach66-accounting-report"
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/fcoach66-accounting-report  /opt/odoo/source/fcoach66/fcoach66-accounting-report"
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_accounting_report_configuration_page /opt/odoo/addons/fcoach66_accounting_report_configuration_page"
@@ -2170,3 +2172,21 @@ su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoac
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_balance_sheet_aeroo_report /opt/odoo/addons/fcoach66_balance_sheet_aeroo_report"
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_liablity_account /opt/odoo/addons/fcoach66_liablity_account"
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/fcoach66-accounting-report/fcoach66_trial_balance_aeroo_report /opt/odoo/addons/fcoach66_trial_balance_aeroo_report"
+=======
+echo "Installazione Odoo 8.0 moduli zeroincombenze l10n-italy-supplemental"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/zeroincombenze/l10n-italy-supplemental /opt/odoo/source/zeroincombenze/l10n-italy-supplemental"
+su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/l10n_it_fiscal /opt/odoo/addons/l10n_it_fiscal"
+su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/l10n_it_spesometro /opt/odoo/addons/l10n_it_spesometro"
+su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/tndb /opt/odoo/addons/tndb"
+
+echo "Installazione Odoo 8.0 moduli odoo-italy-extra"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /opt/odoo/source/fcoach66/odoo-italy-extra"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_base /opt/odoo/addons/l10n_it_aeroo_base"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_ddt /opt/odoo/addons/l10n_it_aeroo_ddt"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_invoice /opt/odoo/addons/l10n_it_aeroo_invoice"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_sale /opt/odoo/addons/l10n_it_aeroo_sale"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/odoo_fcoach66_fix /opt/odoo/addons/odoo_fcoach66_fix"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_additional_text_template /opt/odoo/addons/sale_additional_text_template"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_mandatory_fields /opt/odoo/addons/sale_mandatory_fields"
+
+>>>>>>> origin/master

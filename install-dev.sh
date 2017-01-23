@@ -14,7 +14,8 @@ python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-x
 python-pdftools python-decorator python-openssl python-babel python-imaging python-reportlab-accel python-paramiko python-cups python-software-properties python-pip python-dev build-essential libpq-dev \
 poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot \
 python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 libevent-dev libxslt1-dev \
-libfreetype6-dev libjpeg8-dev python-werkzeug wkhtmltopdf libjpeg-dev pgtune python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils
+libfreetype6-dev libjpeg8-dev python-werkzeug wkhtmltopdf libjpeg-dev pgtune python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils \
+fonts-crosextra-caladea fonts-crosextra-carlito
 
 echo "Installazione pacchetti pip"
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
@@ -2136,3 +2137,19 @@ su - odoo -c "ln -sfn /home/odoo/odoodev/source/onesteinbv/addons-onestein/web_c
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/onesteinbv/addons-onestein/web_fullscreen /home/odoo/odoodev/addons/web_fullscreen"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/onesteinbv/addons-onestein/webservice_interface /home/odoo/odoodev/addons/webservice_interface"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/onesteinbv/addons-onestein/website_calendar_block /home/odoo/odoodev/addons/website_calendar_block"
+
+echo "Installazione Odoo 8.0 moduli zeroincombenze l10n-italy-supplemental"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/zeroincombenze/l10n-italy-supplemental /home/odoo/odoodev/source/zeroincombenze/l10n-italy-supplemental"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/zeroincombenze/l10n-italy-supplemental/l10n_it_fiscal /home/odoo/odoodev/addons/l10n_it_fiscal"
+su - odoo -c "ln -sfn /home/odoo/odoodev/zeroincombenze/l10n-italy-supplemental/l10n_it_spesometro /home/odoo/odoodev/addons/l10n_it_spesometro"
+su - odoo -c "ln -sfn /home/odoo/odoodev/zeroincombenze/l10n-italy-supplemental/tndb /home/odoo/odoodev/addons/tndb"
+
+echo "Installazione Odoo 8.0 moduli odoo-italy-extra"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev/source/fcoach66/odoo-italy-extra"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_base /home/odoo/odoodev/addons/l10n_it_aeroo_base"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_ddt /home/odoo/odoodev/addons/l10n_it_aeroo_ddt"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_invoice /home/odoo/odoodev/addons/l10n_it_aeroo_invoice"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_sale /home/odoo/odoodev/addons/l10n_it_aeroo_sale"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/fcoach66/odoo-italy-extra/odoo_fcoach66_fix /home/odoo/odoodev/addons/odoo_fcoach66_fix"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/fcoach66/odoo-italy-extra/sale_additional_text_template /home/odoo/odoodev/addons/sale_additional_text_template"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/fcoach66/odoo-italy-extra/sale_mandatory_fields /home/odoo/odoodev/addons/sale_mandatory_fields"
