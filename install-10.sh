@@ -7,27 +7,27 @@ echo "Installazione Database Postgresql"
 apt-get install -y -q=2 postgresql-9.4 pgadmin3
 
 echo "Installazione pacchetti deb"
-apt-get install -y mc zip unzip htop ntp ghostscript graphviz antiword git libpq-dev poppler-utils python-pip build-essential libfreetype6-dev npm python-magic python-dateutil python-pypdf python-requests \
+apt-get install -y git mc zip unzip htop ntp ghostscript graphviz antiword git libpq-dev poppler-utils python-pip build-essential libfreetype6-dev npm python-magic python-dateutil python-pypdf python-requests \
 python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson \
 python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-unittest2 python-mock python-jinja2 python-dev \
 python-pdftools python-decorator python-openssl python-babel python-imaging python-reportlab-accel python-paramiko python-cups python-software-properties python-pip python-dev build-essential libpq-dev \
 poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot \
 python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 libevent-dev libxslt1-dev \
-libfreetype6-dev libjpeg8-dev python-werkzeug wkhtmltopdf libjpeg-dev pgtune python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils \
+libfreetype6-dev libjpeg62-turbo-dev python-werkzeug wkhtmltopdf libjpeg-dev python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils \
 fonts-crosextra-caladea fonts-crosextra-carlito
 
 echo "Installazione pacchetti pip"
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
 
-echo "Installazione pacchetti npm"
-npm install -g less less-plugin-clean-css
-ln -s /usr/bin/nodejs /usr/bin/node
+#echo "Installazione pacchetti npm"
+#npm install -g less less-plugin-clean-css
+#ln -s /usr/bin/nodejs /usr/bin/node
 
-echo "Installazione Barcodes"
-wget --quiet http://www.reportlab.com/ftp/pfbfer.zip
-unzip pfbfer.zip -d fonts
-mv fonts /usr/lib/python2.7/dist-packages/reportlab/
-rm pfbfer.zip
+#echo "Installazione Barcodes"
+#wget --quiet http://www.reportlab.com/ftp/pfbfer.zip
+#unzip pfbfer.zip -d fonts
+#mv fonts /usr/lib/python2.7/dist-packages/reportlab/
+#rm pfbfer.zip
 
 #echo "Installazione wkhtmltox 0.12.1"
 #wget --quiet http://www.openerp24.de/fileadmin/content/dateien/wkhtmltox-0.12.1_linux-trusty-amd64.deb
@@ -38,13 +38,13 @@ echo "Installazione PoS"
 pip install pyserial
 pip install --pre pyusb
 
-echo "Ottimizzazione configurazione database"
-pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
-mv /etc/postgresql/9.4/main/postgresql.conf  /etc/postgresql/9.4/main/postgresql.conf.old
-mv /etc/postgresql/9.4/main/postgresql.conf.tuned  /etc/postgresql/9.4/main/postgresql.conf
-/etc/init.d/postgresql stop
-/etc/init.d/postgresql start 
-cat /etc/postgresql/9.4/main/postgresql.conf
+#echo "Ottimizzazione configurazione database"
+#pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
+#mv /etc/postgresql/9.4/main/postgresql.conf  /etc/postgresql/9.4/main/postgresql.conf.old
+#mv /etc/postgresql/9.4/main/postgresql.conf.tuned  /etc/postgresql/9.4/main/postgresql.conf
+#/etc/init.d/postgresql stop
+#/etc/init.d/postgresql start 
+#cat /etc/postgresql/9.4/main/postgresql.conf
 
 echo "Installazione AerooLib"
 mkdir /opt/aeroo
