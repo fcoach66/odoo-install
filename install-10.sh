@@ -100,7 +100,8 @@ wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/openerp.init
 sudo chmod +x /etc/init.d/odoo-server
 sudo update-rc.d odoo-server defaults
 su - odoo -c "mkdir -p /opt/odoo/addons"
-su - odoo -c "/opt/odoo/server/odoo.py --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/server/openerp/addons,/opt/odoo/server/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
+pip install -r /opt/odoo/server/requirements.txt
+su - odoo -c "/opt/odoo/server/odoo-bin --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/server/openerp/addons,/opt/odoo/server/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
 mv /opt/odoo/odoo.conf /etc/odoo-server.conf
 chown odoo:odoo /etc/odoo-server.conf
 sed -i "s/db_password = False/db_password = odoo/g" /etc/odoo-server.conf
