@@ -14,7 +14,7 @@ python-pdftools python-decorator python-openssl python-babel python-imaging pyth
 poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot \
 python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 libevent-dev libxslt1-dev \
 libfreetype6-dev libjpeg62-turbo-dev python-werkzeug wkhtmltopdf libjpeg-dev python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils \
-fonts-crosextra-caladea fonts-crosextra-carlito
+fonts-crosextra-caladea fonts-crosextra-carlito node-less
 
 echo "Installazione pacchetti pip"
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
