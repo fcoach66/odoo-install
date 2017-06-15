@@ -105,7 +105,7 @@ pip install -r /opt/odoo/server/requirements.txt
 pip install geojson
 pip install queue_job
 
-su - odoo -c "/opt/odoo/server/odoo-bin --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/server/odoo/addons,/opt/odoo/server/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
+su - odoo -c "/opt/odoo/server/odoo.py --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/server/odoo/addons,/opt/odoo/server/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
 mv /opt/odoo/odoo.conf /etc/odoo-server.conf
 chown odoo:odoo /etc/odoo-server.conf
 sed -i "s/db_password = False/db_password = odoo/g" /etc/odoo-server.conf
