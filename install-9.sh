@@ -105,7 +105,7 @@ pip install -r /opt/odoo/server/requirements.txt
 pip install geojson
 pip install queue_job
 
-su - odoo -c "/opt/odoo/server/odoo.py --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/server/odoo/addons,/opt/odoo/server/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
+su - odoo -c "/opt/odoo/server/odoo.py --stop-after-init -s -c /opt/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=False --workers=9 --addons-path=/opt/odoo/server/openerp/addons,/opt/odoo/server/addons,/opt/odoo/addons --logfile=/var/log/odoo/odoo-server.log"
 mv /opt/odoo/odoo.conf /etc/odoo-server.conf
 chown odoo:odoo /etc/odoo-server.conf
 sed -i "s/db_password = False/db_password = odoo/g" /etc/odoo-server.conf
@@ -2087,7 +2087,7 @@ su - odoo -c "ln -s /opt/odoo/source/OCA/website/website_slides /opt/odoo/addons
 su - odoo -c "ln -s /opt/odoo/source/OCA/website/website_snippet_anchor /opt/odoo/addons/website_snippet_anchor"
 su - odoo -c "ln -s /opt/odoo/source/OCA/website/website_snippet_contact_form /opt/odoo/addons/website_snippet_contact_form"
 su - odoo -c "ln -s /opt/odoo/source/OCA/website/website_snippet_marginless_gallery /opt/odoo/addons/website_snippet_marginless_gallery"
-
+su - odoo -c "ln -s /opt/odoo/source/OCA/website/website_v10 /opt/odoo/addons/website_v10"
 
 echo "Installazione Odoo 9.0 moduli report-print-send"
 su - odoo -c "git clone -b 9.0 --single-branch https://github.com/OCA/report-print-send  /opt/odoo/source/OCA/report-print-send"
