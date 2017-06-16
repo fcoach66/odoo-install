@@ -34,8 +34,7 @@ dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 rm wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 
 echo "Installazione PoS"
-pip install pyserial
-pip install --pre pyusb
+apt-get install python-serial python-usb
 
 #echo "Ottimizzazione configurazione database"
 #pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
