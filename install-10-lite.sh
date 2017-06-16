@@ -26,10 +26,11 @@ pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode valida
 #mv fonts /usr/lib/python2.7/dist-packages/reportlab/
 #rm pfbfer.zip
 
-#echo "Installazione wkhtmltox 0.12.1"
-#wget --quiet http://www.openerp24.de/fileadmin/content/dateien/wkhtmltox-0.12.1_linux-trusty-amd64.deb
-#dpkg -i wkhtmltox-0.12.1_linux-trusty-amd64.deb
-#rm wkhtmltox-0.12.1_linux-trusty-amd64.deb
+echo "Installazione wkhtmltox 0.12.1"
+wget --quiet http://nightly.odoo.com/extra/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
+apt-get remove -y wkhtmltopdf
+dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
+rm wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 
 echo "Installazione PoS"
 pip install pyserial
