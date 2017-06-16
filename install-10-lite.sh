@@ -5,7 +5,7 @@ apt-get update -q=2 && apt-get dist-upgrade -y -q=2 && apt-get autoremove -y -q=
 
 echo "Installazione Database Postgresql"
 sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
-wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 apt-get update -q=2
 apt-get upgrade -y -q=2
 apt-get install -y -q=2 postgresql-9.6 pgadmin3
@@ -29,6 +29,7 @@ pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode valida
 echo "Installazione wkhtmltox 0.12.1"
 wget --quiet http://nightly.odoo.com/extra/wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 apt-get remove -y wkhtmltopdf
+apt-get install -y xfonts-base xfonts-75dpi
 dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 rm wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 
