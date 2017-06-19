@@ -65,6 +65,7 @@ su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xls /opt/odoo
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xlsx /opt/odoo/addons/report_xlsx"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xml /opt/odoo/addons/report_xml"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xml_sample /opt/odoo/addons/report_xml_sample"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_py3o /opt/odoo/addons/report_py3o"
 # su - odoo -c "sed -i "s/admin/odoo/g" /opt/odoo/server/openerp/tools/config.py"
 su - odoo -c "cp /opt/odoo/server/addons/web/static/src/img/favicon.ico /opt/odoo/" 
 sed -i "s/'auto_install': True/'auto_install': False/" /opt/odoo/server/addons/im_odoo_support/__openerp__.py
