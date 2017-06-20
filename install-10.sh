@@ -4,13 +4,38 @@ echo "Aggiornamento Sistema Operativo"
 apt-get update -q=2 && apt-get dist-upgrade -y -q=2 && apt-get autoremove -y -q=2
 
 echo "Installazione Database Postgresql"
-apt-get install -y -q=2 postgresql-9.4 pgadmin3
+sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
+apt-get update -q=2
+apt-get upgrade -y -q=2
+apt-get install -y -q=2 postgresql-9.6 pgadmin3
 
 echo "Installazione pacchetti deb"
-apt-get install -y sudo mc zip unzip htop ntp ghostscript graphviz antiword libpq-dev poppler-utils python-pip build-essential libfreetype6-dev npm python-magic python-dateutil python-pypdf python-requests python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-unittest2 python-mock python-jinja2 python-dev python-pdftools python-decorator python-openssl python-babel python-imaging python-reportlab-accel python-paramiko python-cups python-software-properties python-pip python-dev build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 libevent-dev libxslt1-dev libfreetype6-dev libjpeg62-turbo-dev python-werkzeug wkhtmltopdf libjpeg-dev python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito node-less
+apt-get install -y sudo mc zip unzip htop ntp ghostscript graphviz antiword libpq-dev poppler-utils build-essential libfreetype6-dev npm build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito node-less python-dev python3-dev libxml2-dev libxslt1-dev default-jre ure libreoffice-java-common libreoffice-writer
 
 echo "Installazione pacchetti pip"
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
+
+echo "Installazione pacchetti py3o"
+pip install py3o.template
+pip install py3o.formats
+pip install py3o.fusion
+pip install service-identity
+pip install py3o.renderserver
+
+echo '#!/bin/sh' > /etc/init.d/py3o.fusion
+echo '' >> /etc/init.d/py3o.fusion
+echo '/usr/local/bin/start-py3o-renderserver -s localhost &'  >> /etc/init.d/py3o.fusion
+chmod +x /etc/init.d/py3o.fusion
+update-rc.d py3o.fusion defaults
+/etc/init.d/py3o.fusion
+
+echo '#!/bin/sh' > /etc/init.d/py3o.renderserver
+echo '' >> /etc/init.d/py3o.renderserver
+echo '/usr/local/bin/start-py3o-fusion --java=/usr/lib/jvm/default-java/jre/lib/amd64/server/libjvm.so --ure=/usr/share --office=/usr/lib/libreoffice --driver=juno --sofficeport=8997 &'  >> /etc/init.d/py3o.renderserver
+chmod +x /etc/init.d/py3o.renderserver
+update-rc.d py3o.renderserver defaults
+/etc/init.d/py3o.renderserver
 
 #echo "Installazione pacchetti npm"
 #npm install -g less less-plugin-clean-css
@@ -39,26 +64,6 @@ pip install --pre pyusb
 #/etc/init.d/postgresql start 
 #cat /etc/postgresql/9.4/main/postgresql.conf
 
-echo "Installazione AerooLib"
-mkdir /opt/aeroo
-git clone https://github.com/aeroo/aeroolib.git /opt/aeroo/aeroolib
-cd /opt/aeroo/aeroolib
-python setup.py install
-cd
-echo '#!/bin/sh' > /etc/init.d/office
-echo '' >> /etc/init.d/office
-echo '/usr/bin/soffice --nologo --nofirststartwizard --headless --norestore --invisible "--accept=socket,host=localhost,port=8100,tcpNoDelay=1;urp;" &'  >> /etc/init.d/office
-chmod +x /etc/init.d/office
-update-rc.d office defaults
-/etc/init.d/office
-pip3 install jsonrpc2 daemonize
-git clone https://github.com/aeroo/aeroo_docs.git /opt/aeroo/aeroo_docs
-cd /opt/aeroo/aeroo_docs/
-echo "Y" | python3 /opt/aeroo/aeroo_docs/aeroo-docs start -c /etc/aeroo-docs.conf
-ln -s /opt/aeroo/aeroo_docs/aeroo-docs /etc/init.d/aeroo-docs
-update-rc.d aeroo-docs defaults
-
-
 echo "Installazione Odoo 10.0"
 adduser odoo --system --group --shell /bin/bash --home /opt/odoo
 sudo -u postgres createuser -s odoo
@@ -66,18 +71,6 @@ sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'odoo';"
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'odoo';"
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/OCB.git /opt/odoo/server"
 su - odoo -c "mkdir -p /opt/odoo/source/OCA"
-su - odoo -c "git clone -b 10.0 https://github.com/OCA/webkit-tools /opt/odoo/source/OCA/webkit-tools"
-su - odoo -c "mkdir -p /opt/odoo/addons"
-su - odoo -c "ln -s /opt/odoo/source/OCA/webkit-tools/base_headers_webkit /opt/odoo/addons/base_headers_webkit"
-su - odoo -c "ln -s /opt/odoo/source/OCA/webkit-tools/report_webkit_chapter_server /opt/odoo/addons/report_webkit_chapter_server"
-#su - odoo -c "mkdir -p /opt/odoo/source/Yenthe666"
-#su - odoo -c "git clone -b master https://github.com/Yenthe666/aeroo_reports.git /opt/odoo/source/Yenthe666/aeroo_reports"
-#su - odoo -c "git clone -b master https://github.com/Yenthe666/Aeroo /opt/odoo/source/Yenthe666/Aeroo"
-#su - odoo -c "ln -s /opt/odoo/source/Yenthe666/Aeroo/report_aeroo /opt/odoo/addons/report_aeroo"
-#su - odoo -c "ln -s /opt/odoo/source/Yenthe666/aeroo_reports/report_aeroo_controller /opt/odoo/addons/report_aeroo_controller"
-#su - odoo -c "ln -s /opt/odoo/source/Yenthe666/aeroo_reports/report_aeroo_direct_print /opt/odoo/addons/report_aeroo_direct_print"
-#su - odoo -c "ln -s /opt/odoo/source/Yenthe666/aeroo_reports/report_aeroo_printscreen /opt/odoo/addons/report_aeroo_printscreen"
-#su - odoo -c "ln -s /opt/odoo/source/Yenthe666/aeroo_reports/report_aeroo_sample /opt/odoo/addons/report_aeroo_sample"
 su - odoo -c "git clone -b 10.0 https://github.com/OCA/reporting-engine /opt/odoo/source/OCA/reporting-engine"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/base_report_assembler /opt/odoo/addons/base_report_assembler"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/bi_view_editor /opt/odoo/addons/bi_view_editor"
@@ -126,37 +119,37 @@ htpasswd -cb /etc/nginx/htpasswd odoo odoo
 echo "Installazione Odoo 10.0 moduli l10n-italy"
 su - odoo -c "mkdir -p /opt/odoo/source/OCA"
 su - odoo -c "git clone -b 10.0 https://github.com/OCA/l10n-italy /opt/odoo/source/OCA/l10n-italy"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/account_central_journal /opt/odoo/addons/account_central_journal"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/account_fiscal_year_closing /opt/odoo/addons/account_fiscal_year_closing"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/account_invoice_entry_date /opt/odoo/addons/account_invoice_entry_date"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/account_invoice_sequential_dates /opt/odoo/addons/account_invoice_sequential_dates"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/account_vat_period_end_statement /opt/odoo/addons/account_vat_period_end_statement"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_abicab /opt/odoo/addons/l10n_it_abicab"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_account /opt/odoo/addons/l10n_it_account"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_ateco /opt/odoo/addons/l10n_it_ateco"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_base /opt/odoo/addons/l10n_it_base"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_base_crm /opt/odoo/addons/l10n_it_base_crm"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_base_location_geonames_import /opt/odoo/addons/l10n_it_base_location_geonames_import"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_bill_of_entry /opt/odoo/addons/l10n_it_bill_of_entry"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_CEE_balance_generic /opt/odoo/addons/l10n_it_CEE_balance_generic"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_corrispettivi /opt/odoo/addons/l10n_it_corrispettivi"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_ddt /opt/odoo/addons/l10n_it_ddt"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_DDT_webkit /opt/odoo/addons/l10n_it_DDT_webkit"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_fatturapa /opt/odoo/addons/l10n_it_fatturapa"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_fatturapa_out /opt/odoo/addons/l10n_it_fatturapa_out"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_fiscalcode /opt/odoo/addons/l10n_it_fiscalcode"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_ipa /opt/odoo/addons/l10n_it_ipa"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_partially_deductible_vat /opt/odoo/addons/l10n_it_partially_deductible_vat"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_pec /opt/odoo/addons/l10n_it_pec"
-# su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_prima_nota_cassa /opt/odoo/addons/l10n_it_prima_nota_cassa"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_rea /opt/odoo/addons/l10n_it_rea"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_ricevute_bancarie /opt/odoo/addons/l10n_it_ricevute_bancarie"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_sale /opt/odoo/addons/l10n_it_sale"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_split_payment /opt/odoo/addons/l10n_it_split_payment"
-su - odoo -c "ln -s /opt/odoo/source/OCA/l10n-italy/l10n_it_vat_registries /opt/odoo/addons/l10n_it_vat_registries"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_central_journal /opt/odoo/addons/account_central_journal"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_fiscal_year_closing /opt/odoo/addons/account_fiscal_year_closing"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_invoice_entry_date /opt/odoo/addons/account_invoice_entry_date"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_invoice_report_ddt_group /opt/odoo/addons/account_invoice_report_ddt_group"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_invoice_sequential_dates /opt/odoo/addons/account_invoice_sequential_dates"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_vat_period_end_statement /opt/odoo/addons/account_vat_period_end_statement"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_abicab /opt/odoo/addons/l10n_it_abicab"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_account /opt/odoo/addons/l10n_it_account"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_ateco /opt/odoo/addons/l10n_it_ateco"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_base_crm /opt/odoo/addons/l10n_it_base_crm"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_base_location_geonames_import /opt/odoo/addons/l10n_it_base_location_geonames_import"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_bill_of_entry /opt/odoo/addons/l10n_it_bill_of_entry"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_CEE_balance_generic /opt/odoo/addons/l10n_it_CEE_balance_generic"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_corrispettivi /opt/odoo/addons/l10n_it_corrispettivi"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_ddt /opt/odoo/addons/l10n_it_ddt"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_fatturapa /opt/odoo/addons/l10n_it_fatturapa"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_fatturapa_out /opt/odoo/addons/l10n_it_fatturapa_out"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_fiscalcode /opt/odoo/addons/l10n_it_fiscalcode"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_ipa /opt/odoo/addons/l10n_it_ipa"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_partially_deductible_vat /opt/odoo/addons/l10n_it_partially_deductible_vat"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_pec /opt/odoo/addons/l10n_it_pec"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_prima_nota_cassa /opt/odoo/addons/l10n_it_prima_nota_cassa"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_rea /opt/odoo/addons/l10n_it_rea"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_ricevute_bancarie /opt/odoo/addons/l10n_it_ricevute_bancarie"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_split_payment /opt/odoo/addons/l10n_it_split_payment"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_vat_registries /opt/odoo/addons/l10n_it_vat_registries"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_withholding_tax /opt/odoo/addons/l10n_it_withholding_tax"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/l10n_it_withholding_tax_payment /opt/odoo/addons/l10n_it_withholding_tax_payment"
 
+su - odoo -c "git clone -b 10.0-mig-fatturapa https://github.com/eLBati/l10n-italy /opt/odoo/source/eLBati/l10n-italy-10.0-mig-fatturapa"
+su - odoo -c "ln -sfn /opt/odoo/source/eLBati/l10n-italy-10.0-mig-fatturapa/l10n_it_fatturapa /opt/odoo/addons/l10n_it_fatturapa"
+su - odoo -c "ln -sfn /opt/odoo/source/eLBati/l10n-italy-10.0-mig-fatturapa/l10n_it_fatturapa_out /opt/odoo/addons/l10n_it_fatturapa_out"
 
 
 echo "Installazione Odoo 10.0 moduli partner-contact"

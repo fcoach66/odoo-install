@@ -11,14 +11,34 @@ apt-get upgrade -y -q=2
 apt-get install -y -q=2 postgresql-9.6 pgadmin3
 
 echo "Installazione pacchetti deb"
-apt-get install -y sudo mc zip unzip htop ntp ghostscript graphviz antiword libpq-dev poppler-utils build-essential libfreetype6-dev npm build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito node-less
+apt-get install -y sudo mc zip unzip htop ntp ghostscript graphviz antiword libpq-dev poppler-utils build-essential libfreetype6-dev npm build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito node-less python-dev python3-dev libxml2-dev libxslt1-dev default-jre ure libreoffice-java-common libreoffice-writer
 
-echo "Installazione pacchetti deb"
+echo "Installazione pacchetti deb python"
 apt-get install -y python-magic python-dateutil python-pypdf python-requests python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-unittest2 python-mock python-jinja2 python-dev python-pdftools python-decorator python-openssl python-babel python-imaging python-reportlab-accel python-paramiko python-cups python-software-properties python-dev python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 python-werkzeug python-setuptools python-genshi python-cairo python-lxml
-
 
 echo "Installazione pacchetti pip"
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
+
+echo "Installazione pacchetti py3o"
+pip install py3o.template
+pip install py3o.formats
+pip install py3o.fusion
+pip install service-identity
+pip install py3o.renderserver
+
+echo '#!/bin/sh' > /etc/init.d/py3o.fusion
+echo '' >> /etc/init.d/py3o.fusion
+echo '/usr/local/bin/start-py3o-renderserver -s localhost &'  >> /etc/init.d/py3o.fusion
+chmod +x /etc/init.d/py3o.fusion
+update-rc.d py3o.fusion defaults
+/etc/init.d/py3o.fusion
+
+echo '#!/bin/sh' > /etc/init.d/py3o.renderserver
+echo '' >> /etc/init.d/py3o.renderserver
+echo '/usr/local/bin/start-py3o-fusion --java=/usr/lib/jvm/default-java/jre/lib/amd64/server/libjvm.so --ure=/usr/share --office=/usr/lib/libreoffice --driver=juno --sofficeport=8997 &'  >> /etc/init.d/py3o.renderserver
+chmod +x /etc/init.d/py3o.renderserver
+update-rc.d py3o.renderserver defaults
+/etc/init.d/py3o.renderserver
 
 #echo "Installazione pacchetti npm"
 #npm install -g less less-plugin-clean-css
@@ -38,7 +58,8 @@ dpkg -i wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 rm wkhtmltox-0.12.2.1_linux-jessie-amd64.deb
 
 echo "Installazione PoS"
-apt-get install python-serial python-usb
+pip install pyserial
+pip install --pre pyusb
 
 #echo "Ottimizzazione configurazione database"
 #pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
@@ -55,6 +76,7 @@ sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'odoo';"
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'odoo';"
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/OCB.git /opt/odoo/server"
 su - odoo -c "mkdir -p /opt/odoo/source/OCA"
+su - odoo -c "mkdir -p /opt/odoo/addons"
 su - odoo -c "git clone -b 10.0 https://github.com/OCA/webkit-tools /opt/odoo/source/OCA/webkit-tools"
 su - odoo -c "mkdir -p /opt/odoo/addons"
 su - odoo -c "ln -s /opt/odoo/source/OCA/webkit-tools/base_headers_webkit /opt/odoo/addons/base_headers_webkit"
