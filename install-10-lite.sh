@@ -61,6 +61,15 @@ echo "Installazione PoS"
 pip install pyserial
 pip install --pre pyusb
 
+echo "Installazione pyxb"
+pip install pyxb
+
+echo "Installazione codicefiscale"
+pip install codicefiscale
+
+echo "Installazione unidecode"
+pip install unidecode
+
 #echo "Ottimizzazione configurazione database"
 #pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
 #mv /etc/postgresql/9.4/main/postgresql.conf  /etc/postgresql/9.4/main/postgresql.conf.old
