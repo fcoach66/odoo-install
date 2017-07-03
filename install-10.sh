@@ -1033,12 +1033,14 @@ su - odoo -c "ln -sfn /opt/odoo/source/OCA/commission/sale_commission /opt/odoo/
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/commission/sale_stock_commission /opt/odoo/addons/sale_stock_commission"
 
 
-#echo "Installazione Odoo 10.0 moduli abstract l10n_it_reverse_charge"
-#su - odoo -c "mkdir -p /opt/odoo/source/abstract-open-solutions"
-#su - odoo -c "git clone -b 10.0-reverse-charge --single-branch https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-reverse-charge"
-#su - odoo -c "git clone -b 10.0-abstract-merges --single-branch https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-abstract-merges"
-#su - odoo -c "ln -sfn /opt/odoo/source/abstract-open-solutions/l10n-italy-abstract-merges/l10n_it_reverse_charge /opt/odoo/addons/l10n_it_reverse_charge"
+su - odoo -c "git clone -b 10.0-mig-sale_commission https://github.com/hurrinico/commission /opt/odoo/source/hurrinico/10.0-mig-sale_commission-commission"
+su - odoo -c "ln -sfn /opt/odoo/source/hurrinico/10.0-mig-sale_commission-commission/sale_commission /opt/odoo/addons/sale_commission"
 
+su - odoo -c "git clone -b 10.0-mig-sale_commission_formula https://github.com/hurrinico/commission /opt/odoo/source/hurrinico/10.0-mig-sale_commission_formula-commission"
+su - odoo -c "ln -sfn /opt/odoo/source/hurrinico/10.0-mig-sale_commission_formula-commission/sale_commission_formula /opt/odoo/addons/sale_commission_formula"
+
+su - odoo -c "git clone -b 10.0-add-sale_commission_areamanager https://github.com/hurrinico/commission /opt/odoo/source/hurrinico/10.0-add-sale_commission_areamanager-commission"
+su - odoo -c "ln -sfn /opt/odoo/source/hurrinico/10.0-add-sale_commission_areamanager-commission/sale_commission_areamanager /opt/odoo/addons/sale_commission_areamanager"
 
 #echo "Installazione Odoo 10.0 moduli reporting-engine"
 #su - odoo -c "git clone -b 10.0 --single-branch https://github.com/ingadhoc/reporting-engine  /opt/odoo/source/ingadhoc/reporting-engine"
@@ -1146,6 +1148,17 @@ echo "Installazione Odoo 10.0 moduli ingadhoc product"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/product/sale_order_mail_product_attachment /opt/odoo/addons/sale_order_mail_product_attachment"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/product/sale_order_mail_product_attach_prod_pack /opt/odoo/addons/sale_order_mail_product_attach_prod_pack"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/product/sale_stock_product_sale_uom /opt/odoo/addons/sale_stock_product_sale_uom"
+
+
+
+#su - odoo -c "git clone -b 10.0-mig-product_replenishment_cost_currency_rule --single-branch https://github.com/fcoach66/product  /opt/odoo/source/fcoach66/10.0-mig-product_replenishment_cost_currency_rule-product"
+#su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/10.0-mig-product_replenishment_cost_currency_rule-product/product_replenishment_cost_currency /opt/odoo/addons/product_replenishment_cost_currency"
+#su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/10.0-mig-product_replenishment_cost_currency_rule-product/product_replenishment_cost_rule /opt/odoo/addons/product_replenishment_cost_rule"
+#su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/10.0-mig-product_replenishment_cost_currency_rule-product/product_sale_price_by_margin /opt/odoo/addons/product_sale_price_by_margin"
+#su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/10.0-mig-product_replenishment_cost_currency_rule-product/product_computed_list_price /opt/odoo/addons/product_computed_list_price"
+
+
+
 
 echo "Installazione Odoo 10.0 moduli ingadhoc partner"
 #su - odoo -c "git clone -b 10.0 --single-branch https://github.com/ingadhoc/partner  /opt/odoo/source/ingadhoc/partner"
@@ -1594,6 +1607,9 @@ su - odoo -c "ln -sfn /opt/odoo/source/OCA/margin-analysis/product_replenishment
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/margin-analysis/product_standard_margin /opt/odoo/addons/product_standard_margin"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/margin-analysis/product_stock_cost_field_report /opt/odoo/addons/product_stock_cost_field_report"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/margin-analysis/sale_line_cost_control /opt/odoo/addons/sale_line_cost_control"
+
+su - odoo -c "git clone -b 10.0-mig-product_replenishment_cost --single-branch https://github.com/fcoach66/margin-analysis  /opt/odoo/source/fcoach66/10.0-mig-product_replenishment_cost-margin-analysis"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/10.0-mig-product_replenishment_cost-margin-analysis/product_replenishment_cost /opt/odoo/addons/product_replenishment_cost"
 
 
 echo "Installazione Odoo 8.0 moduli account-analytic"
