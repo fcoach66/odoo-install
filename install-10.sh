@@ -72,6 +72,8 @@ pip install Shapely
 
 pip install unicodecsv
 
+pip install pysftp
+
 
 #echo "Ottimizzazione configurazione database"
 #pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
@@ -181,6 +183,9 @@ su - odoo -c "ln -sfn /opt/odoo/source/As400it/l10n-italy-10.0-l10n_it_ddt-fix/l
 
 su - odoo -c "git clone -b 10-l10n_it_reverse_charge https://github.com/abstract-open-solutions/l10n-italy /opt/odoo/source/abstract-open-solutions/l10n-italy-10-l10n_it_reverse_charge"
 su - odoo -c "ln -sfn /opt/odoo/source/abstract-open-solutions/l10n-italy-10-l10n_it_reverse_charge/l10n_it_reverse_charge /opt/odoo/addons/l10n_it_reverse_charge"
+
+su - odoo -c "git clone -b 10.0-mig-account_vat_period_end_statement https://github.com/eLBati/l10n-italy /opt/odoo/source/eLBati/10.0-mig-account_vat_period_end_statement-l10n-italy"
+su - odoo -c "ln -sfn /opt/odoo/source/eLBati/10.0-mig-account_vat_period_end_statement-l10n-italy/account_vat_period_end_statement /opt/odoo/addons/account_vat_period_end_statement"
 
 
 echo "Installazione Odoo 8.0 moduli partner-contact"
@@ -2234,13 +2239,13 @@ su - odoo -c "ln -sfn /opt/odoo/source/OCA/addons-onestein/web_widget_float_high
 #su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/l10n_it_spesometro /opt/odoo/addons/l10n_it_spesometro"
 #su - odoo -c "ln -sfn /opt/odoo/source/zeroincombenze/l10n-italy-supplemental/tndb /opt/odoo/addons/tndb"
 
-#echo "Installazione Odoo 10.0 moduli odoo-italy-extra"
-#su - odoo -c "git clone -b 10.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /opt/odoo/source/fcoach66/odoo-italy-extra"
+echo "Installazione Odoo 10.0 moduli odoo-italy-extra"
+su - odoo -c "git clone -b 10.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /opt/odoo/source/fcoach66/odoo-italy-extra"
 #su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_base /opt/odoo/addons/l10n_it_aeroo_base"
 #su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_ddt /opt/odoo/addons/l10n_it_aeroo_ddt"
 #su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_invoice /opt/odoo/addons/l10n_it_aeroo_invoice"
 #su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_sale /opt/odoo/addons/l10n_it_aeroo_sale"
 #su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/odoo_fcoach66_fix /opt/odoo/addons/odoo_fcoach66_fix"
-#su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_additional_text_template /opt/odoo/addons/sale_additional_text_template"
-#su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_mandatory_fields /opt/odoo/addons/sale_mandatory_fields"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_additional_text_template /opt/odoo/addons/sale_additional_text_template"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_mandatory_fields /opt/odoo/addons/sale_mandatory_fields"
 
