@@ -11,9 +11,10 @@ apt-get upgrade -y -q=2
 apt-get install -y -q=2 postgresql-9.6 pgadmin3
 
 echo "Installazione pacchetti deb"
-apt-get install -y sudo mc zip unzip htop ntp ghostscript graphviz antiword libpq-dev poppler-utils build-essential libfreetype6-dev npm build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito node-less python-dev python3-dev libxml2-dev libxslt1-dev default-jre ure libreoffice-java-common libreoffice-writer
+apt-get install -y python-setuptools sudo mc zip unzip htop ntp ghostscript graphviz antiword libpq-dev poppler-utils build-essential libfreetype6-dev npm build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito node-less python-dev python3-dev libxml2-dev libxslt1-dev default-jre ure libreoffice-java-common libreoffice-writer
 
 echo "Installazione pacchetti pip"
+easy_install pip
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
 
 echo "Installazione pacchetti py3o"
