@@ -2249,3 +2249,7 @@ su - odoo -c "git clone -b 10.0 --single-branch https://github.com/fcoach66/odoo
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_additional_text_template /opt/odoo/addons/sale_additional_text_template"
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_mandatory_fields /opt/odoo/addons/sale_mandatory_fields"
 
+
+su - odoo -c "git clone -b 10.0 --single-branch https://github.com/fcoach66/odoo-dev  /opt/odoo/source/fcoach66/odoo-dev"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-dev/todo_app /opt/odoo/addons/todo_app"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-dev/todo_user /opt/odoo/addons/todo_user"
