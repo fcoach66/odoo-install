@@ -41,19 +41,19 @@ pip install py3o.fusion
 pip install service-identity
 pip install py3o.renderserver
 
-echo '#!/bin/sh' > /etc/init.d/py3o.fusion
-echo '' >> /etc/init.d/py3o.fusion
-echo '/usr/local/bin/start-py3o-renderserver -s localhost &'  >> /etc/init.d/py3o.fusion
-chmod +x /etc/init.d/py3o.fusion
-update-rc.d py3o.fusion defaults
-/etc/init.d/py3o.fusion
-
 echo '#!/bin/sh' > /etc/init.d/py3o.renderserver
 echo '' >> /etc/init.d/py3o.renderserver
-echo '/usr/local/bin/start-py3o-fusion --java=/usr/lib/jvm/default-java/jre/lib/amd64/server/libjvm.so --ure=/usr/share --office=/usr/lib/libreoffice --driver=juno --sofficeport=8997 &'  >> /etc/init.d/py3o.renderserver
+echo '/usr/local/bin/start-py3o-renderserver -s localhost &'  >> /etc/init.d/py3o.fusion
 chmod +x /etc/init.d/py3o.renderserver
 update-rc.d py3o.renderserver defaults
 /etc/init.d/py3o.renderserver
+
+echo '#!/bin/sh' > /etc/init.d/py3o.fusion
+echo '' >> /etc/init.d/py3o.fusion
+echo '/usr/local/bin/start-py3o-fusion --java=/usr/lib/jvm/default-java/jre/lib/amd64/server/libjvm.so --ure=/usr/share --office=/usr/lib/libreoffice --driver=juno --sofficeport=8997 &'  >> /etc/init.d/py3o.fusion
+chmod +x /etc/init.d/py3o.fusion
+update-rc.d py3o.fusion defaults
+/etc/init.d/py3o.fusion
 
 #echo "Installazione pacchetti npm"
 #npm install -g less less-plugin-clean-css
@@ -1229,13 +1229,9 @@ su - odoo -c "ln -sfn /opt/odoo/source/OCA/social/website_mass_mailing_name /opt
 
 echo "Installazione Odoo 8.0 moduli e-commerce"
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/e-commerce  /opt/odoo/source/OCA/e-commerce"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/LICENSE /opt/odoo/addons/LICENSE"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/oca_dependencies.txt /opt/odoo/addons/oca_dependencies.txt"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/product_links_goodies /opt/odoo/addons/product_links_goodies"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/product_multi_link /opt/odoo/addons/product_multi_link"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/product_template_multi_link /opt/odoo/addons/product_template_multi_link"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/README.md /opt/odoo/addons/README.md"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/setup /opt/odoo/addons/setup"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/website_sale_affiliate /opt/odoo/addons/website_sale_affiliate"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/website_sale_cart_selectable /opt/odoo/addons/website_sale_cart_selectable"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/e-commerce/website_sale_category_alphabetic /opt/odoo/addons/website_sale_category_alphabetic"
@@ -1309,8 +1305,8 @@ su - odoo -c "ln -sfn /opt/odoo/source/OCA/stock-logistics-reporting/stock_picki
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/stock-logistics-reporting/stock_valued_picking_report /opt/odoo/addons/stock_valued_picking_report"
 
 
-echo "Installazione Odoo 10.0 moduli product-kitting"
-su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/product-kitting  /opt/odoo/source/OCA/product-kitting"
+#echo "Installazione Odoo 10.0 moduli product-kitting"
+#su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/product-kitting  /opt/odoo/source/OCA/product-kitting"
 
 
 echo "Installazione Odoo 8.0 moduli hr-timesheet"
