@@ -22,7 +22,7 @@ apt-get install -y python-setuptools sudo mc zip unzip htop ntp ghostscript grap
 
 sudo apt-get install node-clean-css -y
 sudo apt-get install node-less -y
-sudo apt-get install python-gevent -y
+#sudo apt-get install python-gevent -y
 
 wget https://downloads.wkhtmltopdf.org/0.12/0.12.1/wkhtmltox-0.12.1_linux-trusty-amd64.deb
 gdebi --n wkhtmltox-0.12.1_linux-trusty-amd64.deb
@@ -75,7 +75,7 @@ pip install pyserial
 pip install --pre pyusb
 
 echo "Installazione pyxb"
-pip install pyxb
+pip install pyxb==1.2.5
 
 echo "Installazione codicefiscale"
 pip install codicefiscale
@@ -106,18 +106,20 @@ sudo -u postgres createuser -s odoo
 sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'odoo';"
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'odoo';"
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/OCB.git /opt/odoo/server"
+su - odoo -c "mkdir -p /opt/odoo/addons"
 su - odoo -c "mkdir -p /opt/odoo/source/OCA"
 su - odoo -c "git clone -b 10.0 https://github.com/OCA/reporting-engine /opt/odoo/source/OCA/reporting-engine"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/base_report_assembler /opt/odoo/addons/base_report_assembler"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/bi_view_editor /opt/odoo/addons/bi_view_editor"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_custom_filename /opt/odoo/addons/report_custom_filename"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_qweb_element_page_visibility /opt/odoo/addons/report_qweb_element_page_visibility"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_qweb_signer /opt/odoo/addons/report_qweb_signer"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xls /opt/odoo/addons/report_xls"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xlsx /opt/odoo/addons/report_xlsx"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xml /opt/odoo/addons/report_xml"
-su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xml_sample /opt/odoo/addons/report_xml_sample"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_py3o /opt/odoo/addons/report_py3o"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_py3o_fusion_server /opt/odoo/addons/report_py3o_fusion_server"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_qweb_element_page_visibility /opt/odoo/addons/report_qweb_element_page_visibility"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_qweb_parameter /opt/odoo/addons/report_qweb_parameter"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_qweb_pdf_watermark /opt/odoo/addons/report_qweb_pdf_watermark"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_qweb_signer /opt/odoo/addons/report_qweb_signer"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_qweb_txt /opt/odoo/addons/report_qweb_txt"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_wkhtmltopdf_param /opt/odoo/addons/report_wkhtmltopdf_param"
+su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xlsx /opt/odoo/addons/report_xlsx"
 # su - odoo -c "sed -i "s/admin/odoo/g" /opt/odoo/server/openerp/tools/config.py"
 su - odoo -c "cp /opt/odoo/server/addons/web/static/src/img/favicon.ico /opt/odoo/" 
 sed -i "s/'auto_install': True/'auto_install': False/" /opt/odoo/server/addons/im_odoo_support/__openerp__.py
@@ -130,8 +132,8 @@ chmod 755 /etc/logrotate.d/odoo-server
 wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/odoo10.init.d -O /etc/init.d/odoo-server
 sudo chmod +x /etc/init.d/odoo-server
 sudo update-rc.d odoo-server defaults
-su - odoo -c "mkdir -p /opt/odoo/addons"
 pip install -r /opt/odoo/server/requirements.txt
+pip install -r /opt/odoo/source/OCA/reporting-engine/requirements.txt
 pip install geojson
 pip install queue_job
 
@@ -156,6 +158,7 @@ pip install pyxb==1.2.5
 
 echo "Installazione Odoo 10.0 moduli l10n-italy"
 su - odoo -c "mkdir -p /opt/odoo/source/OCA"
+su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/l10n-italy  /opt/odoo/source/OCA/l10n-italy"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_central_journal /opt/odoo/addons/account_central_journal"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_invoice_entry_date /opt/odoo/addons/account_invoice_entry_date"
 su - odoo -c "ln -sfn /opt/odoo/source/OCA/l10n-italy/account_invoice_report_ddt_group /opt/odoo/addons/account_invoice_report_ddt_group"
