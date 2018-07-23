@@ -1048,6 +1048,30 @@ su - odoo -c "ln -sfn /opt/odoo/source/hurrinico/10.0-mig-sale_commission_formul
 su - odoo -c "git clone -b 10.0-add-sale_commission_areamanager https://github.com/hurrinico/commission /opt/odoo/source/hurrinico/10.0-add-sale_commission_areamanager-commission"
 su - odoo -c "ln -sfn /opt/odoo/source/hurrinico/10.0-add-sale_commission_areamanager-commission/sale_commission_areamanager /opt/odoo/addons/sale_commission_areamanager"
 
+echo "Installazione AerooLib"
+mkdir /opt/aeroo
+git clone https://github.com/aeroo/aeroolib.git /opt/aeroo/aeroolib
+cd /opt/aeroo/aeroolib
+python setup.py install
+cd
+echo '#!/bin/sh' > /etc/init.d/office
+echo '' >> /etc/init.d/office
+echo '/usr/bin/soffice --nologo --nofirststartwizard --headless --norestore --invisible "--accept=socket,host=localhost,port=8100,tcpNoDelay=1;urp;" &'  >> /etc/init.d/office
+chmod +x /etc/init.d/office
+update-rc.d office defaults
+/etc/init.d/office
+pip3 install jsonrpc2 daemonize
+git clone https://github.com/aeroo/aeroo_docs.git /opt/aeroo/aeroo_docs
+cd /opt/aeroo/aeroo_docs/
+echo "Y" | python3 /opt/aeroo/aeroo_docs/aeroo-docs start -c /etc/aeroo-docs.conf
+ln -s /opt/aeroo/aeroo_docs/aeroo-docs /etc/init.d/aeroo-docs
+update-rc.d aeroo-docs defaults
+
+
+su - odoo -c "git clone -b 11.0 https://github.com/aeroo/aeroo_reports.git /opt/odoo/source/aeroo/aeroo_reports"
+su - odoo -c "ln -s /opt/odoo/source/aeroo/aeroo_reports/report_aeroo /opt/odoo/addons/report_aeroo"
+
+
 #echo "Installazione Odoo 10.0 moduli reporting-engine"
 #su - odoo -c "git clone -b 10.0 --single-branch https://github.com/ingadhoc/reporting-engine  /opt/odoo/source/ingadhoc/reporting-engine"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/reporting-engine/report_aeroo_portal_fix /opt/odoo/addons/report_aeroo_portal_fix"
@@ -1059,9 +1083,9 @@ su - odoo -c "ln -sfn /opt/odoo/source/hurrinico/10.0-add-sale_commission_areama
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/reporting-engine/report_extended_voucher /opt/odoo/addons/report_extended_voucher"
 
 
-#echo "Installazione Odoo 10.0 moduli account-invoicing"
-#su - odoo -c "git clone -b 10.0 --single-branch https://github.com/ingadhoc/account-invoicing  /opt/odoo/source/ingadhoc/account-invoicing"
-#su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/account-invoicing/account_clean_cancelled_invoice_number /opt/odoo/addons/account_clean_cancelled_invoice_number"
+echo "Installazione Odoo 10.0 moduli account-invoicing"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/account-invoicing  /opt/odoo/source/ingadhoc/account-invoicing"
+su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/account-invoicing/account_clean_cancelled_invoice_number /opt/odoo/addons/account_clean_cancelled_invoice_number"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/account-invoicing/account_invoice_commercial /opt/odoo/addons/account_invoice_commercial"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/account-invoicing/account_invoice_company_search /opt/odoo/addons/account_invoice_company_search"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/account-invoicing/account_invoice_journal_filter /opt/odoo/addons/account_invoice_journal_filter"
@@ -1071,8 +1095,8 @@ su - odoo -c "ln -sfn /opt/odoo/source/hurrinico/10.0-add-sale_commission_areama
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/account-invoicing/account_invoice_tax_wizard /opt/odoo/addons/account_invoice_tax_wizard"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/account-invoicing/account_sale_different_currency /opt/odoo/addons/account_sale_different_currency"
 
-#echo "Installazione Odoo 10.0 moduli ingadhoc sale"
-#su - odoo -c "git clone -b 10.0 --single-branch https://github.com/ingadhoc/sale  /opt/odoo/source/ingadhoc/sale"
+echo "Installazione Odoo 10.0 moduli ingadhoc sale"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/sale  /opt/odoo/source/ingadhoc/sale"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/sale/portal_sale_distributor /opt/odoo/addons/portal_sale_distributor"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/sale/portal_sale_order_type /opt/odoo/addons/portal_sale_order_type"
 #su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/sale/portal_stock_distributor /opt/odoo/addons/portal_stock_distributor"
