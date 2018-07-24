@@ -104,6 +104,8 @@ sudo -u postgres createuser -s odoo
 sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'odoo';"
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'odoo';"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/OCB.git /opt/odoo/server"
+pip install -r /opt/odoo/server/requirements.txt
+pip install -r /opt/odoo/source/OCA/reporting-engine/requirements.txt
 su - odoo -c "mkdir -p /opt/odoo/addons"
 su - odoo -c "mkdir -p /opt/odoo/source/OCA"
 su - odoo -c "git clone -b 11.0 https://github.com/OCA/reporting-engine /opt/odoo/source/OCA/reporting-engine"
@@ -130,8 +132,6 @@ chmod 755 /etc/logrotate.d/odoo-server
 wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/odoo10.init.d -O /etc/init.d/odoo-server
 sudo chmod +x /etc/init.d/odoo-server
 sudo update-rc.d odoo-server defaults
-pip install -r /opt/odoo/server/requirements.txt
-pip install -r /opt/odoo/source/OCA/reporting-engine/requirements.txt
 pip install geojson
 pip install queue_job
 
