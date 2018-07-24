@@ -41,7 +41,7 @@ pip install py3o.renderserver
 
 echo '#!/bin/sh' > /etc/init.d/py3o.renderserver
 echo '' >> /etc/init.d/py3o.renderserver
-echo '/usr/local/bin/start-py3o-renderserver --java=/usr/lib/jvm/default-java/jre/lib/amd64/server/libjvm.so --ure=/usr/share --office=/usr/lib/libreoffice --driver=juno --sofficeport=8997 &'  >> /etc/init.d/py3o.fusion
+echo '/usr/local/bin/start-py3o-renderserver --java=/usr/lib/jvm/default-java/jre/lib/amd64/server/libjvm.so --ure=/usr/share --office=/usr/lib/libreoffice --driver=juno --sofficeport=8997 &'  >> /etc/init.d/py3o.renderserver
 chmod +x /etc/init.d/py3o.renderserver
 update-rc.d py3o.renderserver defaults
 /etc/init.d/py3o.renderserver
