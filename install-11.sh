@@ -1833,7 +1833,7 @@ su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_report_
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_base /opt/odoo/addons/l10n_it_aeroo_base"
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_invoice /opt/odoo/addons/l10n_it_aeroo_invoice"
 #su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_ddt /opt/odoo/addons/l10n_it_aeroo_ddt"
-#su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_sale /opt/odoo/addons/l10n_it_aeroo_sale"
+su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_sale /opt/odoo/addons/l10n_it_aeroo_sale"
 #su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/odoo_fcoach66_fix /opt/odoo/addons/odoo_fcoach66_fix"
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_additional_text_template /opt/odoo/addons/sale_additional_text_template"
 su - odoo -c "ln -sfn /opt/odoo/source/fcoach66/odoo-italy-extra/sale_mandatory_fields /opt/odoo/addons/sale_mandatory_fields"
