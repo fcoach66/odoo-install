@@ -1624,7 +1624,16 @@ update-rc.d aeroo-docs defaults
 
 
 su - odoo -c "git clone -b 11.0 https://github.com/aeroo/aeroo_reports.git /opt/odoo/source/aeroo/aeroo_reports"
-su - odoo -c "ln -s /opt/odoo/source/aeroo/aeroo_reports/report_aeroo /opt/odoo/addons/report_aeroo"
+su - odoo -c "ln -sfn /opt/odoo/source/aeroo/aeroo_reports/report_aeroo /opt/odoo/addons/report_aeroo"
+su - odoo -c "ln -sfn /opt/odoo/source/aeroo/aeroo_reports/report_aeroo_sample /opt/odoo/addons/report_aeroo_sample"
+
+su - odoo -c "ln -sfn /opt/odoo/source/FreeDoo2018/aeroo_reports/report_aeroo /opt/odoo/addons/report_aeroo"
+su - odoo -c "ln -sfn /opt/odoo/source/FreeDoo2018/aeroo_reports/report_aeroo_sample /opt/odoo/addons/report_aeroo_sample"
+
+su - odoo -c "git clone -b 11.0 https://github.com/ingadhoc/aeroo_reports.git /opt/odoo/source/ingadhoc/aeroo_reports"
+pip3 install --upgrade -r /opt/odoo/source/ingadhoc/aeroo_reports/requirements.txt 
+su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/aeroo_reports/report_aeroo /opt/odoo/addons/report_aeroo"
+su - odoo -c "ln -sfn /opt/odoo/source/ingadhoc/aeroo_reports/report_aeroo_sample /opt/odoo/addons/report_aeroo_sample"
 
 
 
