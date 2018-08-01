@@ -25,41 +25,27 @@ apt-get update
 apt-get upgrade -y
 apt-get install -y postgresql-9.6 postgresql-server-dev-9.6 pgadmin3 pgadmin4
 
-
 echo -e "\n---- Install tool packages ----"
 sudo apt-get install wget subversion git bzr bzrtools python-pip python3-pip gdebi-core -y
 
-
-#echo "Installazione pacchetti deb"
-#apt-get install -y python-setuptools sudo mc zip unzip htop ntp ghostscript graphviz antiword libpq-dev poppler-utils build-essential libfreetype6-dev npm build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito node-less python-dev python3-dev libxml2-dev libxslt1-dev default-jre ure libreoffice-java-common libreoffice-writer vim node-clean-css node-less python3-pip
-
-
-sudo apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev python3-dev
-sudo apt-get install -y libxml2-dev libxslt1-dev zlib1g-dev python3-pip python3-wheel python3-setuptools
-sudo apt install -y python3-asn1crypto 
-sudo apt install -y python3-babel python3-bs4 python3-cffi-backend python3-cryptography python3-dateutil python3-docutils python3-feedparser python3-funcsigs python3-gevent python3-greenlet python3-html2text python3-html5lib python3-jinja2 python3-lxml python3-mako python3-markupsafe python3-mock python3-ofxparse python3-openssl python3-passlib python3-pbr python3-pil python3-psutil python3-psycopg2 python3-pydot python3-pygments python3-pyparsing python3-pypdf2 python3-renderpm python3-reportlab python3-reportlab-accel python3-roman python3-serial python3-stdnum python3-suds python3-tz python3-usb python3-vatnumber python3-werkzeug python3-xlsxwriter python3-yaml
-sudo -H pip3 install -r https://raw.githubusercontent.com/odoo/odoo/11.0/requirements.txt
+sudo apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev python3-dev libxml2-dev libxslt1-dev zlib1g-dev python3-pip python3-wheel python3-setuptools python3-babel python3-bs4 python3-cffi-backend python3-cryptography python3-dateutil python3-docutils python3-feedparser python3-funcsigs python3-gevent python3-greenlet python3-html2text python3-html5lib python3-jinja2 python3-lxml python3-mako python3-markupsafe python3-mock python3-ofxparse python3-openssl python3-passlib python3-pbr python3-pil python3-psutil python3-psycopg2 python3-pydot python3-pygments python3-pyparsing python3-pypdf2 python3-renderpm python3-reportlab python3-reportlab-accel python3-roman python3-serial python3-stdnum python3-suds python3-tz python3-usb python3-vatnumber python3-werkzeug python3-xlsxwriter python3-yaml
+sudo -H pip3 install --upgrade -r https://raw.githubusercontent.com/odoo/odoo/11.0/requirements.txt
 
 wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.xenial_amd64.deb
 gdebi --n wkhtmltox_0.12.5-1.xenial_amd64.deb
 
-ln -s /usr/local/bin/wkhtmltopdf /usr/bin
-ln -s /usr/local/bin/wkhtmltoimage /usr/bin
-
 echo -e "\n---- Install python libraries ----"
 # This is for compatibility with Ubuntu 16.04. Will work on 14.04, 15.04 and 16.04
-sudo apt-get install python3-suds
+sudo apt-get install python3-suds -y
 
 echo -e "\n--- Install other required packages"
-sudo apt-get install node-clean-css -y
-sudo apt-get install node-less -y
-sudo apt-get install python-gevent -y
+sudo apt-get install node-clean-css node-less python-gevent -y
 
-echo -e "\n--- Create symlink for node"
-sudo ln -s /usr/bin/nodejs /usr/bin/node
+#echo -e "\n--- Create symlink for node"
+#sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 sudo pip3 install num2words ofxparse
-sudo apt-get install nodejs npm node-less
+sudo apt-get install nodejs npm node-less -y
 #sudo npm install -g less
 #sudo npm install -g less-plugin-clean-css	
 
@@ -73,14 +59,13 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/OCB.git /
 su - odoo -c "mkdir -p /home/odoo/addons"
 su - odoo -c "mkdir -p /home/odoo/source/OCA"
 su - odoo -c "git clone -b 11.0 https://github.com/OCA/reporting-engine /home/odoo/source/OCA/reporting-engine"
-pip3 install -r /home/odoo/source/OCA/reporting-engine/requirements.txt
+pip3 install --upgrade -r /home/odoo/source/OCA/reporting-engine/requirements.txt
 su - odoo -c "ln -sfn /home/odoo/source/OCA/reporting-engine/report_fillpdf /home/odoo/addons/report_fillpdf"
 su - odoo -c "ln -sfn /home/odoo/source/OCA/reporting-engine/report_qweb_parameter /home/odoo/addons/report_qweb_parameter"
 su - odoo -c "ln -sfn /home/odoo/source/OCA/reporting-engine/report_wkhtmltopdf_param /home/odoo/addons/report_wkhtmltopdf_param"
 su - odoo -c "ln -sfn /home/odoo/source/OCA/reporting-engine/report_xlsx /home/odoo/addons/report_xlsx"
 su - odoo -c "ln -sfn /home/odoo/source/OCA/reporting-engine/report_xml /home/odoo/addons/report_xml"
 
-#su - odoo -c "cp /home/odoo/server/addons/web/static/src/img/favicon.ico /home/odoo/" 
 sudo chown -R odoo:odoo /home/odoo/server
 sudo chown -R odoo:odoo /opt/odoo
 pip3 install geojson
@@ -91,10 +76,18 @@ pip3 install pyxb==1.2.5
 echo "Installazione codicefiscale"
 pip3 install codicefiscale
 
+echo "Installazione simplejson"
 pip3 install simplejson
 
 su - odoo -c "/home/odoo/server/odoo-bin --stop-after-init -s -c /home/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/server/odoo/addons,/home/odoo/server/addons,/home/odoo/addons"
 
+echo -e "* Create init file"
+su - odoo -c "mkdir bin"
+su - odoo -c "cat <<EOF > ~/bin/odoo
+#!/bin/sh
+/home/odoo/server/odoo-bin -c /home/odoo/odoo.conf
+EOF"
+su - odoo -c "chmod 755 ~/bin/odoo"
 
 echo "Installazione Aeroo"
 mkdir /opt/aeroo
@@ -112,7 +105,7 @@ ln -s /opt/aeroo/aeroo_docs/aeroo-docs /etc/init.d/aeroo-docs
 update-rc.d aeroo-docs defaults
 
 su - odoo -c "git clone -b 11.0 https://github.com/ingadhoc/aeroo_reports.git /home/odoo/source/ingadhoc/aeroo_reports"
-pip3 install --update -r /home/odoo/source/ingadhoc/aeroo_reports/requirements.txt
+pip3 install --upgrade -r /home/odoo/source/ingadhoc/aeroo_reports/requirements.txt
 su - odoo -c "ln -sfn /home/odoo/source/ingadhoc/aeroo_reports/report_aeroo /home/odoo/addons/report_aeroo"
 su - odoo -c "ln -sfn /home/odoo/source/ingadhoc/aeroo_reports/report_aeroo_sample /home/odoo/addons/report_aeroo_sample"
 
@@ -279,6 +272,16 @@ su - odoo -c "ln -sfn /home/odoo/source/OCA/l10n-italy/l10n_it_pec /home/odoo/ad
 #su - odoo -c "git clone -b 10.0-mig-account_vat_period_end_statement https://github.com/eLBati/l10n-italy /home/odoo/source/eLBati/10.0-mig-account_vat_period_end_statement-l10n-italy"
 #su - odoo -c "ln -sfn /home/odoo/source/eLBati/10.0-mig-account_vat_period_end_statement-l10n-italy/account_vat_period_end_statement /home/odoo/addons/account_vat_period_end_statement"
 
+su - odoo -c "git clone -b 11.0-mig-tax_kind --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/source/fcoach66/11.0-mig-tax_kind-l10n-italy"
+su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-tax_kind-l10n-italy/l10n_it_account_tax_kind /home/odoo/addons/l10n_it_account_tax_kind"
+
+su - odoo -c "git clone -b 11.0-mig-l10n_it_ipa --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/source/fcoach66/11.0-mig-l10n_it_ipa-l10n-italy"
+su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-l10n_it_ipa-l10n-italy/l10n_it_ipa /home/odoo/addons/l10n_it_ipa"
+
+su - odoo -c "git clone -b 11.0-mig-l10n_it_rea --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/source/fcoach66/11.0-mig-l10n_it_rea-l10n-italy"
+su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-l10n_it_rea-l10n-italy/l10n_it_rea /home/odoo/addons/l10n_it_rea"
+
+
 su - odoo -c "git clone -b 11.0-mig-fatturapa --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/source/fcoach66/11.0-mig-fatturapa-l10n-italy"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-fatturapa-l10n-italy/l10n_it_fatturapa /home/odoo/addons/l10n_it_fatturapa"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-fatturapa-l10n-italy/l10n_it_fatturapa_out /home/odoo/addons/l10n_it_fatturapa_out"
@@ -405,26 +408,27 @@ su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/sale_mandatory
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
-
-mv /home/odoo/odoo.conf /etc/odoo-server.conf
-chown odoo:odoo /etc/odoo-server.conf
-sed -i "s/db_password = False/db_password = odoo/g" /etc/odoo-server.conf
-wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/odoo.nginx -O /etc/nginx/sites-available/odoo.nginx
-rm /etc/nginx/sites-enabled/default 
-ln -s /etc/nginx/sites-available/odoo.nginx /etc/nginx/sites-enabled/odoo.nginx
-# old1="xmlrpc_interface = "
-# new1="xmlrpc_interface = 127.0.0.1"
-# old2="netrpc_interface = "
-# new2="netrpc_interface = 127.0.0.1"
-# sed -i "s/$old1/$new1/g" /etc/odoo-server.conf
-# sed -i "s/$old2/$new2/g" /etc/odoo-server.conf
-mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.old
-wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/nginx.conf -O /etc/nginx/nginx.conf
-htpasswd -cb /etc/nginx/htpasswd odoo odoo
-
-
-
 
 
 
