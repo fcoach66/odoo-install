@@ -85,6 +85,10 @@ pip3 install unidecode
 echo "Installazione phonenumbers"
 pip3 install phonenumbers
 
+echo "Installazione numpy"
+pip3 install numpy
+
+
 su - odoo -c "/home/odoo/server/odoo-bin --stop-after-init -s -c /home/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/server/odoo/addons,/home/odoo/server/addons,/home/odoo/addons"
 
 echo -e "* Create init file"
