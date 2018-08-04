@@ -79,6 +79,12 @@ pip3 install codicefiscale
 echo "Installazione simplejson"
 pip3 install simplejson
 
+echo "Installazione unidecode"
+pip3 install unidecode
+
+echo "Installazione phonenumbers"
+pip3 install phonenumbers
+
 su - odoo -c "/home/odoo/server/odoo-bin --stop-after-init -s -c /home/odoo/odoo.conf --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/server/odoo/addons,/home/odoo/server/addons,/home/odoo/addons"
 
 echo -e "* Create init file"
@@ -281,11 +287,9 @@ su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-l10n_it_ipa-l10n-italy
 su - odoo -c "git clone -b 11.0-mig-l10n_it_rea --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/source/fcoach66/11.0-mig-l10n_it_rea-l10n-italy"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-l10n_it_rea-l10n-italy/l10n_it_rea /home/odoo/addons/l10n_it_rea"
 
-
 su - odoo -c "git clone -b 11.0-mig-fatturapa --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/source/fcoach66/11.0-mig-fatturapa-l10n-italy"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-fatturapa-l10n-italy/l10n_it_fatturapa /home/odoo/addons/l10n_it_fatturapa"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/11.0-mig-fatturapa-l10n-italy/l10n_it_fatturapa_out /home/odoo/addons/l10n_it_fatturapa_out"
-
 
 su - odoo -c "git clone -b 11.0-mig-l10n_it_split_payment --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/source/jackjack82/11.0-mig-l10n_it_split_payment"
 su - odoo -c "ln -sfn /home/odoo/source/jackjack82/11.0-mig-l10n_it_split_payment/l10n_it_split_payment /home/odoo/addons/l10n_it_split_payment"
@@ -376,11 +380,154 @@ su - odoo -c "ln -sfn /home/odoo/source/ingadhoc/account-payment/account_withhol
 su - odoo -c "ln -sfn /home/odoo/source/ingadhoc/account-payment/account_withholding_automatic /home/odoo/addons/account_withholding_automatic"
 
 
+echo "Installazione Odoo 11.0 moduli account-payment"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-payment  /home/odoo/source/OCA/account-payment"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_cash_invoice /home/odoo/addons/account_cash_invoice"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_check_printing_report_base /home/odoo/addons/account_check_printing_report_base"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_check_printing_report_dlt103 /home/odoo/addons/account_check_printing_report_dlt103"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_due_list /home/odoo/addons/account_due_list"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_due_list_aging_comments /home/odoo/addons/account_due_list_aging_comments"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_due_list_days_overdue /home/odoo/addons/account_due_list_days_overdue"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_due_list_payment_mode /home/odoo/addons/account_due_list_payment_mode"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_early_payment_discount /home/odoo/addons/account_early_payment_discount"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_partner_reconcile /home/odoo/addons/account_partner_reconcile"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_batch_process /home/odoo/addons/account_payment_batch_process"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_credit_card /home/odoo/addons/account_payment_credit_card"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_return /home/odoo/addons/account_payment_return"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_return_import /home/odoo/addons/account_payment_return_import"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_return_import_sepa_pain /home/odoo/addons/account_payment_return_import_sepa_pain"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_show_invoice /home/odoo/addons/account_payment_show_invoice"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_vat_on_payment /home/odoo/addons/account_vat_on_payment"
 
 
+echo "Installazione Odoo 11.0 moduli account-financial-reporting"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-financial-reporting  /home/odoo/source/OCA/account-financial-reporting"
+pip3 install -r /home/odoo/source/OCA/account-financial-reporting/requirements.txt
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_chart_report /home/odoo/addons/account_chart_report"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_export_csv /home/odoo/addons/account_export_csv"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_financial_report /home/odoo/addons/account_financial_report"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_financial_report_horizontal /home/odoo/addons/account_financial_report_horizontal"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_financial_report_qweb /home/odoo/addons/account_financial_report_qweb"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_journal_report_xls /home/odoo/addons/account_journal_report_xls"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_move_line_report_xls /home/odoo/addons/account_move_line_report_xls"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_tax_balance /home/odoo/addons/account_tax_balance"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/mis_builder /home/odoo/addons/mis_builder"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/mis_builder_demo /home/odoo/addons/mis_builder_demo"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/customer_activity_statement /home/odoo/addons/customer_activity_statement"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/customer_outstanding_statement /home/odoo/addons/customer_outstanding_statement"
 
 
+echo "Installazione Odoo 11.0 moduli account-financial-tools"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-financial-tools  /home/odoo/source/OCA/account-financial-tools"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_balance_line /home/odoo/addons/account_balance_line"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_credit_control /home/odoo/addons/account_credit_control"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_credit_control_dunning_fees /home/odoo/addons/account_credit_control_dunning_fees"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_fiscal_year /home/odoo/addons/account_fiscal_year"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_group_menu /home/odoo/addons/account_group_menu"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_invoice_constraint_chronology /home/odoo/addons/account_invoice_constraint_chronology"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_invoice_currency /home/odoo/addons/account_invoice_currency"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_loan /home/odoo/addons/account_loan"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_move_fiscal_year /home/odoo/addons/account_move_fiscal_year"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_move_line_purchase_info /home/odoo/addons/account_move_line_purchase_info"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_move_line_tax_editable /home/odoo/addons/account_move_line_tax_editable"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_partner_required /home/odoo/addons/account_partner_required"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_reversal /home/odoo/addons/account_reversal"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_tag_menu /home/odoo/addons/account_tag_menu"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_type_menu /home/odoo/addons/account_type_menu"
 
+
+echo "Installazione Odoo 11.0 moduli account-closing"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-closing  /home/odoo/source/OCA/account-closing"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_accrual_base /home/odoo/addons/account_cutoff_accrual_base"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_accrual_dates /home/odoo/addons/account_cutoff_accrual_dates"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_accrual_picking /home/odoo/addons/account_cutoff_accrual_picking"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_base /home/odoo/addons/account_cutoff_base"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_prepaid /home/odoo/addons/account_cutoff_prepaid"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_fiscal_year_closing /home/odoo/addons/account_fiscal_year_closing"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_invoice_start_end_dates /home/odoo/addons/account_invoice_start_end_dates"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_multicurrency_revaluation /home/odoo/addons/account_multicurrency_revaluation"
+
+
+echo "Installazione Odoo 11.0 moduli account-analytic"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-analytic  /home/odoo/source/OCA/account-analytic"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/account_analytic_required /home/odoo/addons/account_analytic_required"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/analytic_base_department /home/odoo/addons/analytic_base_department"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/analytic_tag_dimension_purchase_warning /home/odoo/addons/analytic_tag_dimension_purchase_warning"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/analytic_tag_dimension_sale_warning /home/odoo/addons/analytic_tag_dimension_sale_warning"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/product_analytic /home/odoo/addons/product_analytic"
+
+
+echo "Installazione Odoo 11.0 moduli account-invoicing"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-invoicing  /home/odoo/source/OCA/account-invoicing"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_check_total /home/odoo/addons/account_invoice_check_total"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_force_number /home/odoo/addons/account_invoice_force_number"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_line_description /home/odoo/addons/account_invoice_line_description"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_refund_link /home/odoo/addons/account_invoice_refund_link"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_reimbursable /home/odoo/addons/account_invoice_reimbursable"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_supplier_ref_reuse /home/odoo/addons/account_invoice_supplier_ref_reuse"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_supplier_ref_unique /home/odoo/addons/account_invoice_supplier_ref_unique"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_supplier_self_invoice /home/odoo/addons/account_invoice_supplier_self_invoice"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_tax_required /home/odoo/addons/account_invoice_tax_required"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_triple_discount /home/odoo/addons/account_invoice_triple_discount"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_view_payment /home/odoo/addons/account_invoice_view_payment"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_payment_term_extension /home/odoo/addons/account_payment_term_extension"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/sale_timesheet_invoice_description /home/odoo/addons/sale_timesheet_invoice_description"
+
+
+echo "Installazione Odoo 11.0 moduli account-invoice-reporting"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-invoice-reporting  /home/odoo/source/OCA/account-invoice-reporting"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoice-reporting/account_invoice_line_report /home/odoo/addons/account_invoice_line_report"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoice-reporting/account_invoice_report_grouped_by_picking /home/odoo/addons/account_invoice_report_grouped_by_picking"
+
+
+echo "Installazione Odoo 11.0 moduli account-budgeting"
+su - odoo -c "mkdir -p /home/odoo/source/OCA"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-budgeting /home/odoo/source/OCA/account-budgeting"
+
+
+echo "Installazione Odoo 11.0 moduli account-consolidation"
+su - odoo -c "mkdir -p /home/odoo/source/OCA"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-consolidation /home/odoo/source/OCA/account-consolidation"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/account-consolidation/account_consolidation /home/odoo/addons/account_consolidation"
+
+
+echo "Installazione Odoo 11.0 moduli bank-payment"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/bank-payment  /home/odoo/source/OCA/bank-payment"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_mandate /home/odoo/addons/account_banking_mandate"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_mandate_sale /home/odoo/addons/account_banking_mandate_sale"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_pain_base /home/odoo/addons/account_banking_pain_base"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_sepa_credit_transfer /home/odoo/addons/account_banking_sepa_credit_transfer"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_sepa_direct_debit /home/odoo/addons/account_banking_sepa_direct_debit"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_tests /home/odoo/addons/account_banking_tests"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_import_line_multicurrency_extension /home/odoo/addons/account_import_line_multicurrency_extension"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_blocking /home/odoo/addons/account_payment_blocking"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_line_cancel /home/odoo/addons/account_payment_line_cancel"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_mode /home/odoo/addons/account_payment_mode"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_mode_term /home/odoo/addons/account_payment_mode_term"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_order /home/odoo/addons/account_payment_order"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_partner /home/odoo/addons/account_payment_partner"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_sale /home/odoo/addons/account_payment_sale"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_voucher_killer /home/odoo/addons/account_voucher_killer"
+#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/bank_statement_instant_voucher /home/odoo/addons/bank_statement_instant_voucher"
+
+
+echo "Installazione Odoo 11.0 moduli stock-logistics-workflow"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/stock-logistics-workflow  /home/odoo/source/OCA/stock-logistics-workflow"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/mrp_stock_picking_restrict_cancel /home/odoo/addons/mrp_stock_picking_restrict_cancel"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/purchase_stock_picking_restrict_cancel /home/odoo/addons/purchase_stock_picking_restrict_cancel"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_no_negative /home/odoo/addons/stock_no_negative"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_pack_operation_auto_fill /home/odoo/addons/stock_pack_operation_auto_fill"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_customer_ref /home/odoo/addons/stock_picking_customer_ref"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_invoice_link /home/odoo/addons/stock_picking_invoice_link"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_purchase_propagate /home/odoo/addons/stock_picking_purchase_propagate"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_restrict_cancel_with_orig_move /home/odoo/addons/stock_picking_restrict_cancel_with_orig_move"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_show_backorder /home/odoo/addons/stock_picking_show_backorder"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_show_return /home/odoo/addons/stock_picking_show_return"
+su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_split_picking /home/odoo/addons/stock_split_picking"
+
+su - odoo -c "git clone -b 11.0-mig-stock_picking_package_preparation --single-branch https://github.com/dcorio/stock-logistics-workflow  /home/odoo/source/dcorio/11.0-mig-stock_picking_package_preparation"
+su - odoo -c "ln -sfn /home/odoo/source/dcorio/11.0-mig-stock_picking_package_preparation/stock_picking_package_preparation /home/odoo/addons/stock_picking_package_preparation"
+su - odoo -c "ln -sfn /home/odoo/source/dcorio/11.0-mig-stock_picking_package_preparation/stock_picking_package_preparation_line /home/odoo/addons/stock_picking_package_preparation_line"
 
 
 
@@ -418,81 +565,19 @@ su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/sale_mandatory
 
 
 
-
-
-
-
-
-
-
-
-
-
   
 
 
 
 
-echo "Installazione Odoo 8.0 moduli account-payment"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-payment  /home/odoo/source/OCA/account-payment"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_cash_invoice /home/odoo/addons/account_cash_invoice"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_check_printing_report_base /home/odoo/addons/account_check_printing_report_base"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_check_printing_report_dlt103 /home/odoo/addons/account_check_printing_report_dlt103"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_due_list /home/odoo/addons/account_due_list"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_due_list_aging_comments /home/odoo/addons/account_due_list_aging_comments"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_due_list_days_overdue /home/odoo/addons/account_due_list_days_overdue"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_due_list_payment_mode /home/odoo/addons/account_due_list_payment_mode"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_early_payment_discount /home/odoo/addons/account_early_payment_discount"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_partner_reconcile /home/odoo/addons/account_partner_reconcile"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_batch_process /home/odoo/addons/account_payment_batch_process"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_credit_card /home/odoo/addons/account_payment_credit_card"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_return /home/odoo/addons/account_payment_return"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_return_import /home/odoo/addons/account_payment_return_import"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_return_import_sepa_pain /home/odoo/addons/account_payment_return_import_sepa_pain"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_payment_show_invoice /home/odoo/addons/account_payment_show_invoice"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-payment/account_vat_on_payment /home/odoo/addons/account_vat_on_payment"
 
 
-echo "Installazione Odoo 8.0 moduli bank-payment"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/bank-payment  /home/odoo/source/OCA/bank-payment"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_mandate /home/odoo/addons/account_banking_mandate"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_mandate_sale /home/odoo/addons/account_banking_mandate_sale"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_pain_base /home/odoo/addons/account_banking_pain_base"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_sepa_credit_transfer /home/odoo/addons/account_banking_sepa_credit_transfer"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_sepa_direct_debit /home/odoo/addons/account_banking_sepa_direct_debit"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_banking_tests /home/odoo/addons/account_banking_tests"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_import_line_multicurrency_extension /home/odoo/addons/account_import_line_multicurrency_extension"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_blocking /home/odoo/addons/account_payment_blocking"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_line_cancel /home/odoo/addons/account_payment_line_cancel"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_mode /home/odoo/addons/account_payment_mode"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_mode_term /home/odoo/addons/account_payment_mode_term"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_order /home/odoo/addons/account_payment_order"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_partner /home/odoo/addons/account_payment_partner"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_payment_sale /home/odoo/addons/account_payment_sale"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/account_voucher_killer /home/odoo/addons/account_voucher_killer"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/bank-payment/bank_statement_instant_voucher /home/odoo/addons/bank_statement_instant_voucher"
 
 
-echo "Installazione Odoo 8.0 moduli stock-logistics-workflow"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/stock-logistics-workflow  /home/odoo/source/OCA/stock-logistics-workflow"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/mrp_stock_picking_restrict_cancel /home/odoo/addons/mrp_stock_picking_restrict_cancel"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/purchase_stock_picking_restrict_cancel /home/odoo/addons/purchase_stock_picking_restrict_cancel"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_no_negative /home/odoo/addons/stock_no_negative"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_pack_operation_auto_fill /home/odoo/addons/stock_pack_operation_auto_fill"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_customer_ref /home/odoo/addons/stock_picking_customer_ref"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_invoice_link /home/odoo/addons/stock_picking_invoice_link"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_purchase_propagate /home/odoo/addons/stock_picking_purchase_propagate"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_restrict_cancel_with_orig_move /home/odoo/addons/stock_picking_restrict_cancel_with_orig_move"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_show_backorder /home/odoo/addons/stock_picking_show_backorder"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_picking_show_return /home/odoo/addons/stock_picking_show_return"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-workflow/stock_split_picking /home/odoo/addons/stock_split_picking"
-
-su - odoo -c "git clone -b 11.0-mig-stock_picking_package_preparation --single-branch https://github.com/dcorio/stock-logistics-workflow  /home/odoo/source/dcorio/11.0-mig-stock_picking_package_preparation"
-su - odoo -c "ln -sfn /home/odoo/source/dcorio/11.0-mig-stock_picking_package_preparation/stock_picking_package_preparation /home/odoo/addons/stock_picking_package_preparation"
-su - odoo -c "ln -sfn /home/odoo/source/dcorio/11.0-mig-stock_picking_package_preparation/stock_picking_package_preparation_line /home/odoo/addons/stock_picking_package_preparation_line"
 
 
-echo "Installazione Odoo 8.0 moduli product-attribute"
+
+echo "Installazione Odoo 11.0 moduli product-attribute"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/product-attribute  /home/odoo/source/OCA/product-attribute"
 su - odoo -c "ln -sfn /home/odoo/source/OCA/product-attribute/product_brand /home/odoo/addons/product_brand"
 su - odoo -c "ln -sfn /home/odoo/source/OCA/product-attribute/product_code_mandatory /home/odoo/addons/product_code_mandatory"
@@ -602,55 +687,13 @@ su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-transport/stock_loca
 su - odoo -c "ln -sfn /home/odoo/source/OCA/stock-logistics-transport/stock_location_address_purchase /home/odoo/addons/stock_location_address_purchase"
 
 
-echo "Installazione Odoo 8.0 moduli account-financial-reporting"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-financial-reporting  /home/odoo/source/OCA/account-financial-reporting"
-pip3 install -r /home/odoo/source/OCA/account-financial-reporting/requirements.txt
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_chart_report /home/odoo/addons/account_chart_report"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_export_csv /home/odoo/addons/account_export_csv"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_financial_report /home/odoo/addons/account_financial_report"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_financial_report_horizontal /home/odoo/addons/account_financial_report_horizontal"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_financial_report_qweb /home/odoo/addons/account_financial_report_qweb"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_journal_report_xls /home/odoo/addons/account_journal_report_xls"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_move_line_report_xls /home/odoo/addons/account_move_line_report_xls"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/account_tax_balance /home/odoo/addons/account_tax_balance"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/mis_builder /home/odoo/addons/mis_builder"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/mis_builder_demo /home/odoo/addons/mis_builder_demo"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/customer_activity_statement /home/odoo/addons/customer_activity_statement"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-reporting/customer_outstanding_statement /home/odoo/addons/customer_outstanding_statement"
-
-echo "Installazione Odoo 8.0 moduli account-financial-tools"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-financial-tools  /home/odoo/source/OCA/account-financial-tools"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_balance_line /home/odoo/addons/account_balance_line"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_credit_control /home/odoo/addons/account_credit_control"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_credit_control_dunning_fees /home/odoo/addons/account_credit_control_dunning_fees"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_fiscal_year /home/odoo/addons/account_fiscal_year"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_group_menu /home/odoo/addons/account_group_menu"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_invoice_constraint_chronology /home/odoo/addons/account_invoice_constraint_chronology"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_invoice_currency /home/odoo/addons/account_invoice_currency"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_loan /home/odoo/addons/account_loan"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_move_fiscal_year /home/odoo/addons/account_move_fiscal_year"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_move_line_purchase_info /home/odoo/addons/account_move_line_purchase_info"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_move_line_tax_editable /home/odoo/addons/account_move_line_tax_editable"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_partner_required /home/odoo/addons/account_partner_required"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_reversal /home/odoo/addons/account_reversal"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_tag_menu /home/odoo/addons/account_tag_menu"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-financial-tools/account_type_menu /home/odoo/addons/account_type_menu"
 
 
 
 
 
 
-echo "Installazione Odoo 11.0 moduli account-closing"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-closing  /home/odoo/source/OCA/account-closing"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_accrual_base /home/odoo/addons/account_cutoff_accrual_base"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_accrual_dates /home/odoo/addons/account_cutoff_accrual_dates"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_accrual_picking /home/odoo/addons/account_cutoff_accrual_picking"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_base /home/odoo/addons/account_cutoff_base"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_cutoff_prepaid /home/odoo/addons/account_cutoff_prepaid"
-#su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_fiscal_year_closing /home/odoo/addons/account_fiscal_year_closing"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_invoice_start_end_dates /home/odoo/addons/account_invoice_start_end_dates"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-closing/account_multicurrency_revaluation /home/odoo/addons/account_multicurrency_revaluation"
+
 
 
 echo "Installazione Odoo 11.0 moduli bank-statement-reconcile"
@@ -763,47 +806,12 @@ su - odoo -c "ln -sfn /home/odoo/source/OCA/project-service/project_task_materia
 su - odoo -c "ln -sfn /home/odoo/source/OCA/project-service/project_timeline /home/odoo/addons/project_timeline"
 
 
-echo "Installazione Odoo 11.0 moduli account-analytic"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-analytic  /home/odoo/source/OCA/account-analytic"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/account_analytic_required /home/odoo/addons/account_analytic_required"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/analytic_base_department /home/odoo/addons/analytic_base_department"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/analytic_tag_dimension_purchase_warning /home/odoo/addons/analytic_tag_dimension_purchase_warning"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/analytic_tag_dimension_sale_warning /home/odoo/addons/analytic_tag_dimension_sale_warning"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-analytic/product_analytic /home/odoo/addons/product_analytic"
 
 
-echo "Installazione Odoo 11.0 moduli account-invoicing"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-invoicing  /home/odoo/source/OCA/account-invoicing"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_check_total /home/odoo/addons/account_invoice_check_total"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_force_number /home/odoo/addons/account_invoice_force_number"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_line_description /home/odoo/addons/account_invoice_line_description"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_refund_link /home/odoo/addons/account_invoice_refund_link"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_reimbursable /home/odoo/addons/account_invoice_reimbursable"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_supplier_ref_reuse /home/odoo/addons/account_invoice_supplier_ref_reuse"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_supplier_ref_unique /home/odoo/addons/account_invoice_supplier_ref_unique"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_supplier_self_invoice /home/odoo/addons/account_invoice_supplier_self_invoice"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_tax_required /home/odoo/addons/account_invoice_tax_required"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_triple_discount /home/odoo/addons/account_invoice_triple_discount"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_invoice_view_payment /home/odoo/addons/account_invoice_view_payment"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/account_payment_term_extension /home/odoo/addons/account_payment_term_extension"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoicing/sale_timesheet_invoice_description /home/odoo/addons/sale_timesheet_invoice_description"
 
 
-echo "Installazione Odoo 11.0 moduli account-invoice-reporting"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-invoice-reporting  /home/odoo/source/OCA/account-invoice-reporting"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoice-reporting/account_invoice_line_report /home/odoo/addons/account_invoice_line_report"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-invoice-reporting/account_invoice_report_grouped_by_picking /home/odoo/addons/account_invoice_report_grouped_by_picking"
 
 
-echo "Installazione Odoo 11.0 moduli account-budgeting"
-su - odoo -c "mkdir -p /home/odoo/source/OCA"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-budgeting /home/odoo/source/OCA/account-budgeting"
-
-
-echo "Installazione Odoo 11.0 moduli account-consolidation"
-su - odoo -c "mkdir -p /home/odoo/source/OCA"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-consolidation /home/odoo/source/OCA/account-consolidation"
-su - odoo -c "ln -sfn /home/odoo/source/OCA/account-consolidation/account_consolidation /home/odoo/addons/account_consolidation"
 
 
 echo "Installazione Odoo 11.0 moduli event"
@@ -1723,34 +1731,9 @@ su - odoo -c "ln -sfn /home/odoo/source/OCA/queue/test_queue_job /home/odoo/addo
 #su - odoo -c "git clone -b 10.0-add-sale_commission_areamanager https://github.com/hurrinico/commission /home/odoo/source/hurrinico/10.0-add-sale_commission_areamanager-commission"
 #su - odoo -c "ln -sfn /home/odoo/source/hurrinico/10.0-add-sale_commission_areamanager-commission/sale_commission_areamanager /home/odoo/addons/sale_commission_areamanager"
 
-<<<<<<< HEAD
-
-
-
-su - odoo -c "ln -sfn /home/odoo/source/FreeDoo2018/aeroo_reports/report_aeroo /home/odoo/addons/report_aeroo"
-su - odoo -c "ln -sfn /home/odoo/source/FreeDoo2018/aeroo_reports/report_aeroo_sample /home/odoo/addons/report_aeroo_sample"
-
-su - odoo -c "git clone -b 11.0 https://github.com/ingadhoc/aeroo_reports.git /home/odoo/source/ingadhoc/aeroo_reports"
-pip3 install --upgrade -r /home/odoo/source/ingadhoc/aeroo_reports/requirements.txt 
-su - odoo -c "ln -sfn /home/odoo/source/ingadhoc/aeroo_reports/report_aeroo /home/odoo/addons/report_aeroo"
-su - odoo -c "ln -sfn /home/odoo/source/ingadhoc/aeroo_reports/report_aeroo_sample /home/odoo/addons/report_aeroo_sample"
-
-
-
-<<<<<<< HEAD
-
 
 #su - odoo -c "git clone -b 10.0-mig-product_replenishment_cost --single-branch https://github.com/fcoach66/margin-analysis  /home/odoo/source/fcoach66/10.0-mig-product_replenishment_cost-margin-analysis"
 #su - odoo -c "ln -sfn /home/odoo/source/fcoach66/10.0-mig-product_replenishment_cost-margin-analysis/product_replenishment_cost /home/odoo/addons/product_replenishment_cost"
-
->>>>>>> origin/master
-
-
-
-
-
-
-
 
 
 
