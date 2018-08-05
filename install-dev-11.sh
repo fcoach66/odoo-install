@@ -542,7 +542,7 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/fcoach66/odoo
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/l10n_it_report_extended /home/odoo/addons/	l10n_it_report_extended"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_base /home/odoo/addons/l10n_it_aeroo_base"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_invoice /home/odoo/addons/l10n_it_aeroo_invoice"
-#su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_ddt /home/odoo/addons/l10n_it_aeroo_ddt"
+su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_ddt /home/odoo/addons/l10n_it_aeroo_ddt"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/l10n_it_aeroo_sale /home/odoo/addons/l10n_it_aeroo_sale"
 #su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/odoo_fcoach66_fix /home/odoo/addons/odoo_fcoach66_fix"
 su - odoo -c "ln -sfn /home/odoo/source/fcoach66/odoo-italy-extra/sale_additional_text_template /home/odoo/addons/sale_additional_text_template"
