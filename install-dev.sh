@@ -121,6 +121,8 @@ su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_CEE_balan
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_corrispettivi /home/odoo/odoodev/addons/l10n_it_corrispettivi"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_ddt /home/odoo/odoodev/addons/l10n_it_ddt"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_DDT_webkit /home/odoo/odoodev/addons/l10n_it_DDT_webkit"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_account_tax_kind /home/odoo/odoodev/addons/l10n_it_account_tax_kind"
+su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_esigibilita_iva /home/odoo/odoodev/addons/l10n_it_esigibilita_iva"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_fatturapa /home/odoo/odoodev/addons/l10n_it_fatturapa"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_fatturapa_out /home/odoo/odoodev/addons/l10n_it_fatturapa_out"
 su - odoo -c "ln -sfn /home/odoo/odoodev/source/OCA/l10n-italy/l10n_it_fiscalcode /home/odoo/odoodev/addons/l10n_it_fiscalcode"
