@@ -1,0 +1,5 @@
+#!/bin/bash
+#~/OpenUpgrade11/odoo-bin -c ~/openupgrade11_serverrc -d v9-mig-demo --update all --log-level=debug_sql --stop-after-init
+~/OpenUpgrade11/odoo-bin -c ~/openupgrade11_serverrc -d v9-mig-demo --update all --stop-after-init
+
+

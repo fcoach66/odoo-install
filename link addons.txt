@@ -1,0 +1,20 @@
+
+
+find /root/te/. -type d -exec sh -c "ln -sfn \"{}\"/../ /root/te/addons" \;
+
+
+#!/bin/bash
+for d in $( ls ); do
+ find $(pwd)/$d -mindepth 1 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/../addons" \;
+done
+
+
+
+
+
+
+find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;
+
+
+for d in $( ls ); do  find $(pwd)/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/../addons" \;; done
+
