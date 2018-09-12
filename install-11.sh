@@ -67,8 +67,8 @@ su - odoo -c "ln -sfn /opt/odoo/source/OCA/reporting-engine/report_xml /opt/odoo
 
 su - odoo -c "cp /opt/odoo/server/addons/web/static/src/img/favicon.ico /opt/odoo/" 
 sed -i "s/'auto_install': True/'auto_install': False/" /opt/odoo/server/addons/im_odoo_support/__openerp__.py
-sudo chown -R odoo:odoo /opt/odoo/server
-sudo chown -R odoo:odoo /opt/odoo
+chown -R odoo:odoo /opt/odoo/server
+chown -R odoo:odoo /opt/odoo
 mkdir /var/log/odoo
 chown odoo:odoo /var/log/odoo
 wget https://raw.githubusercontent.com/fcoach66/odoo-install/master/logrotate -O /etc/logrotate.d/odoo-server
