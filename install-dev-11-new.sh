@@ -121,7 +121,12 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/l10n-ital
 su - odoo -c "git clone -b 11.0-mig-tax_kind --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-tax_kind-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_ipa --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-l10n_it_ipa-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_rea --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-l10n_it_rea-l10n-italy"
-su - odoo -c "git clone -b 11.0-mig-fatturapa --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-fatturapa-l10n-italy"
+#su - odoo -c "git clone -b 11.0-mig-fatturapa --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-fatturapa-l10n-italy"
+
+
+su - odoo -c "git clone -b 10.0-porting-fatturapa_in --single-branch https://github.com/eLBati/l10n-italy/ /home/odoo/odoodev11/source/1-eLBati/10.0-porting-fatturapa_in-l10n-italy"
+
+
 su - odoo -c "git clone -b 11.0-mig-l10n_it_split_payment --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_split_payment"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_reverse_charge --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_reverse_charge"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_withholding_tax --single-branch https://github.com/alessandrocamilli/l10n-italy /home/odoo/odoodev11/source/1-alessandrocamilli/11.0-mig-l10n_it_withholding_tax"
