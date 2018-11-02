@@ -13,10 +13,6 @@ apt-get install oracle-java8-installer -y
 add-apt-repository -y ppa:mystic-mirage/pycharm
 apt-get update
 
-echo -e "\n---- Install Virtualbox Guest Utils ----"
-apt-get install virtualbox-guest-x11-hwe -y
-
-
 
 echo "Installazione Database Postgresql"
 sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
@@ -52,9 +48,9 @@ apt-get install nodejs npm node-less -y
 	
 	
 echo "Installazione Odoo 10.0"
--u postgres createuser -s odoo
--u postgres psql -c "ALTER USER odoo WITH PASSWORD 'odoo';"
--u postgres psql -c "ALTER USER postgres WITH PASSWORD 'odoo';"
+sudo -u postgres createuser -s odoo
+sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'odoo';"
+sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'odoo';"
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/OCB.git /home/odoo/odoodev10/server"
 su - odoo -c "mkdir -p /home/odoo/odoodev10/addons"
 su - odoo -c "git clone -b 10.0 https://github.com/OCA/reporting-engine /home/odoo/odoodev10/source/2-OCA/reporting-engine"
