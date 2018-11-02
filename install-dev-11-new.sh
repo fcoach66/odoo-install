@@ -232,6 +232,9 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/website-t
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/Yenthe666/auto_backup /home/odoo/odoodev11/source/1-Yenthe666/auto_backup"
 pip3 install -r /home/odoo/odoodev11/source/1-Yenthe666/auto_backup/requirements.txt
 
+su - odoo -c "git clone -b 11.0-mig-account_asset_management https://github.com/grindtildeath/account-financial-tools /home/odoo/odoodev11/source/1-grindtildeath/11.0-mig-account_asset_management-account-financial-tools"
+
+
 su - odoo -c "find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;"
 su - odoo -c "for d in $( ls ); do  find $(pwd)/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/../addons" \;; done"
 
