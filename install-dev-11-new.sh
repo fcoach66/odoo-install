@@ -126,6 +126,8 @@ su - odoo -c "git clone -b 11.0-mig-l10n_it_rea --single-branch https://github.c
 
 su - odoo -c "git clone -b 10.0-porting-fatturapa_in --single-branch https://github.com/eLBati/l10n-italy/ /home/odoo/odoodev11/source/1-eLBati/10.0-porting-fatturapa_in-l10n-italy"
 
+su - odoo -c "git clone -b 11.0-imp-l10n_it_account --single-branch https://github.com/eLBati/l10n-italy/ /home/odoo/odoodev11/source/7-eLBati/11.0-imp-l10n_it_account_in-l10n-italy"
+
 
 su - odoo -c "git clone -b 11.0-mig-l10n_it_split_payment --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_split_payment"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_reverse_charge --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_reverse_charge"
