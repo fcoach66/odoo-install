@@ -28,15 +28,15 @@ apt-get install -y postgresql-9.6 postgresql-server-dev-9.6 pgadmin3 pgadmin4
 echo -e "\n---- Install tool packages ----"
 apt-get install wget subversion git bzr bzrtools python-pip python3-pip gdebi-core -y
 
-apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev python3-dev libxml2-dev libxslt1-dev zlib1g-dev python3-pip python3-wheel python3-setuptools python3-babel python3-bs4 python3-cffi-backend python3-cryptography python3-dateutil python3-docutils python3-feedparser python3-funcsigs python3-gevent python3-greenlet python3-html2text python3-html5lib python3-jinja2 python3-lxml python3-mako python3-markupsafe python3-mock python3-ofxparse python3-openssl python3-passlib python3-pbr python3-pil python3-psutil python3-psycopg2 python3-pydot python3-pygments python3-pyparsing python3-pypdf2 python3-renderpm python3-reportlab python3-reportlab-accel python3-roman python3-serial python3-stdnum python3-suds python3-tz python3-usb python3-vatnumber python3-werkzeug python3-xlsxwriter python3-yaml
+apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev python-dev python3-dev libxml2-dev libxslt1-dev zlib1g-dev python-pip python3-pip python-wheel python3-wheel python-setuptools python3-setuptools python3-babel python3-bs4 python3-cffi-backend python3-cryptography python3-dateutil python3-docutils python3-feedparser python3-funcsigs python3-gevent python3-greenlet python3-html2text python3-html5lib python3-jinja2 python3-lxml python3-mako python3-markupsafe python3-mock python3-ofxparse python3-openssl python3-passlib python3-pbr python3-pil python3-psutil python3-psycopg2 python3-pydot python3-pygments python3-pyparsing python3-pypdf2 python3-renderpm python3-reportlab python3-reportlab-accel python3-roman python3-serial python3-stdnum python3-suds python3-tz python3-usb python3-vatnumber python3-werkzeug python3-xlsxwriter python3-yaml python-babel python-bs4 python-cffi-backend python-cryptography python-dateutil python-docutils python-feedparser python-funcsigs python-gevent python-greenlet python-html2text python-html5lib python-jinja2 python-lxml python-mako python-markupsafe python-mock python-ofxparse python-openssl python-passlib python-pbr python-pil python-psutil python-psycopg2 python-pydot python-pygments python-pyparsing python-pypdf2 python-renderpm python-reportlab python-reportlab-accel python-roman python-serial python-stdnum python-suds python-tz python-usb python-vatnumber python-werkzeug python-xlsxwriter python-yaml python-pychart
 /usr/local/bin/pip install --upgrade -r https://raw.githubusercontent.com/odoo/odoo/10.0/requirements.txt
 
-wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.stretch_amd64.deb
-gdebi --n wkhtmltox_0.12.5-1.stretch_amd64.deb
+wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.xenial_amd64.deb
+gdebi --n wkhtmltox_0.12.5-1.xenial_amd64.deb
 
 echo -e "\n---- Install python libraries ----"
 # This is for compatibility with Ubuntu 16.04. Will work on 14.04, 15.04 and 16.04
-apt-get install python3-suds -y
+apt-get install python-suds python3-suds -y
 
 echo -e "\n--- Install other required packages"
 apt-get install node-clean-css node-less python-gevent -y
@@ -50,6 +50,35 @@ apt-get install python-m2crypto -y
 apt-get install nodejs npm node-less -y
 #npm install -g less
 #npm install -g less-plugin-clean-css	
+
+pip install --upgrade pip
+
+apt-get install -y default-jre ure libgoogle-gson-java libreoffice-java-common libreoffice-writer
+apt-get install -y msttcorefonts
+
+echo "Installazione pacchetti py3o"
+/usr/local/bin/pip install py3o.template
+/usr/local/bin/pip install py3o.formats
+/usr/local/bin/pip install py3o.fusion
+/usr/local/bin/pip install service-identity
+/usr/local/bin/pip install py3o.renderserver
+
+
+
+echo '#!/bin/sh' > /home/odoo/bin/py3o.renderserver
+echo '' >> /home/odoo/bin/py3o.renderserver
+echo '/usr/local/bin/start-py3o-renderserver --java=/usr/lib/jvm/default-java/jre/lib/amd64/server/libjvm.so --ure=/usr/share --office=/usr/lib/libreoffice --driver=juno --sofficeport=8997 &'  >> /home/odoo/bin/py3o.renderserver
+chmod +x /home/odoo/bin/py3o.renderserver
+chown odoo:odoo /home/odoo/bin/py3o.renderserver
+
+
+echo '#!/bin/sh' > /home/odoo/bin/py3o.fusion
+echo '' >> /home/odoo/bin/py3o.fusion
+echo '/usr/local/bin/start-py3o-fusion -s localhost'  >> /home/odoo/bin/py3o.fusion
+chmod +x /home/odoo/bin/py3o.fusion
+chown odoo:odoo /home/odoo/bin/py3o.fusion
+
+
 
 	
 	
@@ -86,6 +115,9 @@ echo "Installazione numpy"
 
 echo "Installazione cachetools"
 /usr/local/bin/pip install cachetools
+
+/usr/local/bin/pip install pyPdf
+
 
 su - odoo -c 'for d in $( ls odoodev10/source); do  find $(pwd)/odoodev10/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev10/addons" \;; done'
 
@@ -187,6 +219,10 @@ su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/queue /ho
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/multi-company  /home/odoo/odoodev10/source/2-OCA/multi-company"
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/pos  /home/odoo/odoodev10/source/2-OCA/pos"
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev10/source/7-fcoach66/odoo-italy-extra"
+
+su - odoo -c "git clone -b 10.0 --single-branch https://github.com/akretion/odoo-usability /home/odoo/odoodev10/source/6-akretion/odoo-usability"
+
+
 
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/community-data-files  /home/odoo/odoodev10/source/2-OCA/community-data-files"
 su - odoo -c "git clone -b 10.0 --single-branch https://github.com/OCA/geospatial  /home/odoo/odoodev10/source/2-OCA/geospatial"
