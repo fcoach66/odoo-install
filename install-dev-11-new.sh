@@ -81,8 +81,9 @@ echo "Installazione numpy"
 echo "Installazione cachetools"
 /usr/local/bin/pip3 install cachetools
 
+su - odoo -c 'for d in $( ls odoodev11/source); do  find $(pwd)/odoodev10/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev11/addons" \;; done'
 
-su - odoo -c "/home/odoo/odoodev11/server/odoo-bin --stop-after-init -s -c /home/odoo/odoodev11/odoodev11/odoo_serverrc --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/odoodev11/odoodev11/server/odoo/addons,/home/odoo/odoodev11/odoo11/server/addons,/home/odoo/odoodev11/odoodev11/addons"
+su - odoo -c "/home/odoo/odoodev11/server/odoo-bin --stop-after-init -s -c /home/odoo/odoodev11/odoo_serverrc --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/odoodev11/server/odoo/addons,/home/odoo/odoodev11/server/addons,/home/odoo/odoodev11/addons"
 
 echo -e "* Create init file"
 su - odoo -c "mkdir bin"
@@ -239,7 +240,7 @@ su - odoo -c "git clone -b 11.0-mig-account_asset_management https://github.com/
 
 
 su - odoo -c "find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;"
-su - odoo -c "for d in $( ls ); do  find $(pwd)/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/../addons" \;; done"
+su - odoo -c 'for d in $( ls odoodev11/source); do  find $(pwd)/odoodev10/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev11/addons" \;; done'
 
 
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/product/requirements.txt
