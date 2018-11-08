@@ -196,11 +196,11 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/manufactu
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/knowledge  /home/odoo/odoodev11/source/2-OCA/knowledge"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/project-reporting  /home/odoo/odoodev11/source/2-OCA/project-reporting"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/project  /home/odoo/odoodev11/source/2-OCA/project"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/misc-addons  /home/odoo/odoodev11/source/4-it-projects-llc/misc-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/access-addons  /home/odoo/odoodev11/source/4-it-projects-llc/access-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/pos-addons  /home/odoo/odoodev11/source/4-it-projects-llc/pos-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/website-addons  /home/odoo/odoodev11/source/4-it-projects-llc/website-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/mail-addons  /home/odoo/odoodev11/source/4-it-projects-llc/mail-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/misc-addons  /home/odoo/odoodev11/source/1-it-projects-llc/misc-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/access-addons  /home/odoo/odoodev11/source/1-it-projects-llc/access-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/pos-addons  /home/odoo/odoodev11/source/1-it-projects-llc/pos-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/website-addons  /home/odoo/odoodev11/source/1-it-projects-llc/website-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/mail-addons  /home/odoo/odoodev11/source/1-it-projects-llc/mail-addons"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/vauxoo/addons-vauxoo /home/odoo/odoodev11/source/5-vauxoo/addons-vauxoo"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/onesteinbv/addons-onestein  /home/odoo/odoodev11/source/6-onesteinbv/addons-onestein"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/connector /home/odoo/odoodev11/source/2-OCA/connector"
@@ -256,17 +256,17 @@ su - odoo -c 'for d in $( ls odoodev11/source); do  find $(pwd)/odoodev10/source
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/reporting-engine/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/report-print-send/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/5-vauxoo/addons-vauxoo/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/4-it-projects-llc/misc-addons/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/4-it-projects-llc/website-addons/requirements.txt
+/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-it-projects-llc/misc-addons/requirements.txt
+/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-it-projects-llc/website-addons/requirements.txt
 
 /usr/local/bin/pip3 install email_validator
 
 
 
 sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/server/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/4-it-projects-llc/misc-addons/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/4-it-projects-llc/website-addons/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/4-it-projects-llc/pos-addons/requirements.txt
+sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-it-projects-llc/misc-addons/requirements.txt
+sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-it-projects-llc/website-addons/requirements.txt
+sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-it-projects-llc/pos-addons/requirements.txt
 sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-Yenthe666/auto_backup/requirements.txt
 sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-rven/11.0-mig-account_fiscal_position_vat_check-account-financial-tools/requirements.txt
 sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/5-vauxoo/addons-vauxoo/requirements.txt
