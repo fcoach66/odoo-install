@@ -132,7 +132,7 @@ su - odoo -c "git clone -b 11.0-imp-l10n_it_account --single-branch https://gith
 su - odoo -c "git clone -b 11.0-mig-l10n_it_split_payment --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_split_payment"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_reverse_charge --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_reverse_charge"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_withholding_tax --single-branch https://github.com/alessandrocamilli/l10n-italy /home/odoo/odoodev11/source/1-alessandrocamilli/11.0-mig-l10n_it_withholding_tax"
-su - odoo -c "git clone -b 11.0-mig-l10n_it_ddt --single-branch https://github.com/SilvioGregorini/l10n-italy /home/odoo/odoodev11/source/1-SilvioGregorini/11.0-mig-l10n_it_ddt"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_ddt --single-branch https://github.com/SimoRubi/l10n-italy /home/odoo/odoodev11/source/1-SimoRubi/11.0-mig-l10n_it_ddt"
 su - odoo -c "git clone -b 11.0-mig-account_vat_period_end_statement --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-account_vat_period_end_statement"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_ricevute_bancarie --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_ricevute_bancarie"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/miscellaneous  /home/odoo/odoodev11/source/3-ingadhoc/miscellaneous"
