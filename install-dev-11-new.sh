@@ -89,7 +89,7 @@ echo -e "* Create init file"
 su - odoo -c "mkdir bin"
 su - odoo -c "cat <<EOF > ~/bin/o11
 #!/bin/sh
-/home/odoo/odoodev11/server/odoo-bin -c /home/odoo/odoodev11/odoodev11/odoo_derverrc
+/home/odoo/odoodev11/server/odoo-bin -c /home/odoo/odoodev11/odoo_serverrc
 EOF"
 su - odoo -c "chmod 755 ~/bin/o11"
 
