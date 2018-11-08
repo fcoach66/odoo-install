@@ -13,10 +13,6 @@ apt-get install oracle-java8-installer -y
 add-apt-repository -y ppa:mystic-mirage/pycharm
 apt-get update
 
-echo -e "\n---- Install Virtualbox Guest Utils ----"
-sudo apt-get install virtualbox-guest-x11-hwe -y
-
-
 
 echo "Installazione Database Postgresql"
 sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
