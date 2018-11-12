@@ -19,7 +19,7 @@ sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgd
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 apt-get update
 apt-get upgrade -y
-apt-get install -y postgresql-10.0 postgresql-server-dev-10.0 pgadmin3 pgadmin4
+apt-get install -y postgresql-10 postgresql-server-dev-10
 
 echo -e "\n---- Install tool packages ----"
 apt-get install wget subversion git bzr bzrtools python-pip python3-pip gdebi-core -y
