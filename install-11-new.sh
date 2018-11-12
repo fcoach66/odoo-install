@@ -82,6 +82,8 @@ echo "Installazione numpy"
 echo "Installazione cachetools"
 /usr/local/bin/pip3 install cachetools
 
+/usr/local/bin/pip3 install ldap
+
 su - odoo -c 'for d in $( ls source); do  find $(pwd)/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/addons" \;; done'
 
 su - odoo -c "/opt/odoo/server/odoo-bin --stop-after-init -s -c /opt/odoo/odoo_serverrc --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/opt/odoo/server/odoo/addons,/opt/odoo/server/addons,/opt/odoo/addons"
