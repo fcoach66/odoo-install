@@ -10,7 +10,7 @@ add-apt-repository -y ppa:webupd8team/java
 apt-get install default-jdk -y
 apt-get update
 apt-get install oracle-java8-installer -y
-add-apt-repository -y ppa:mystic-mirage/pycharm
+add-apt-repository -y ppa:ubuntu-desktop/ubuntu-make
 apt-get update
 
 
@@ -109,32 +109,12 @@ ln -s /opt/aeroo/aeroo_docs/aeroo-docs /etc/init.d/aeroo-docs
 update-rc.d aeroo-docs defaults
 
 su - odoo -c "git clone -b 11.0 https://github.com/ingadhoc/aeroo_reports.git /home/odoo/odoodev11/source/3-ingadhoc/aeroo_reports"
-/usr/local/bin/pip3 install --upgrade -r /home/odoo/odoodev11/source/3-ingadhoc/aeroo_reports/requirements.txt
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/server-tools  /home/odoo/odoodev11/source/2-OCA/server-tools"
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/server-tools/requirements.txt
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/server-ux  /home/odoo/odoodev11/source/2-OCA/server-ux"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/partner-contact  /home/odoo/odoodev11/source/2-OCA/partner-contact"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/l10n-italy  /home/odoo/odoodev11/source/2-OCA/l10n-italy"
-su - odoo -c "git clone -b 11.0-mig-tax_kind --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-tax_kind-l10n-italy"
-su - odoo -c "git clone -b 11.0-mig-l10n_it_ipa --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-l10n_it_ipa-l10n-italy"
-su - odoo -c "git clone -b 11.0-mig-l10n_it_rea --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-l10n_it_rea-l10n-italy"
-#su - odoo -c "git clone -b 11.0-mig-fatturapa --single-branch https://github.com/fcoach66/l10n-italy  /home/odoo/odoodev11/source/7-fcoach66/11.0-mig-fatturapa-l10n-italy"
-
-
-su - odoo -c "git clone -b 10.0-porting-fatturapa_in --single-branch https://github.com/eLBati/l10n-italy/ /home/odoo/odoodev11/source/1-eLBati/10.0-porting-fatturapa_in-l10n-italy"
-
-su - odoo -c "git clone -b 11.0-imp-l10n_it_account --single-branch https://github.com/eLBati/l10n-italy/ /home/odoo/odoodev11/source/7-eLBati/11.0-imp-l10n_it_account_in-l10n-italy"
-
-
-su - odoo -c "git clone -b 11.0-mig-l10n_it_split_payment --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_split_payment"
-su - odoo -c "git clone -b 11.0-mig-l10n_it_reverse_charge --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_reverse_charge"
-su - odoo -c "git clone -b 11.0-mig-l10n_it_withholding_tax --single-branch https://github.com/alessandrocamilli/l10n-italy /home/odoo/odoodev11/source/1-alessandrocamilli/11.0-mig-l10n_it_withholding_tax"
-su - odoo -c "git clone -b 11.0-mig-l10n_it_ddt --single-branch https://github.com/SimoRubi/l10n-italy /home/odoo/odoodev11/source/1-SimoRubi/11.0-mig-l10n_it_ddt"
-su - odoo -c "git clone -b 11.0-mig-account_vat_period_end_statement --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-account_vat_period_end_statement"
-su - odoo -c "git clone -b 11.0-mig-l10n_it_ricevute_bancarie --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_ricevute_bancarie"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/miscellaneous  /home/odoo/odoodev11/source/3-ingadhoc/miscellaneous"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/odoo-argentina  /home/odoo/odoodev11/source/3-ingadhoc/odoo-argentina"
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/odoo-argentina/requirements.txt
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/argentina-sale  /home/odoo/odoodev11/source/3-ingadhoc/argentina-sale"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/argentina-reporting  /home/odoo/odoodev11/source/3-ingadhoc/argentina-reporting"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/account-financial-tools  /home/odoo/odoodev11/source/3-ingadhoc/account-financial-tools"
@@ -142,12 +122,10 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/repo
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/account-payment  /home/odoo/odoodev11/source/3-ingadhoc/account-payment"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/partner  /home/odoo/odoodev11/source/3-ingadhoc/partner"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/sale  /home/odoo/odoodev11/source/3-ingadhoc/sale"
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/sale/requirements.txt
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/account-invoicing  /home/odoo/odoodev11/source/3-ingadhoc/account-invoicing"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/ingadhoc/product  /home/odoo/odoodev11/source/3-ingadhoc/product"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-payment  /home/odoo/odoodev11/source/2-OCA/account-payment"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-financial-reporting  /home/odoo/odoodev11/source/2-OCA/account-financial-reporting"
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/account-financial-reporting/requirements.txt
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-financial-tools  /home/odoo/odoodev11/source/2-OCA/account-financial-tools"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-closing  /home/odoo/odoodev11/source/2-OCA/account-closing"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-analytic  /home/odoo/odoodev11/source/2-OCA/account-analytic"
@@ -163,15 +141,12 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/product-v
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/stock-logistics-warehouse  /home/odoo/odoodev11/source/2-OCA/stock-logistics-warehouse"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/stock-logistics-tracking  /home/odoo/odoodev11/source/2-OCA/stock-logistics-tracking"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/stock-logistics-barcode  /home/odoo/odoodev11/source/2-OCA/stock-logistics-barcode"
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/stock-logistics-barcode/requirements.txt
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/stock-logistics-workflow  /home/odoo/odoodev11/source/2-OCA/stock-logistics-workflow"
-su - odoo -c "git clone -b 11.0-mig-stock_picking_package_preparation --single-branch https://github.com/dcorio/stock-logistics-workflow  /home/odoo/odoodev11/source/1-dcorio/11.0-mig-stock_picking_package_preparation"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/stock-logistics-transport  /home/odoo/odoodev11/source/2-OCA/stock-logistics-transport"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/sale-workflow  /home/odoo/odoodev11/source/2-OCA/sale-workflow"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/sale-financial /home/odoo/odoodev11/source/2-OCA/sale-financial"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/sale-reporting /home/odoo/odoodev11/source/2-OCA/sale-reporting"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/web  /home/odoo/odoodev11/source/2-OCA/web"
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/web/requirements.txt
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/website  /home/odoo/odoodev11/source/2-OCA/website"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/event /home/odoo/odoodev11/source/2-OCA/event"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/survey /home/odoo/odoodev11/source/2-OCA/survey"
@@ -189,65 +164,82 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/hr-timesh
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/hr  /home/odoo/odoodev11/source/2-OCA/hr"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/management-system  /home/odoo/odoodev11/source/2-OCA/management-system"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/report-print-send  /home/odoo/odoodev11/source/2-OCA/report-print-send"
-/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/report-print-send/requirements.txt 
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/purchase-reporting  /home/odoo/odoodev11/source/2-OCA/purchase-reporting"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/purchase-workflow  /home/odoo/odoodev11/source/2-OCA/purchase-workflow"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/manufacture-reporting  /home/odoo/odoodev11/source/2-OCA/manufacture-reporting"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/knowledge  /home/odoo/odoodev11/source/2-OCA/knowledge"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/project-reporting  /home/odoo/odoodev11/source/2-OCA/project-reporting"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/project  /home/odoo/odoodev11/source/2-OCA/project"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/misc-addons  /home/odoo/odoodev11/source/1-it-projects-llc/misc-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/access-addons  /home/odoo/odoodev11/source/1-it-projects-llc/access-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/pos-addons  /home/odoo/odoodev11/source/1-it-projects-llc/pos-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/website-addons  /home/odoo/odoodev11/source/1-it-projects-llc/website-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/mail-addons  /home/odoo/odoodev11/source/1-it-projects-llc/mail-addons"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/vauxoo/addons-vauxoo /home/odoo/odoodev11/source/5-vauxoo/addons-vauxoo"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/onesteinbv/addons-onestein  /home/odoo/odoodev11/source/6-onesteinbv/addons-onestein"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/connector /home/odoo/odoodev11/source/2-OCA/connector"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/queue /home/odoo/odoodev11/source/2-OCA/queue"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/multi-company  /home/odoo/odoodev11/source/2-OCA/multi-company"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/pos  /home/odoo/odoodev11/source/2-OCA/pos"
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev11/source/7-fcoach66/odoo-italy-extra"
-
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/community-data-files  /home/odoo/odoodev11/source/2-OCA/community-data-files"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/geospatial  /home/odoo/odoodev11/source/2-OCA/geospatial"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/vertical-isp  /home/odoo/odoodev11/source/2-OCA/vertical-isp"
-
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/hr-timesheet /home/odoo/odoodev11/source/2-OCA/hr-timesheet"
-
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/server-auth /home/odoo/odoodev11/source/2-OCA/server-auth"
-
-su - odoo -c "git clone -b 11.0-mig-invoice_comment_template --single-branch https://github.com/QubiQ/account-invoice-reporting /home/odoo/odoodev11/source/1-QubiQ/account-invoice-reporting"
-
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/QubiQ/qu-server-tools /home/odoo/odoodev11/source/1-QubiQ/qu-server-tools"
-
-su - odoo -c "git clone -b feature/11.0-mig-account_fiscal_position_vat_check --single-branch https://github.com/rven/account-financial-tools /home/odoo/odoodev11/source/1-rven/11.0-mig-account_fiscal_position_vat_check-account-financial-tools"
-su - odoo -c "git clone -b 11.0-porting-l10n_it_vat_registries --single-branch https://github.com/eLBati/l10n-italy/ /home/odoo/odoodev11/source/1-eLBati/11.0-porting-l10n_it_vat_registries-l10n-italy"
-
-su - odoo -c "git clone -b 11.0-mig-account_analytic_distribution --single-branch https://github.com/Tecnativa/account-analytic/ /home/odoo/odoodev11/source/1-Tecnativa/11.0-mig-account_analytic_distribution-account-analytic"
-
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/intrastat /home/odoo/odoodev11/source/2-OCA/intrastat"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/edi /home/odoo/odoodev11/source/2-OCA/edi"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/account-reconcile /home/odoo/odoodev11/source/2-OCA/account-reconcile"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/operating-unit /home/odoo/odoodev11/source/2-OCA/operating-unit"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/currency /home/odoo/odoodev11/source/2-OCA/currency"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/website-themes /home/odoo/odoodev11/source/2-OCA/website-themes"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/server-brand  /home/odoo/odoodev11/source/2-OCA/server-brand"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/server-backend  /home/odoo/odoodev11/source/2-OCA/server-backend"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/field-service  /home/odoo/odoodev11/source/2-OCA/field-service"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/OCA/website-cms  /home/odoo/odoodev11/source/2-OCA/website-cms"
 
-su - odoo -c "git clone -b 11.0 --single-branch https://github.com/Yenthe666/auto_backup /home/odoo/odoodev11/source/1-Yenthe666/auto_backup"
-pip3 install -r /home/odoo/odoodev11/source/1-Yenthe666/auto_backup/requirements.txt
 
-su - odoo -c "git clone -b 11.0-mig-account_asset_management https://github.com/grindtildeath/account-financial-tools /home/odoo/odoodev11/source/1-grindtildeath/11.0-mig-account_asset_management-account-financial-tools"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/misc-addons  /home/odoo/odoodev11/source/1-it-projects-llc/misc-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/access-addons  /home/odoo/odoodev11/source/1-it-projects-llc/access-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/pos-addons  /home/odoo/odoodev11/source/1-it-projects-llc/pos-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/website-addons  /home/odoo/odoodev11/source/1-it-projects-llc/website-addons"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/it-projects-llc/mail-addons  /home/odoo/odoodev11/source/1-it-projects-llc/mail-addons"
 
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/vauxoo/addons-vauxoo /home/odoo/odoodev11/source/5-vauxoo/addons-vauxoo"
+
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/onesteinbv/addons-onestein  /home/odoo/odoodev11/source/6-onesteinbv/addons-onestein"
+
+
+
+#su - odoo -c "git clone -b 11.0-mig-account_analytic_distribution --single-branch https://github.com/Tecnativa/account-analytic/ /home/odoo/odoodev11/source/1-Tecnativa/11.0-mig-account_analytic_distribution-account-analytic"
+
+
+su - odoo -c "git clone -b 11.0-mig-invoice_comment_template --single-branch https://github.com/QubiQ/account-invoice-reporting /home/odoo/odoodev11/source/1-QubiQ/account-invoice-reporting"
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/QubiQ/qu-server-tools /home/odoo/odoodev11/source/1-QubiQ/qu-server-tools"
+
+su - odoo -c "git clone -b 11.0-mig-l10n_it_split_payment_\(rt\) --single-branch https://github.com/ruben-tonetto/l10n-italy /home/odoo/odoodev11/source/0-ruben-tonetto/11.0-mig-l10n_it_split_payment_\(rt\)"
+su - odoo -c "git clone -b 11.0-porting-l10n_it_vat_registries --single-branch https://github.com/eLBati/l10n-italy/ /home/odoo/odoodev11/source/1-eLBati/11.0-porting-l10n_it_vat_registries-l10n-italy"
+su - odoo -c "git clone -b 11.0-mig-stock_picking_package_preparation --single-branch https://github.com/dcorio/stock-logistics-workflow  /home/odoo/odoodev11/source/1-dcorio/11.0-mig-stock_picking_package_preparation"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_reverse_charge --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_reverse_charge"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_ddt --single-branch https://github.com/SimoRubi/l10n-italy /home/odoo/odoodev11/source/1-SimoRubi/11.0-mig-l10n_it_ddt"
+su - odoo -c "git clone -b 11.0-mig-account_vat_period_end_statement --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-account_vat_period_end_statement"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_ricevute_bancarie --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_ricevute_bancarie"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa-l10n-italy"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_out --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_out-l10n-italy"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_in --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_in-l10n-italy"
+
+su - odoo -c "git clone -b feature/11.0-mig-account_fiscal_position_vat_check --single-branch https://github.com/rven/account-financial-tools /home/odoo/odoodev11/source/1-rven/11.0-mig-account_fiscal_position_vat_check-account-financial-tools"
+
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev11/source/7-fcoach66/odoo-italy-extra"
+
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/CybroOdoo/CybroAddons /home/odoo/odoodev11/source/0-CybroOdoo/CybroAddons"
+
+su - odoo -c "git clone -b 11.0 --single-branch https://github.com/Openworx/backend_theme /home/odoo/odoodev11/source/0-Openworx/backend_theme"
 
 su - odoo -c "find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;"
-su - odoo -c 'for d in $( ls odoodev11/source); do  find $(pwd)/odoodev10/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev11/addons" \;; done'
+su - odoo -c 'for d in $( ls odoodev11/source); do  find $(pwd)/odoodev11/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev11/addons" \;; done'
 
 
+/usr/local/bin/pip3 install --upgrade -r /home/odoo/odoodev11/source/3-ingadhoc/aeroo_reports/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/product/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/account-invoicing/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/reporting-engine/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/partner/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/sale/requirements.txt
+/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/3-ingadhoc/odoo-argentina/requirements.txt
+
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/stock-logistics-barcode/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/server-tools/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/account-financial-tools/requirements.txt
@@ -255,13 +247,18 @@ su - odoo -c 'for d in $( ls odoodev11/source); do  find $(pwd)/odoodev10/source
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/account-financial-reporting/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/reporting-engine/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/report-print-send/requirements.txt
+/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/account-financial-reporting/requirements.txt
+/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/stock-logistics-barcode/requirements.txt
+/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/web/requirements.txt
+/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/report-print-send/requirements.txt 
+/usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/2-OCA/server-tools/requirements.txt
+
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/5-vauxoo/addons-vauxoo/requirements.txt
+
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-it-projects-llc/misc-addons/requirements.txt
 /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-it-projects-llc/website-addons/requirements.txt
 
 /usr/local/bin/pip3 install email_validator
-
-
 
 sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/server/requirements.txt
 sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev11/source/1-it-projects-llc/misc-addons/requirements.txt
