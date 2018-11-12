@@ -107,6 +107,7 @@ mkdir -p /etc/nginx/ssl
 openssl req -new -x509 -days 3650 -nodes -out /etc/nginx/ssl/cert.pem -keyout /etc/nginx/ssl/private.key
 
 echo "Installazione Aeroo"
+apt-get install -y libreoffice libreoffice-script-provider-python
 mkdir /opt/aeroo
 echo '#!/bin/sh' > /etc/init.d/office
 echo '' >> /etc/init.d/office
