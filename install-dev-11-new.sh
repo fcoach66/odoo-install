@@ -209,7 +209,7 @@ su - odoo -c "git clone -b 11.0 --single-branch https://github.com/onesteinbv/ad
 su - odoo -c "git clone -b 11.0-mig-invoice_comment_template --single-branch https://github.com/QubiQ/account-invoice-reporting /home/odoo/odoodev11/source/1-QubiQ/account-invoice-reporting"
 su - odoo -c "git clone -b 11.0 --single-branch https://github.com/QubiQ/qu-server-tools /home/odoo/odoodev11/source/1-QubiQ/qu-server-tools"
 
-su - odoo -c "git clone -b 11.0-mig-l10n_it_split_payment_\(rt\) --single-branch https://github.com/ruben-tonetto/l10n-italy /home/odoo/odoodev11/source/0-ruben-tonetto/11.0-mig-l10n_it_split_payment_\(rt\)"
+# su - odoo -c "git clone -b 11.0-mig-l10n_it_split_payment_\(rt\) --single-branch https://github.com/ruben-tonetto/l10n-italy /home/odoo/odoodev11/source/0-ruben-tonetto/11.0-mig-l10n_it_split_payment_\(rt\)"
 su - odoo -c "git clone -b 11.0-porting-l10n_it_vat_registries --single-branch https://github.com/eLBati/l10n-italy/ /home/odoo/odoodev11/source/1-eLBati/11.0-porting-l10n_it_vat_registries-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-stock_picking_package_preparation --single-branch https://github.com/dcorio/stock-logistics-workflow  /home/odoo/odoodev11/source/1-dcorio/11.0-mig-stock_picking_package_preparation"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_reverse_charge --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_reverse_charge"
