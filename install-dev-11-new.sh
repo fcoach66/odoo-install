@@ -220,6 +220,9 @@ su - odoo -c "git clone -b 11.0-mig-l10n_it_ricevute_bancarie --single-branch ht
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_out --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_out-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_in --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_in-l10n-italy"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_pec  --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_pec"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_sdi_channel --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_sdi_channel"
+
 
 su - odoo -c "git clone -b feature/11.0-mig-account_fiscal_position_vat_check --single-branch https://github.com/rven/account-financial-tools /home/odoo/odoodev11/source/1-rven/11.0-mig-account_fiscal_position_vat_check-account-financial-tools"
 
