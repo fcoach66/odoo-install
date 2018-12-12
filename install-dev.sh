@@ -38,7 +38,7 @@ echo "Ottimizzazione configurazione database"
 #cat /etc/postgresql/9.4/main/postgresql.conf
 
 mkdir /opt/aeroo
-git clone -b 8.0 --single-branch https://github.com/ingadhoc/aeroolib.git /opt/aeroo/aeroolib
+git clone https://github.com/ingadhoc/aeroolib.git /opt/aeroo/aeroolib
 cd /opt/aeroo/aeroolib
 python setup.py install
 cd
