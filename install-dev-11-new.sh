@@ -25,6 +25,7 @@ echo -e "\n---- Install tool packages ----"
 apt-get install wget subversion git bzr bzrtools python-pip python3-pip gdebi-core -y
 
 apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev python3-dev libxml2-dev libxslt1-dev zlib1g-dev python3-pip python3-wheel python3-setuptools python3-babel python3-bs4 python3-cffi-backend python3-cryptography python3-dateutil python3-docutils python3-feedparser python3-funcsigs python3-gevent python3-greenlet python3-html2text python3-html5lib python3-jinja2 python3-lxml python3-mako python3-markupsafe python3-mock python3-ofxparse python3-openssl python3-passlib python3-pbr python3-pil python3-psutil python3-psycopg2 python3-pydot python3-pygments python3-pyparsing python3-pypdf2 python3-renderpm python3-reportlab python3-reportlab-accel python3-roman python3-serial python3-stdnum python3-suds python3-tz python3-usb python3-vatnumber python3-werkzeug python3-xlsxwriter python3-yaml
+pip3 install --upgrade pip
 /usr/local/bin/pip3 install --upgrade -r https://raw.githubusercontent.com/odoo/odoo/11.0/requirements.txt
 
 wget https://downloads.wkhtmltopdf.org/0.12/0.12.5/wkhtmltox_0.12.5-1.bionic_amd64.deb
@@ -219,6 +220,9 @@ su - odoo -c "git clone -b 11.0-mig-l10n_it_ricevute_bancarie-rt --single-branch
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_out --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_out-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_in --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_in-l10n-italy"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_pec  --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_pec"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_sdi_channel --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_sdi_channel"
+
 
 su - odoo -c "git clone -b feature/11.0-mig-account_fiscal_position_vat_check --single-branch https://github.com/rven/account-financial-tools /home/odoo/odoodev11/source/1-rven/11.0-mig-account_fiscal_position_vat_check-account-financial-tools"
 
