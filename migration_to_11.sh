@@ -5,23 +5,23 @@ read -n1 -r -p "Press any key when done..." key
 ou11
 o11up
 
-~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-mig -i base_address_city --stop-after-init
-~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-mig -i account_group_menu --stop-after-init
-~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-mig -i web_widget_x2many_2d_matrix --stop-after-init
-~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-mig -i partner_fax --stop-after-init
+~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-sinfocom -i base_address_city --stop-after-init
+~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-sinfocom -i account_group_menu --stop-after-init
+~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-sinfocom -i web_widget_x2many_2d_matrix --stop-after-init
+~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-sinfocom -i partner_fax --stop-after-init
 
 o11up
 
 
-odoouninstall.py -d v11-mig --user admin --password Miky969696 marketing_campaign
-odoouninstall.py -d v11-mig --user admin --password Miky969696 portal_sale
-odoouninstall.py -d v11-mig --user admin --password Miky969696 disable_odoo_online
-odoouninstall.py -d v11-mig --user admin --password Miky969696 l10n_it_ateco 
-odoouninstall.py -d v11-mig --user admin --password Miky969696 l10n_it_base_location_geonames_import
-odoouninstall.py -d v11-mig --user admin --password Miky969696 partner_create_by_vat
-odoouninstall.py -d v11-mig --user admin --password Miky969696 users_ldap_populate
-odoouninstall.py -d v11-mig --user admin --password Miky969696 account_accountant
-odoouninstall.py -d v11-mig --user admin --password Miky969696 account_financial_report_date_range
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 marketing_campaign
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 portal_sale
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 disable_odoo_online
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 l10n_it_ateco 
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 l10n_it_base_location_geonames_import
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 partner_create_by_vat
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 users_ldap_populate
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 account_accountant
+odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 account_financial_report_date_range
 
 #odoouninstall.py -d v11-mig --user admin --password Miky969696 edi
 #odoouninstall.py -d v11-mig --user admin --password Miky969696 oerp_no_phoning_home

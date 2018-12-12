@@ -215,7 +215,7 @@ su - odoo -c "git clone -b 11.0-mig-stock_picking_package_preparation --single-b
 su - odoo -c "git clone -b 11.0-mig-l10n_it_reverse_charge --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_reverse_charge"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_ddt --single-branch https://github.com/SimoRubi/l10n-italy /home/odoo/odoodev11/source/1-SimoRubi/11.0-mig-l10n_it_ddt"
 su - odoo -c "git clone -b 11.0-mig-account_vat_period_end_statement --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-account_vat_period_end_statement"
-su - odoo -c "git clone -b 11.0-mig-l10n_it_ricevute_bancarie --single-branch https://github.com/jackjack82/l10n-italy /home/odoo/odoodev11/source/1-jackjack82/11.0-mig-l10n_it_ricevute_bancarie"
+su - odoo -c "git clone -b 11.0-mig-l10n_it_ricevute_bancarie-rt --single-branch https://github.com/ruben-tonetto/l10n-italy /home/odoo/odoodev11/source/0-ruben-tonetto/11.0-mig-l10n_it_ricevute_bancarie-rt"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_out --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_out-l10n-italy"
 su - odoo -c "git clone -b 11.0-mig-l10n_it_fatturapa_in --single-branch https://github.com/linkitspa/l10n-italy/ /home/odoo/odoodev11/source/0-linkitspa/11.0-mig-l10n_it_fatturapa_in-l10n-italy"
