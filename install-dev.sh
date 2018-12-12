@@ -8,10 +8,7 @@ apt-get install -y -q=2 postgresql-9.6 pgadmin3
 
 apt-get install -y openssh-server mc zip unzip htop ntp ghostscript graphviz antiword git libpq-dev poppler-utils python-pip build-essential libfreetype6-dev npm python-magic python-dateutil python-pypdf python-requests python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-unittest2 python-mock python-jinja2 python-dev python-pdftools python-decorator python-openssl python-babel python-imaging python-reportlab-accel python-paramiko python-cups python-software-properties python-pip python-dev build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 libevent-dev libxslt1-dev libfreetype6-dev libjpeg8-dev python-werkzeug libjpeg-dev python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito git xfonts-75dpi python-pip libxml2-dev libcups2-dev libsasl2-dev python-dev libldap2-dev libssl-dev libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk libxslt-dev 
 
-pip install --upgrade pip
-apt-get remove python-pip
-
-/usr/local/bin/pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
+pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
 
 echo "Installazione pacchetti npm"
 npm install -g less less-plugin-clean-css
@@ -27,8 +24,8 @@ dpkg -i wkhtmltox_0.12.5-1.xenial_amd64.deb
 rm wkhtmltox_0.12.5-1.xenial_amd64.deb
 
 
-/usr/local/bin/pip install pyserial
-/usr/local/bin/pip install --pre pyusb
+pip install pyserial
+pip install --pre pyusb
 
 echo "Ottimizzazione configurazione database"
 #pgtune -i /etc/postgresql/9.4/main/postgresql.conf -o /etc/postgresql/9.4/main/postgresql.conf.tuned
@@ -77,27 +74,27 @@ sudo chown -R odoo:odoo /home/odoo/odoodev8/server
 sudo chown -R odoo:odoo /home/odoo/odoodev8
 su - odoo -c "mkdir -p /home/odoo/odoodev8/addons"
 
-/usr/local/bin/pip install simplejson
-/usr/local/bin/pip install python-dateutil
-/usr/local/bin/pip install nltk
-/usr/local/bin/pip install distribute
+pip install simplejson
+pip install python-dateutil
+pip install nltk
+pip install distribute
 apt-get install -y python-psycopg2
 apt-get install -y python-openid
-/usr/local/bin/pip install jsonrpc2
-/usr/local/bin/pip install werkzeug
-/usr/local/bin/pip install unittest
-/usr/local/bin/pip install reportlab
-/usr/local/bin/pip install requests
-/usr/local/bin/pip install pyPdf
-/usr/local/bin/pip install webdav
-/usr/local/bin/pip install caldav
-/usr/local/bin/pip install pywebdav
-/usr/local/bin/pip install pyxb==1.2.5
-/usr/local/bin/pip install codicefiscale
+pip install jsonrpc2
+pip install werkzeug
+pip install unittest
+pip install reportlab
+pip install requests
+pip install pyPdf
+pip install webdav
+pip install caldav
+pip install pywebdav
+pip install pyxb==1.2.5
+pip install codicefiscale
 
-/usr/local/bin/pip install -r /home/odoo/odoodev8/server/doc/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/server/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/aeroo/aeroo_reports/requirements.txt
+pip install -r /home/odoo/odoodev8/server/doc/requirements.txt
+pip install -r /home/odoo/odoodev8/server/requirements.txt
+pip install -r /home/odoo/odoodev8/source/aeroo/aeroo_reports/requirements.txt
 
 su - odoo -c "/home/odoo/odoodev8/server/odoo.py --stop-after-init -c /home/odoo/odoodev8/odoo_serverrc -s --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/odoodev8/server/openerp/addons,/home/odoo/odoodev8/server/addons,/home/odoo/odoodev8/addons"
 
@@ -212,24 +209,24 @@ su - odoo -c "git clone -b 8.0-backporting-l10n_it_fatturapa_in --single-branch 
 su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/luc-demeyer/noviat-apps /home/odoo/odoodev8/source/0-luc-demever/noviat-apps"
 
 
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/website-addons/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/misc-addons/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/6-zeroincombenze/l10n-italy-supplemental/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/2-OCA/community-data-files/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/2-OCA/reporting-engine/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/2-OCA/report-print-send/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/2-OCA/server-tools/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/2-OCA/partner-contact/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/2-OCA/pos/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/3-ingadhoc/reporting-engine/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/3-ingadhoc/partner/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/3-ingadhoc/miscellaneous/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/3-ingadhoc/account-payment/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/3-ingadhoc/odoo-argentina/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/3-ingadhoc/sale/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/3-ingadhoc/product/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/3-ingadhoc/account-invoicing/requirements.txt
-/usr/local/bin/pip install -r /home/odoo/odoodev8/source/5-Eficent/addons-vauxoo/requirements.txt
+pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/website-addons/requirements.txt
+pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/misc-addons/requirements.txt
+pip install -r /home/odoo/odoodev8/source/6-zeroincombenze/l10n-italy-supplemental/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/community-data-files/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/reporting-engine/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/report-print-send/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/server-tools/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/partner-contact/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/pos/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/reporting-engine/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/partner/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/miscellaneous/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/account-payment/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/odoo-argentina/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/sale/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/product/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/account-invoicing/requirements.txt
+pip install -r /home/odoo/odoodev8/source/5-Eficent/addons-vauxoo/requirements.txt
 
 
 su - odoo -c 'for d in $( ls odoodev8/source); do  find $(pwd)/odoodev8/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev8/addons" \;; done'
