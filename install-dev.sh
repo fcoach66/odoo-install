@@ -94,7 +94,6 @@ pip install codicefiscale
 
 pip install -r /home/odoo/odoodev8/server/doc/requirements.txt
 pip install -r /home/odoo/odoodev8/server/requirements.txt
-pip install -r /home/odoo/odoodev8/source/aeroo/aeroo_reports/requirements.txt
 
 su - odoo -c "/home/odoo/odoodev8/server/odoo.py --stop-after-init -c /home/odoo/odoodev8/odoo_serverrc -s --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/odoodev8/server/openerp/addons,/home/odoo/odoodev8/server/addons,/home/odoo/odoodev8/addons"
 
@@ -200,7 +199,7 @@ su - odoo -c "git clone -b 8.0 --single-branch https://github.com/onesteinbv/add
 
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/zeroincombenze/l10n-italy-supplemental /home/odoo/odoodev8/source/6-zeroincombenze/l10n-italy-supplemental"
 
-su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev8/source/fcoach66/7-odoo-italy-extra"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev8/source/7-fcoach66/odoo-italy-extra"
 
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/Elico-Corp/odoo-addons /home/odoo/odoodev8/source/1-Elico-Corp/odoo-addons"
 
