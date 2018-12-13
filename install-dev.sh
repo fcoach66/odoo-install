@@ -6,14 +6,7 @@ apt-get update -q=2
 apt-get upgrade -y -q=2
 apt-get install -y -q=2 postgresql-9.6 pgadmin3
 
-apt-get install -y mc zip unzip htop ntp ghostscript graphviz antiword git libpq-dev poppler-utils python-pip build-essential libfreetype6-dev npm python-magic python-dateutil python-pypdf python-requests \
-python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson \
-python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-unittest2 python-mock python-jinja2 python-dev \
-python-pdftools python-decorator python-openssl python-babel python-imaging python-reportlab-accel python-paramiko python-cups python-software-properties python-pip python-dev build-essential libpq-dev \
-poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot \
-python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 libevent-dev libxslt1-dev \
-libfreetype6-dev libjpeg8-dev python-werkzeug wkhtmltopdf libjpeg-dev pgtune python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils \
-fonts-crosextra-caladea fonts-crosextra-carlito
+apt-get install -y openssh-server mc zip unzip htop ntp ghostscript graphviz antiword git libpq-dev poppler-utils python-pip build-essential libfreetype6-dev npm python-magic python-dateutil python-pypdf python-requests python-feedparser python-gdata python-ldap python-libxslt1 python-lxml python-mako python-openid python-psycopg2 python-pybabel python-pychart python-pydot python-pyparsing python-reportlab python-simplejson python-tz python-vatnumber python-vobject python-webdav python-werkzeug python-xlwt python-yaml python-zsi python-docutils python-psutil python-unittest2 python-mock python-jinja2 python-dev python-pdftools python-decorator python-openssl python-babel python-imaging python-reportlab-accel python-paramiko python-cups python-software-properties python-pip python-dev build-essential libpq-dev poppler-utils antiword libldap2-dev libsasl2-dev libssl-dev git python-dateutil python-feedparser python-gdata python-ldap python-lxml python-mako python-openid python-psycopg2 python-pychart python-pydot python-pyparsing python-reportlab python-tz python-vatnumber python-vobject python-webdav python-xlwt python-yaml python-zsi python-docutils python-unittest2 python-mock python-jinja2 libevent-dev libxslt1-dev libfreetype6-dev libjpeg8-dev python-werkzeug libjpeg-dev python-setuptools python-genshi python-cairo python-lxml libreoffice libreoffice-script-provider-python python3-pip nginx munin apache2-utils fonts-crosextra-caladea fonts-crosextra-carlito git xfonts-75dpi python-pip libxml2-dev libcups2-dev libsasl2-dev python-dev libldap2-dev libssl-dev libtiff5-dev libjpeg8-dev zlib1g-dev libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk libxslt-dev 
 
 pip install passlib beautifulsoup4 evdev reportlab qrcode polib unidecode validate_email pyDNS pysftp python-slugify phonenumbers py-Asterisk codicefiscale unicodecsv ofxparse pytils gevent_psycopg2 psycogreen erppeek PyXB
 
@@ -30,6 +23,7 @@ wget --quiet https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.5
 dpkg -i wkhtmltox_0.12.5-1.xenial_amd64.deb
 rm wkhtmltox_0.12.5-1.xenial_amd64.deb
 
+
 pip install pyserial
 pip install --pre pyusb
 
@@ -42,7 +36,7 @@ echo "Ottimizzazione configurazione database"
 #cat /etc/postgresql/9.4/main/postgresql.conf
 
 mkdir /opt/aeroo
-git clone https://github.com/aeroo/aeroolib.git /opt/aeroo/aeroolib
+git clone https://github.com/ingadhoc/aeroolib.git /opt/aeroo/aeroolib
 cd /opt/aeroo/aeroolib
 python setup.py install
 cd
@@ -77,9 +71,39 @@ su - odoo -c "cp /home/odoo/odoodev8/server/addons/web/static/src/img/favicon.ic
 su - odoo -c 'for d in $( ls odoodev8/source); do  find $(pwd)/odoodev8/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev8/addons" \;; done'
 
 sudo chown -R odoo:odoo /home/odoo/odoodev8/server
-sudo chown -R odoo:odoo /home/odoo/odoodev
+sudo chown -R odoo:odoo /home/odoo/odoodev8
 su - odoo -c "mkdir -p /home/odoo/odoodev8/addons"
-su - odoo -c "/home/odoo/odoodev8/server/odoo.py --stop-after-init -s --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/odoodev8/server/openerp/addons,/home/odoo/odoodev8/server/addons,/home/odoo/odoodev8/addons"
+
+pip install simplejson
+pip install python-dateutil
+pip install nltk
+pip install distribute
+apt-get install -y python-psycopg2
+apt-get install -y python-openid
+pip install jsonrpc2
+pip install werkzeug
+pip install unittest
+pip install reportlab
+pip install requests
+pip install pyPdf
+pip install webdav
+pip install caldav
+pip install pywebdav
+pip install pyxb==1.2.5
+pip install codicefiscale
+
+pip install -r /home/odoo/odoodev8/server/doc/requirements.txt
+pip install -r /home/odoo/odoodev8/server/requirements.txt
+pip install -r /home/odoo/odoodev8/source/aeroo/aeroo_reports/requirements.txt
+
+su - odoo -c "/home/odoo/odoodev8/server/odoo.py --stop-after-init -c /home/odoo/odoodev8/odoo_serverrc -s --db_host=localhost --db_user=odoo --db_password=odoo --addons-path=/home/odoo/odoodev8/server/openerp/addons,/home/odoo/odoodev8/server/addons,/home/odoo/odoodev8/addons"
+
+su - odoo -c "mkdir bin"
+su - odoo -c "cat <<EOF > ~/bin/o8
+#!/bin/sh
+/home/odoo/odoodev8/server/odoo.py -c /home/odoo/odoodev8/odoo_serverrc
+EOF"
+su - odoo -c "chmod 755 ~/bin/o8"
 
 su - odoo -c "mkdir -p /home/odoo/odoodev8/source"
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/OCA/l10n-italy /home/odoo/odoodev8/source/2-OCA/l10n-italy"
@@ -183,5 +207,26 @@ su - odoo -c "git clone -b 8.0 --single-branch https://github.com/Elico-Corp/odo
 su - odoo -c "git clone -b 8.0-backporting-l10n_it_fatturapa_in --single-branch https://github.com/jado95/l10n-italy /home/odoo/odoodev8/source/0-jado95/8.0-backporting-l10n_it_fatturapa_in"
 
 su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/luc-demeyer/noviat-apps /home/odoo/odoodev8/source/0-luc-demever/noviat-apps"
+
+
+pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/website-addons/requirements.txt
+pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/misc-addons/requirements.txt
+pip install -r /home/odoo/odoodev8/source/6-zeroincombenze/l10n-italy-supplemental/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/community-data-files/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/reporting-engine/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/report-print-send/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/server-tools/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/partner-contact/requirements.txt
+pip install -r /home/odoo/odoodev8/source/2-OCA/pos/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/reporting-engine/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/partner/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/miscellaneous/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/account-payment/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/odoo-argentina/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/sale/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/product/requirements.txt
+pip install -r /home/odoo/odoodev8/source/3-ingadhoc/account-invoicing/requirements.txt
+pip install -r /home/odoo/odoodev8/source/5-Eficent/addons-vauxoo/requirements.txt
+
 
 su - odoo -c 'for d in $( ls odoodev8/source); do  find $(pwd)/odoodev8/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev8/addons" \;; done'
