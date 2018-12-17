@@ -184,6 +184,7 @@ su - odoo -c "git clone -b 8.0 --single-branch https://github.com/ingadhoc/partn
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/ingadhoc/sale  /home/odoo/odoodev8/source/3-ingadhoc/sale"
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/ingadhoc/account-invoicing  /home/odoo/odoodev8/source/3-ingadhoc/account-invoicing"
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/ingadhoc/product  /home/odoo/odoodev8/source/3-ingadhoc/product"
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/ingadhoc/stock  /home/odoo/odoodev8/source/3-ingadhoc/stock"
 
 #su - odoo -c "git clone -b 8.0 --single-branch https://github.com/techreceptives/website_recaptcha /home/odoo/odoodev8/source/techreceptives/website_recaptcha"
 
@@ -198,6 +199,8 @@ su - odoo -c "git clone -b 8.0-intrastat-review --single-branch https://github.c
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/onesteinbv/addons-onestein  /home/odoo/odoodev8/source/6-onesteinbv/addons-onestein"
 
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/zeroincombenze/l10n-italy-supplemental /home/odoo/odoodev8/source/6-zeroincombenze/l10n-italy-supplemental"
+
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/efatto/efatto /home/odoo/odoodev8/source/6-efatto/efatto"
 
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev8/source/7-fcoach66/odoo-italy-extra"
 
