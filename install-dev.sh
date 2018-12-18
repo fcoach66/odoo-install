@@ -91,7 +91,9 @@ pip install caldav
 pip install pywebdav
 pip install pyxb==1.2.5
 pip install codicefiscale
-
+pip install ofxparse
+pip install Shapely geojson
+pip install pandas
 pip install -r /home/odoo/odoodev8/server/doc/requirements.txt
 pip install -r /home/odoo/odoodev8/server/requirements.txt
 
