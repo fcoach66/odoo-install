@@ -212,6 +212,8 @@ su - odoo -c "git clone -b 8.0-backporting-l10n_it_fatturapa_in --single-branch 
 
 su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/luc-demeyer/noviat-apps /home/odoo/odoodev8/source/0-luc-demever/noviat-apps"
 
+su - odoo -c "git clone -b 8.0 --single-branch https://github.com/bizzappdev/odoo_apps /home/odoo/odoodev8/source/1-bizzappdev/odoo_apps"
+
 
 pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/website-addons/requirements.txt
 pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/misc-addons/requirements.txt
