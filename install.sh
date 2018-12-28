@@ -257,4 +257,4 @@ pip install -r /opt/odoo/source/3-ingadhoc/account-invoicing/requirements.txt
 pip install -r /opt/odoo/source/5-Eficent/addons-vauxoo/requirements.txt
 
 
-su - odoo -c 'for d in $( ls odoodev8/source); do  find $(pwd)/odoodev8/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev8/addons" \;; done'
+su - odoo -c 'for d in $( ls source); do  find $(pwd)/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/addons" \;; done'
