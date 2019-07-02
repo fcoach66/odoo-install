@@ -62,7 +62,7 @@ sudo chown -R odoo:odoo /home/odoo/odoodev12
 /usr/local/bin/pip3 install geojson
 
 echo "Installazione pyxb"
-/usr/local/bin/pip3 install pyxb==1.2.5
+/usr/local/bin/pip3 install pyxb==1.2.6
 
 echo "Installazione codicefiscale"
 /usr/local/bin/pip3 install codicefiscale
