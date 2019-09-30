@@ -1,0 +1,4 @@
+#!/bin/bash
+~/odoodev9/server/openerp-server -c ~/odoodev9/openerp_serverrc -d v9-mig --log-level=debug_sql --update all --stop-after-init
+
+

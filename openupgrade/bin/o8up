@@ -1,0 +1,5 @@
+#!/bin/bash
+#~/odoodev/server/openerp-server -c ~/odoodev8/openerp_serverrc -d v8-sinfocom-full --log-level=debug_sql -u all --stop-after-init
+~/odoodev/server/openerp-server -c ~/odoodev8/openerp_serverrc -d v8-sinfocom-full -u all --stop-after-init
+
+

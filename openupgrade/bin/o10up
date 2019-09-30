@@ -1,0 +1,4 @@
+#!/bin/bash
+~/odoodev10/server/odoo-bin -c ~/odoodev10/openerp_serverrc -d v9-mig -u all  --stop-after-init
+
+

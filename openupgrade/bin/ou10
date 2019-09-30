@@ -1,0 +1,4 @@
+#!/bin/bash
+~/OpenUpgrade10/odoo-bin -c ~/openupgrade10_no_addons_serverrc -d v9-mig --update all --stop-after-init
+
+

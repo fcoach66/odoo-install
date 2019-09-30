@@ -1,0 +1,5 @@
+#!/bin/bash
+#~/OpenUpgrade9/openerp-server -c ~/openupgrade9_no_addons_serverrc -d v9-mig --log-level=debug_sql --update all --stop-after-init
+~/OpenUpgrade9/openerp-server -c ~/openupgrade9_no_addons_serverrc -d v9-mig --update all --stop-after-init
+
+

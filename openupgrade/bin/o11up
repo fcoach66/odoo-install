@@ -1,0 +1,4 @@
+#!/bin/bash
+~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v9-mig-demo -u all  --stop-after-init
+
+
