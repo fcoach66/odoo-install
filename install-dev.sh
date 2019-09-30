@@ -190,29 +190,29 @@ su - odoo -c "git clone -b 8.0 --single-branch https://github.com/ingadhoc/stock
 
 #su - odoo -c "git clone -b 8.0 --single-branch https://github.com/techreceptives/website_recaptcha /home/odoo/odoodev8/source/techreceptives/website_recaptcha"
 
-su - odoo -c "git clone -b 8.0 --single-branch https://github.com/initOS/openerp-dav /home/odoo/odoodev8/source/5-initOS/openerp-dav"
+##su - odoo -c "git clone -b 8.0 --single-branch https://github.com/initOS/openerp-dav /home/odoo/odoodev8/source/5-initOS/openerp-dav"
 
-su - odoo -c "git clone -b 8.0-product_do_merge_imp --single-branch https://github.com/Eficent/addons-vauxoo /home/odoo/odoodev8/source/5-Eficent/addons-vauxoo"
+##su - odoo -c "git clone -b 8.0-product_do_merge_imp --single-branch https://github.com/Eficent/addons-vauxoo /home/odoo/odoodev8/source/5-Eficent/addons-vauxoo"
 
-su - odoo -c "git clone -b 8.0-prima-nota-cassa --single-branch https://github.com/abstract-open-solutions/l10n-italy /home/odoo/odoodev8/source/0-abstract-open-solutions/l10n-italy-l10n_it_prima_nota_cassa"
-su - odoo -c "git clone -b 8.0-intrastat-codes --single-branch https://github.com/abstract-open-solutions/l10n-italy /home/odoo/odoodev8/source/0-abstract-open-solutions/l10n-italy-intrastat-codes"
-su - odoo -c "git clone -b 8.0-intrastat-review --single-branch https://github.com/abstract-open-solutions/l10n-italy /home/odoo/odoodev8/source/0-abstract-open-solutions/l10n-italy-intrastat-review"
+##su - odoo -c "git clone -b 8.0-prima-nota-cassa --single-branch https://github.com/abstract-open-solutions/l10n-italy /home/odoo/odoodev8/source/0-abstract-open-solutions/l10n-italy-l10n_it_prima_nota_cassa"
+##su - odoo -c "git clone -b 8.0-intrastat-codes --single-branch https://github.com/abstract-open-solutions/l10n-italy /home/odoo/odoodev8/source/0-abstract-open-solutions/l10n-italy-intrastat-codes"
+##su - odoo -c "git clone -b 8.0-intrastat-review --single-branch https://github.com/abstract-open-solutions/l10n-italy /home/odoo/odoodev8/source/0-abstract-open-solutions/l10n-italy-intrastat-review"
 
-su - odoo -c "git clone -b 8.0 --single-branch https://github.com/onesteinbv/addons-onestein  /home/odoo/odoodev8/source/6-onesteinbv/addons-onestein"
+##su - odoo -c "git clone -b 8.0 --single-branch https://github.com/onesteinbv/addons-onestein  /home/odoo/odoodev8/source/6-onesteinbv/addons-onestein"
 
-su - odoo -c "git clone -b 8.0 --single-branch https://github.com/zeroincombenze/l10n-italy-supplemental /home/odoo/odoodev8/source/6-zeroincombenze/l10n-italy-supplemental"
+##su - odoo -c "git clone -b 8.0 --single-branch https://github.com/zeroincombenze/l10n-italy-supplemental /home/odoo/odoodev8/source/6-zeroincombenze/l10n-italy-supplemental"
 
 su - odoo -c "git clone -b 8.0 --single-branch https://github.com/efatto/efatto /home/odoo/odoodev8/source/6-efatto/efatto"
 
-su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev8/source/7-fcoach66/odoo-italy-extra"
+##su - odoo -c "git clone -b 8.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev8/source/7-fcoach66/odoo-italy-extra"
 
-su - odoo -c "git clone -b 8.0 --single-branch https://github.com/Elico-Corp/odoo-addons /home/odoo/odoodev8/source/1-Elico-Corp/odoo-addons"
+##su - odoo -c "git clone -b 8.0 --single-branch https://github.com/Elico-Corp/odoo-addons /home/odoo/odoodev8/source/1-Elico-Corp/odoo-addons"
 
-su - odoo -c "git clone -b 8.0-backporting-l10n_it_fatturapa_in --single-branch https://github.com/jado95/l10n-italy /home/odoo/odoodev8/source/0-jado95/8.0-backporting-l10n_it_fatturapa_in"
+##su - odoo -c "git clone -b 8.0-backporting-l10n_it_fatturapa_in --single-branch https://github.com/jado95/l10n-italy /home/odoo/odoodev8/source/0-jado95/8.0-backporting-l10n_it_fatturapa_in"
 
-su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/luc-demeyer/noviat-apps /home/odoo/odoodev8/source/0-luc-demever/noviat-apps"
+##su - odoo -c "git clone -b 8.0 --single-branch  https://github.com/luc-demeyer/noviat-apps /home/odoo/odoodev8/source/0-luc-demever/noviat-apps"
 
-su - odoo -c "git clone -b 8.0 --single-branch https://github.com/bizzappdev/odoo_apps /home/odoo/odoodev8/source/1-bizzappdev/odoo_apps"
+##su - odoo -c "git clone -b 8.0 --single-branch https://github.com/bizzappdev/odoo_apps /home/odoo/odoodev8/source/1-bizzappdev/odoo_apps"
 
 
 pip install -r /home/odoo/odoodev8/source/1-it-projects-llc/website-addons/requirements.txt
