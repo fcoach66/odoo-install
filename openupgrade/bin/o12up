@@ -1,0 +1,4 @@
+#!/bin/bash
+~/odoodev12/server/odoo-bin -c ~/odoodev12/odoo_serverrc -d v12-mig -u all  --stop-after-init
+
+

@@ -1,0 +1,2 @@
+#!/bin/sh
+/home/odoo/odoodev12/server/odoo-bin -c /home/odoo/odoodev12/odoo_serverrc

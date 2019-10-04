@@ -1,4 +1,4 @@
 #!/bin/bash
-~/odoodev9/server/openerp-server -c ~/odoodev9/openerp_serverrc -d v9-mig
+~/odoodev9/server/openerp-server -c ~/odoodev9/odoo_serverrc -d v9-mig
 
 

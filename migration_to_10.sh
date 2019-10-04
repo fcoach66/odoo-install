@@ -6,7 +6,7 @@ UPDATE product_uom SET category_id=3 WHERE id=5;
 EOF
 
 
-sudo /usr/local/bin/pip install pyXB==1.2.5
+sudo pip install pyXB==1.2.6
 
 echo "rename code on res_country_state column code"
 read -n1 -r -p "Press any key when done..." key
@@ -23,7 +23,6 @@ ou10
 
 psql v9-mig <<EOF
 \x
-DELETE FROM ir_ui_view WHERE id = 3554;
 DELETE FROM ir_ui_view WHERE inherit_id is not null;
 EOF
 

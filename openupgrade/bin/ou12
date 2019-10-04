@@ -1,0 +1,5 @@
+#!/bin/bash
+#~/OpenUpgrade12/odoo-bin -c ~/openupgrade12_serverrc -d v12-mig --update all --log-level=debug_sql --stop-after-init
+~/OpenUpgrade12/odoo-bin -c ~/openupgrade12_serverrc -d v12-mig --update all --stop-after-init
+
+

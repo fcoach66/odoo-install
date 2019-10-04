@@ -53,16 +53,17 @@ sudo -u postgres createuser -s odoo
 sudo -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'odoo';"
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'odoo';"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/OCB.git /home/odoo/odoodev12/server"
+pip3 install -r /home/odoo/odoodev12/server/requirements.txt
 su - odoo -c "mkdir -p /home/odoo/odoodev12/addons"
 su - odoo -c "git clone -b 12.0 https://github.com/OCA/reporting-engine /home/odoo/odoodev12/source/2-OCA/reporting-engine"
-/usr/local/bin/pip3 install --upgrade -r /home/odoo/odoodev12/source/2-OCA/reporting-engine/requirements.txt
+pip3 install --upgrade -r /home/odoo/odoodev12/source/2-OCA/reporting-engine/requirements.txt
 
 sudo chown -R odoo:odoo /home/odoo/odoodev12/server
 sudo chown -R odoo:odoo /home/odoo/odoodev12
-/usr/local/bin/pip3 install geojson
+pip3 install geojson
 
 echo "Installazione pyxb"
-/usr/local/bin/pip3 install pyxb==1.2.6
+pip3 install pyxb==1.2.6
 
 echo "Installazione codicefiscale"
 /usr/local/bin/pip3 install codicefiscale
@@ -110,21 +111,11 @@ ln -s /opt/aeroo/aeroo_docs/aeroo-docs /etc/init.d/aeroo-docs
 update-rc.d aeroo-docs defaults
 
 su - odoo -c "git clone -b 12.0 https://github.com/ingadhoc/aeroo_reports.git /home/odoo/odoodev12/source/3-ingadhoc/aeroo_reports"
+
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-tools  /home/odoo/odoodev12/source/2-OCA/server-tools"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-ux  /home/odoo/odoodev12/source/2-OCA/server-ux"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/partner-contact  /home/odoo/odoodev12/source/2-OCA/partner-contact"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/l10n-italy  /home/odoo/odoodev12/source/2-OCA/l10n-italy"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/miscellaneous  /home/odoo/odoodev12/source/3-ingadhoc/miscellaneous"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/odoo-argentina  /home/odoo/odoodev12/source/3-ingadhoc/odoo-argentina"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/argentina-sale  /home/odoo/odoodev12/source/3-ingadhoc/argentina-sale"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/argentina-reporting  /home/odoo/odoodev12/source/3-ingadhoc/argentina-reporting"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-financial-tools  /home/odoo/odoodev12/source/3-ingadhoc/account-financial-tools"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/reporting-engine  /home/odoo/odoodev12/source/3-ingadhoc/reporting-engine"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-payment  /home/odoo/odoodev12/source/3-ingadhoc/account-payment"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/partner  /home/odoo/odoodev12/source/3-ingadhoc/partner"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/sale  /home/odoo/odoodev12/source/3-ingadhoc/sale"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-invoicing  /home/odoo/odoodev12/source/3-ingadhoc/account-invoicing"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/product  /home/odoo/odoodev12/source/3-ingadhoc/product"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/account-payment  /home/odoo/odoodev12/source/2-OCA/account-payment"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/account-financial-reporting  /home/odoo/odoodev12/source/2-OCA/account-financial-reporting"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/account-financial-tools  /home/odoo/odoodev12/source/2-OCA/account-financial-tools"
@@ -191,6 +182,18 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-ba
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/field-service  /home/odoo/odoodev12/source/2-OCA/field-service"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/website-cms  /home/odoo/odoodev12/source/2-OCA/website-cms"
 
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/miscellaneous  /home/odoo/odoodev12/source/3-ingadhoc/miscellaneous"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/odoo-argentina  /home/odoo/odoodev12/source/3-ingadhoc/odoo-argentina"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/argentina-sale  /home/odoo/odoodev12/source/3-ingadhoc/argentina-sale"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/argentina-reporting  /home/odoo/odoodev12/source/3-ingadhoc/argentina-reporting"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-financial-tools  /home/odoo/odoodev12/source/3-ingadhoc/account-financial-tools"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/reporting-engine  /home/odoo/odoodev12/source/3-ingadhoc/reporting-engine"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-payment  /home/odoo/odoodev12/source/3-ingadhoc/account-payment"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/partner  /home/odoo/odoodev12/source/3-ingadhoc/partner"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/sale  /home/odoo/odoodev12/source/3-ingadhoc/sale"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-invoicing  /home/odoo/odoodev12/source/3-ingadhoc/account-invoicing"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/product  /home/odoo/odoodev12/source/3-ingadhoc/product"
+
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/misc-addons  /home/odoo/odoodev12/source/1-it-projects-llc/misc-addons"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/access-addons  /home/odoo/odoodev12/source/1-it-projects-llc/access-addons"
@@ -202,6 +205,9 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/vauxoo/addons
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/onesteinbv/addons-onestein  /home/odoo/odoodev12/source/6-onesteinbv/addons-onestein"
 
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/efatto/efatto /home/odoo/odoodev12/source/6-efatto/efatto"
+
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev12/source/7-fcoach66/odoo-italy-extra"
 
 
 #su - odoo -c "git clone -b 12.0-mig-account_analytic_distribution --single-branch https://github.com/Tecnativa/account-analytic/ /home/odoo/odoodev12/source/1-Tecnativa/12.0-mig-account_analytic_distribution-account-analytic"
@@ -236,60 +242,28 @@ su - odoo -c "find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git
 su - odoo -c 'for d in $( ls odoodev12/source); do  find $(pwd)/odoodev12/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev12/addons" \;; done'
 
 
-/usr/local/bin/pip3 install --upgrade -r /home/odoo/odoodev12/source/3-ingadhoc/aeroo_reports/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/product/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/account-invoicing/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/reporting-engine/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/partner/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/sale/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/odoo-argentina/requirements.txt
-
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/stock-logistics-barcode/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/server-tools/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/account-financial-tools/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/web/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/account-financial-reporting/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/reporting-engine/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/report-print-send/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/account-financial-reporting/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/stock-logistics-barcode/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/web/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/report-print-send/requirements.txt 
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/server-tools/requirements.txt
-
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/5-vauxoo/addons-vauxoo/requirements.txt
-
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/misc-addons/requirements.txt
-/usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/website-addons/requirements.txt
-
-/usr/local/bin/pip3 install email_validator
-
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/server/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/misc-addons/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/website-addons/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/pos-addons/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/1-Yenthe666/auto_backup/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/1-rven/12.0-mig-account_fiscal_position_vat_check-account-financial-tools/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/5-vauxoo/addons-vauxoo/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/account-invoicing/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/argentina-sale/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/partner/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/account-payment/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/reporting-engine/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/odoo-argentina/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/miscellaneous/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/argentina-reporting/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/sale/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/product/requirements.txt
-sudo /usr/local/bin/pip3 install -U -r /home/odoo/odoodev12/source/3-ingadhoc/aeroo_reports/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/server-tools/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/reporting-engine/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/account-financial-reporting/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/report-print-send/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/community-data-files/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/stock-logistics-barcode/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/web/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/server-auth/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/connector/requirements.txt
-sudo /usr/local/bin/pip3 install -r /home/odoo/odoodev12/source/2-OCA/account-financial-tools/requirements.txt
-
+pip3 install -r /home/odoo/odoodev12/server/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/server-tools/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/server-auth/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/report-print-send/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/community-data-files/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/stock-logistics-barcode/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/field-service/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/web/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/reporting-engine/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/connector/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/2-OCA/event/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/account-invoicing/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/odoo-argentina/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/sale/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/argentina-reporting/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/partner/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/product/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/miscellaneous/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/aeroo_reports/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/reporting-engine/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/argentina-sale/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/account-payment/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/misc-addons/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/pos-addons/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/website-addons/requirements.txt
