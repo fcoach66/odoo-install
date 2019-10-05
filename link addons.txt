@@ -13,7 +13,7 @@ done
 
 
 
-find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git fetch" \;
+find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;
 
 
 for d in $( ls ); do  find $(pwd)/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/../addons" \;; done

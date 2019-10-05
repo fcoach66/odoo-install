@@ -1,5 +1,5 @@
 [options]
-addons_path = /home/odoo/OpenUpgrade11/addons,/home/odoo/OpenUpgrade11/odoo/addons
+addons_path = /home/odoo/OpenUpgrade11/addons,/home/odoo/OpenUpgrade11/odoo/addons,/home/odoo/odoodev11/addons
 admin_passwd = admin
 auto_reload = False
 csv_internal_sep = ,
