@@ -1,0 +1,15 @@
+[Unit]
+Description=Libreoffice service
+After=syslog.target
+
+[Service]
+ExecStart=/usr/bin/soffice '--accept=socket,host=localhost,port=8101;urp;StarOffice.ServiceManager' --headless --nofirststartwizard --nologo
+Restart=always
+KillSignal=SIGQUIT
+Type=simple
+StandardError=syslog
+NotifyAccess=all
+User=odoo
+
+[Install]
+WantedBy=multi-user.target

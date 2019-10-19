@@ -41,7 +41,7 @@ apt-get install node-clean-css node-less python-gevent -y
 #echo -e "\n--- Create symlink for node"
 #sudo ln -s /usr/bin/nodejs /usr/bin/node
 
-/usr/local/bin/pip3 install num2words ofxparse
+pip3 install num2words ofxparse
 apt-get install nodejs npm node-less -y
 #sudo npm install -g less
 #sudo npm install -g less-plugin-clean-css	
@@ -181,6 +181,7 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-br
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-backend  /home/odoo/odoodev12/source/2-OCA/server-backend"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/field-service  /home/odoo/odoodev12/source/2-OCA/field-service"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/website-cms  /home/odoo/odoodev12/source/2-OCA/website-cms"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/credit-control  /home/odoo/odoodev12/source/2-OCA/credit-control"
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/miscellaneous  /home/odoo/odoodev12/source/3-ingadhoc/miscellaneous"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/odoo-argentina  /home/odoo/odoodev12/source/3-ingadhoc/odoo-argentina"
@@ -237,6 +238,30 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/fcoach66/odoo
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/CybroOdoo/CybroAddons /home/odoo/odoodev12/source/0-CybroOdoo/CybroAddons"
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Openworx/backend_theme /home/odoo/odoodev12/source/0-Openworx/backend_theme"
+
+
+su - odoo -c "git clone -b 12.0-mig-l10n_it_ricevute_bancarie https://github.com/scigghia/l10n-italy /home/odoo/odoodev12/source/0-scigghia/l10n-italy"
+su - odoo -c "git clone -b 12.0-mig-l10n_it_withholding_tax_payment https://github.com/linkitspa/l10n-italy /home/odoo/odoodev12/source/0-linkitspa-1/l10n-italy"
+su - odoo -c "git clone -b 12.0-mig-letsencrypt --single-branch https://github.com/eLBati/server-tools/ /home/odoo/odoodev12/source/0-eLBati/l10n-italy"
+
+
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/product-pack  /home/odoo/odoodev12/source/2-OCA/product-pack"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/timesheet  /home/odoo/odoodev12/source/2-OCA/timesheet"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/maintenance /home/odoo/odoodev12/source/2-OCA/maintenance"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/storage /home/odoo/odoodev12/source/2-OCA/storage"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/connector-ecommerce /home/odoo/odoodev12/source/2-OCA/connector-ecommerce"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/helpdesk /home/odoo/odoodev12/source/2-OCA/helpdesk"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/account-fiscal-rule /home/odoo/odoodev12/source/2-OCA/account-fiscal-rule"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/payroll /home/odoo/odoodev12/source/2-OCA/payroll"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-brand /home/odoo/odoodev12/source/2-OCA/server-brand"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/search-engine /home/odoo/odoodev12/source/2-OCA/search-engine"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/product-kitting /home/odoo/odoodev12/source/2-OCA/product-kitting"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/intrastat-extrastat /home/odoo/odoodev12/source/2-OCA/intrastat-extrastat"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/data-protection /home/odoo/odoodev12/source/2-OCA/data-protection"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/brand /home/odoo/odoodev12/source/2-OCA/brand"
+
+
+
 
 su - odoo -c "find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;"
 su - odoo -c 'for d in $( ls odoodev12/source); do  find $(pwd)/odoodev12/source/$d -mindepth 2 -maxdepth 2 -type d -exec sh -c "ln -sfn \"{}\" $(pwd)/odoodev12/addons" \;; done'

@@ -1,80 +1,58 @@
 #!/bin/bash
 echo "fix duplicate stock quants in database, lot_id 9,10,13"
+
+sudo pip install pyXB==1.2.5
+
+echo "check duplicate stock_quant lot_id on another window and thelete them. Launch:"
+echo "select id,lot_id from stock_quant ou where (select count(*) from stock_quant inr where inr.lot_id = ou.lot_id) > 1;"
+echo "on database v11-mig with psql"
 read -n1 -r -p "Press any key when done..." key
 
+
+psql v11-mig <<EOF
+\x
+delete from ir_module_module where name = 'crm_project';
+delete from ir_model_data where name = 'module_crm_project';
+EOF
+
 ou11
-o11up
 
-~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-sinfocom -i base_address_city --stop-after-init
-~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-sinfocom -i account_group_menu --stop-after-init
-~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-sinfocom -i web_widget_x2many_2d_matrix --stop-after-init
-~/odoodev11/server/odoo-bin -c ~/odoodev11/odoo_serverrc -d v11-sinfocom -i partner_fax --stop-after-init
+o11
 
-o11up
+odoouninstall.py -d v11-mig -u admin -w admin account_budget
+odoouninstall.py -d v11-mig -u admin -w admin purchase_analytic_distribution
+odoouninstall.py -d v11-mig -u admin -w admin sale_analytic_distribution
+odoouninstall.py -d v11-mig -u admin -w admin sale_timesheet
+odoouninstall.py -d v11-mig -u admin -w admin account_document
+odoouninstall.py -d v11-mig -u admin -w admin l10n_it_vat_registries
+odoouninstall.py -d v11-mig -u admin -w admin product_template_listprice_zero_default     #ancora non pronta la versione 12
+odoouninstall.py -d v11-mig -u admin -w admin web_view_usability                          #ancora non pronta la versione 12
+odoouninstall.py -d v11-mig -u admin -w admin product_computed_list_price                 #non presente già nella 11 (ingadhoc)
+odoouninstall.py -d v11-mig -u admin -w admin l10n_it_account_stamp_ddt                   #non serve più
+odoouninstall.py -d v11-mig -u admin -w admin base_manifest_extension                     #non presente già nella 11
+odoouninstall.py -d v11-mig -u admin -w admin partner_create_by_vat                       #modulo simile da installare partner_autocomplete
+odoouninstall.py -d v11-mig -u admin -w admin l10n_it_fiscalcode_invoice                  #non serve più
+odoouninstall.py -d v11-mig -u admin -w admin l10n_it_fatturapa_out_wt                    #non serve più
+odoouninstall.py -d v11-mig -u admin -w admin l10n_it_account_stamp_sale                  #non serve più
+odoouninstall.py -d v11-mig -u admin -w admin l10n_it_base_location_geonames_import       #non serve più
+odoouninstall.py -d v11-mig -u admin -w admin access_base                                 #ancora non pronta la versione 12
+odoouninstall.py -d v11-mig -u admin -w admin sale_analytic_distribution                  #non presente già nella 11
+odoouninstall.py -d v11-mig -u admin -w admin web_ckeditor4                               #non serve più
+odoouninstall.py -d v11-mig -u admin -w admin document_page_tags                          #non presente già nella 11
+odoouninstall.py -d v11-mig -u admin -w admin l10n_it_ateco                               #non presente già nella 11
+odoouninstall.py -d v11-mig -u admin -w admin marketing_campaign                          #non serve più
+odoouninstall.py -d v11-mig -u admin -w admin users_ldap_populate                         #non presente già nella 11
+odoouninstall.py -d v11-mig -u admin -w admin account_accountant                          #non serve più
+odoouninstall.py -d v11-mig -u admin -w admin users_ldap_mail                             #non presente già nella 11
+odoouninstall.py -d v11-mig -u admin -w admin l10n_it_fatturapa_in_purchase
+odoouninstall.py -d v11-mig -u admin -w admin auth_signup_verify_email
+odoouninstall.py -d v11-mig -u admin -w admin disable_odoo_online
+odoouninstall.py -d v11-mig -u admin -w admin auth_session_timeout
+odoouninstall.py -d v11-mig -u admin -w admin res_users_clear_access_rights
+odoouninstall.py -d v11-mig -u admin -w admin oerp_no_website_info
 
-
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 marketing_campaign
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 portal_sale
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 disable_odoo_online
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 l10n_it_ateco 
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 l10n_it_base_location_geonames_import
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 partner_create_by_vat
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 users_ldap_populate
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 account_accountant
-odoouninstall.py -d v11-sinfocom --user admin --password Miky969696 account_financial_report_date_range
-
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 edi
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 oerp_no_phoning_home
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 account_banking_payment_export
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 document_page_tags
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 hr_timesheet_invoice
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 l10n_it_base
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 account_voucher_cash_basis
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 web_ckeditor4
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 document_reindex
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 purchase_analytic_distribution
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 account_invoice_entry_date
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 product_computed_list_price
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 account_direct_debit
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 web_widget_one2many_tags
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 odoo_no_support
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 sale_stock_commission
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 contract_commission
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 portal_partner_merge
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 analytic_contract_hr_expense
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 hr_commission
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 analytic_user_function
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 product_sale_price_by_margin
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 product_uos
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 claim_from_delivery
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 report_webkit
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 website_crm_claim
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 warning
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 l10n_it_fiscalcode_invoice
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 users_ldap_populate
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 l10n_it_riba_commission
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 sale_analytic_distribution
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 account_payment_purchase
-#odoouninstall.py -d v11-mig --user admin --password Miky969696 l10n_it_vat_registries_split_payment
-
-
-ALTER TABLE "stock_quant" DROP COLUMN "cost" CASCADE;
-
-ALTER TABLE "account_analytic_account" DROP COLUMN "date" CASCADE;
-
-ALTER TABLE "account_analytic_line" DROP COLUMN "is_timesheet" CASCADE;
-
-ALTER TABLE "mrp_workorder" DROP COLUMN "openupgrade_legacy_10_0_cycle" CASCADE;
-
-ALTER TABLE "account_account" DROP COLUMN "openupgrade_legacy_9_0_type" CASCADE;
-
-ALTER TABLE "hr_attendance" DROP COLUMN "sheet_id" CASCADE;
-
-
-
-
-
-
+echo "duplicate database to v12-mig"
+read -n1 -r -p "Press any key when done..." key
 
 
 

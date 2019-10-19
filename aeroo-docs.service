@@ -1,0 +1,15 @@
+[Unit]
+Description=Aeroo-Docs service
+After=syslog.target
+
+[Service]
+ExecStart=/opt/aeroo/aeroo_docs/aeroo-docs start
+Restart=always
+KillSignal=SIGQUIT
+Type=simple
+StandardError=syslog
+NotifyAccess=all
+User=odoo
+
+[Install]
+WantedBy=multi-user.target
