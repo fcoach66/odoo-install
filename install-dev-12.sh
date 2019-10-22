@@ -260,6 +260,7 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/intrastat
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/data-protection /home/odoo/odoodev12/source/2-OCA/data-protection"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/brand /home/odoo/odoodev12/source/2-OCA/brand"
 
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Numigi/aeroo_reports /home/odoo/odoodev12/source/7-Numigi/aeroo_reports"
 
 
 
