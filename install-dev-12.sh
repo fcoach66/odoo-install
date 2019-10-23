@@ -184,11 +184,7 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/website-c
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/credit-control  /home/odoo/odoodev12/source/2-OCA/credit-control"
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/miscellaneous  /home/odoo/odoodev12/source/3-ingadhoc/miscellaneous"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/odoo-argentina  /home/odoo/odoodev12/source/3-ingadhoc/odoo-argentina"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/argentina-sale  /home/odoo/odoodev12/source/3-ingadhoc/argentina-sale"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/argentina-reporting  /home/odoo/odoodev12/source/3-ingadhoc/argentina-reporting"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-financial-tools  /home/odoo/odoodev12/source/3-ingadhoc/account-financial-tools"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/reporting-engine  /home/odoo/odoodev12/source/3-ingadhoc/reporting-engine"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-payment  /home/odoo/odoodev12/source/3-ingadhoc/account-payment"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/partner  /home/odoo/odoodev12/source/3-ingadhoc/partner"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/sale  /home/odoo/odoodev12/source/3-ingadhoc/sale"
@@ -259,6 +255,8 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/product-k
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/intrastat-extrastat /home/odoo/odoodev12/source/2-OCA/intrastat-extrastat"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/data-protection /home/odoo/odoodev12/source/2-OCA/data-protection"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/brand /home/odoo/odoodev12/source/2-OCA/brand"
+
+su - odoo -c "git clone -b 12.0-mig-account_bank_statement_import_qif --single-branch https://github.com/erick-tejada/bank-statement-import 0-Numigi/erick-tejada"
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Numigi/aeroo_reports /home/odoo/odoodev12/source/7-Numigi/aeroo_reports"
 
