@@ -76,7 +76,7 @@ odoouninstall.py -d v10-mig -u admin -w admin analytic_contract_hr_expense
 odoouninstall.py -d v10-mig -u admin -w admin mail_delete_sent_by_footer
 odoouninstall.py -d v10-mig -u admin -w admin web_widget_one2many_tags
 odoouninstall.py -d v10-mig -u admin -w admin product_replenishment_cost
-odoouninstall.py -d v10-mig -u admin -w admin module portal_payment_mode
+odoouninstall.py -d v10-mig -u admin -w admin portal_payment_mode
 odoouninstall.py -d v10-mig -u admin -w admin account_clean_cancelled_invoice_number
 odoouninstall.py -d v10-mig -u admin -w admin product_prices_update
 odoouninstall.py -d v10-mig -u admin -w admin contract_mandate

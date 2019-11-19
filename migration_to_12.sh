@@ -25,3 +25,16 @@ o12up
 odoouninstall.py -d v12-mig -u admin -w admin account_bank_statement_import_qif           #non presente nella 12
 odoouninstall.py -d v12-mig -u admin -w admin account_financial_report_date_range
 odoouninstall.py -d v12-mig -u admin -w admin report_intrastat
+
+
+
+odoouninstall.py -d v12-mig -u admin -w admin sale_payment_term_interest
+odoouninstall.py -d v12-mig -u admin -w admin base_user_signature_logo
+odoouninstall.py -d v12-mig -u admin -w admin is_employee
+odoouninstall.py -d v12-mig -u admin -w admin bom_inventory_information
+odoouninstall.py -d v12-mig -u admin -w admin mail_delete_access_link
+odoouninstall.py -d v12-mig -u admin -w admin sale_add_products_wizard
+odoouninstall.py -d v12-mig -u admin -w admin edi
+odoouninstall.py -d v12-mig -u admin -w admin analytic_user_function
+odoouninstall.py -d v12-mig -u admin -w admin document_reindex
+

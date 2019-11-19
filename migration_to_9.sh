@@ -18,6 +18,15 @@ odoouninstall.py -d v8-sinfocom-full -u admin -w admin report_aeroo
 odoouninstall.py -d v8-sinfocom-full -u admin -w admin sale_mandatory_fields
 odoouninstall.py -d v8-sinfocom-full -u admin -w admin website
 
+odoouninstall.py -d v8-sinfocom-full -u admin -w admin product_do_merge
+odoouninstall.py -d v8-sinfocom-full -u admin -w admin purchase_discount
+odoouninstall.py -d v8-sinfocom-full -u admin -w admin account_analytic_required
+odoouninstall.py -d v8-sinfocom-full -u admin -w admin base_user_signature_logo
+odoouninstall.py -d v8-sinfocom-full -u admin -w admin bom_inventory_information
+odoouninstall.py -d v8-sinfocom-full -u admin -w admin hr_payroll_cancel
+
+
+
 psql v9-mig <<EOF
 \x
 delete from ir_module_module where name = 'purchase_order_line_sequence';
@@ -54,17 +63,11 @@ o9
 
 odoouninstall.py -d v9-mig -u admin -w admin sale_payment_term_interest  #non presente già nella 11
 odoouninstall.py -d v9-mig -u admin -w admin document_reindex            #non presente già nella 11
-odoouninstall.py -d v9-mig -u admin -w admin bom_inventory_information   #non presente nella 12 (Vauxoo)
-odoouninstall.py -d v9-mig -u admin -w admin base_user_signature_logo    #non presente nella 12 (Vauxoo)
 odoouninstall.py -d v9-mig -u admin -w admin edi                         #non serve più
 odoouninstall.py -d v9-mig -u admin -w admin sale_add_products_wizard    #non presente già nella 9 (ingadhoc)
 odoouninstall.py -d v9-mig -u admin -w admin analytic_user_function      #non presente già nella 9
 odoouninstall.py -d v9-mig -u admin -w admin is_employee                 #modulo simile presente in OCA
 odoouninstall.py -d v9-mig -u admin -w admin mail_delete_access_link     #non presente già nella 9
-#odoouninstall.py -d v9-mig -u admin -w admin l10n_it_base                #non serve più
-#odoouninstall.py -d v9-mig -u admin -w admin account_invoice_entry_date  #non serve più
-#odoouninstall.py -d v9-mig -u admin -w admin l10n_it_fatturapa_out_view
-#odoouninstall.py -d v9-mig -u admin -w admin account_voucher_cash_basis  #non serve più
 
 odoouninstall.py -d v9-mig -u admin -w admin report_aeroo_controller
 odoouninstall.py -d v9-mig -u admin -w admin web_widget_one2many_tags

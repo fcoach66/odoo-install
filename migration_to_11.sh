@@ -1,7 +1,8 @@
 #!/bin/bash
 echo "fix duplicate stock quants in database, lot_id 9,10,13"
 
-sudo pip install pyXB==1.2.5
+sudo pip3 install pyXB==1.2.5
+sudo pip3 install --ignore-installed git+https://github.com/OCA/openupgradelib.git@master
 
 echo "check duplicate stock_quant lot_id on another window and thelete them. Launch:"
 echo "select id,lot_id from stock_quant ou where (select count(*) from stock_quant inr where inr.lot_id = ou.lot_id) > 1;"
@@ -14,6 +15,7 @@ psql v11-mig <<EOF
 delete from ir_module_module where name = 'crm_project';
 delete from ir_model_data where name = 'module_crm_project';
 EOF
+
 
 ou11
 
