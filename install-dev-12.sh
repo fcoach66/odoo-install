@@ -265,6 +265,8 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/dhongu/deltat
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_misc /home//odoo/odoodev12/source/5-muk-it/muk_misc"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_web /home//odoo/odoodev12/source/5-muk-it/muk_web"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_base /home//odoo/odoodev12/source/5-muk-it/muk_base"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_dms /home//odoo/odoodev12/source/5-muk-it/muk_dms"
+
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/CybroOdoo/CybroAddons /home//odoo/odoodev12/source/5-CybroOdoo/CybroAddons"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/odoomates/odooapps /home//odoo/odoodev12/source/5-odoomates/odooapps"

@@ -7,6 +7,7 @@ psql v12-mig <<EOF
 \x
 ALTER TABLE public.account_asset RENAME CONSTRAINT account_asset_asset_parent_id_fkey TO account_asset_parent_id_fkey;
 ALTER TABLE public.account_asset_profile RENAME CONSTRAINT account_asset_category_parent_id_fkey TO account_asset_profile_parent_id_fkey;
+update sale_order_line set project_id = NULL where project_id > 62 ;
 EOF
 
 ou12
@@ -18,7 +19,7 @@ EOF
 
 o12up
 
-
+o12
 
 
 

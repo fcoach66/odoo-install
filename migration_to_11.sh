@@ -24,7 +24,7 @@ o11
 odoouninstall.py -d v11-mig -u admin -w admin account_budget
 odoouninstall.py -d v11-mig -u admin -w admin purchase_analytic_distribution
 odoouninstall.py -d v11-mig -u admin -w admin sale_analytic_distribution
-odoouninstall.py -d v11-mig -u admin -w admin sale_timesheet
+#odoouninstall.py -d v11-mig -u admin -w admin sale_timesheet
 odoouninstall.py -d v11-mig -u admin -w admin account_document
 odoouninstall.py -d v11-mig -u admin -w admin l10n_it_vat_registries
 odoouninstall.py -d v11-mig -u admin -w admin product_template_listprice_zero_default     #ancora non pronta la versione 12
@@ -52,6 +52,10 @@ odoouninstall.py -d v11-mig -u admin -w admin disable_odoo_online
 odoouninstall.py -d v11-mig -u admin -w admin auth_session_timeout
 odoouninstall.py -d v11-mig -u admin -w admin res_users_clear_access_rights
 odoouninstall.py -d v11-mig -u admin -w admin oerp_no_website_info
+odoouninstall.py -d v11-mig -u admin -w admin is_employee
+odoouninstall.py -d v11-mig -u admin -w admin res_users_clear_access_rights
+odoouninstall.py -d v11-mig -u admin -w admin auth_session_timeout
+
 
 echo "duplicate database to v12-mig"
 read -n1 -r -p "Press any key when done..." key
