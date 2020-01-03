@@ -251,9 +251,43 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/CybroOdoo/Cyb
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Openworx/backend_theme /opt/odoo/source/0-Openworx/backend_theme"
 
 
-su - odoo -c "git clone -b 12.0-mig-l10n_it_ricevute_bancarie https://github.com/scigghia/l10n-italy /opt/odoo/source/0-scigghia/l10n-italy"
-su - odoo -c "git clone -b 12.0-mig-l10n_it_withholding_tax_payment https://github.com/linkitspa/l10n-italy /opt/odoo/source/0-linkitspa-1/l10n-italy"
+# su - odoo -c "git clone -b 12.0-mig-l10n_it_ricevute_bancarie https://github.com/scigghia/l10n-italy /opt/odoo/source/0-scigghia/l10n-italy"
+su - odoo -c "git clone -b 12.0_ricevute_bancarie https://github.com/As400it/l10n-italy /opt/odoo/source/0-As400it/l10n-italy"
+#su - odoo -c "git clone -b 12.0-mig-l10n_it_withholding_tax_payment https://github.com/linkitspa/l10n-italy /opt/odoo/source/0-linkitspa-1/l10n-italy"
 su - odoo -c "git clone -b 12.0-mig-letsencrypt --single-branch https://github.com/eLBati/server-tools/ /opt/odoo/source/0-eLBati/l10n-italy"
+
+
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/product-pack  /opt/odoo/source/2-OCA/product-pack"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/timesheet  /opt/odoo/source/2-OCA/timesheet"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/maintenance /opt/odoo/source/2-OCA/maintenance"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/storage /opt/odoo/source/2-OCA/storage"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/connector-ecommerce /opt/odoo/source/2-OCA/connector-ecommerce"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/helpdesk /opt/odoo/source/2-OCA/helpdesk"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/account-fiscal-rule /opt/odoo/source/2-OCA/account-fiscal-rule"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/payroll /opt/odoo/source/2-OCA/payroll"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-brand /opt/odoo/source/2-OCA/server-brand"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/search-engine /opt/odoo/source/2-OCA/search-engine"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/product-kitting /opt/odoo/source/2-OCA/product-kitting"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/intrastat-extrastat /opt/odoo/source/2-OCA/intrastat-extrastat"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/data-protection /opt/odoo/source/2-OCA/data-protection"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/brand /opt/odoo/source/2-OCA/brand"
+
+su - odoo -c "git clone -b 12.0-mig-account_bank_statement_import_qif --single-branch https://github.com/erick-tejada/bank-statement-import /opt/odoo/source/0-Numigi/erick-tejada"
+
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Numigi/aeroo_reports /opt/odoo/source/7-Numigi/aeroo_reports"
+
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/dhongu/deltatech /opt/odoo/source/5-dhongu/deltatech"
+
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_misc /opt/odoo/source/5-muk-it/muk_misc"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_web /opt/odoo/source/5-muk-it/muk_web"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_base /opt/odoo/source/5-muk-it/muk_base"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_dms /opt/odoo/source/5-muk-it/muk_dms"
+
+
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/CybroOdoo/CybroAddons /opt/odoo/source/5-CybroOdoo/CybroAddons"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/odoomates/odooapps /opt/odoo/source/5-odoomates/odooapps"
+
+
 
 
 su - odoo -c "find . -type d -name .git -exec sh -c "cd \"{}\"/../ && pwd && git pull" \;"
