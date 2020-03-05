@@ -252,7 +252,9 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Openworx/back
 
 
 # su - odoo -c "git clone -b 12.0-mig-l10n_it_ricevute_bancarie https://github.com/scigghia/l10n-italy /opt/odoo/source/0-scigghia/l10n-italy"
-su - odoo -c "git clone -b 12.0_ricevute_bancarie https://github.com/As400it/l10n-italy /opt/odoo/source/0-As400it/l10n-italy"
+# su - odoo -c "git clone -b 12.0_ricevute_bancarie https://github.com/As400it/l10n-italy /opt/odoo/source/0-As400it/l10n-italy"
+su - odoo -c "git clone -b 12.0-mig-l10n_it_ricevute_bancarie https://github.com/tafaRU/l10n-italy /opt/odoo/source/0-tafaRU/l10n-italy"
+
 #su - odoo -c "git clone -b 12.0-mig-l10n_it_withholding_tax_payment https://github.com/linkitspa/l10n-italy /opt/odoo/source/0-linkitspa-1/l10n-italy"
 su - odoo -c "git clone -b 12.0-mig-letsencrypt --single-branch https://github.com/eLBati/server-tools/ /opt/odoo/source/0-eLBati/l10n-italy"
 

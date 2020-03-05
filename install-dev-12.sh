@@ -256,6 +256,8 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/product-k
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/intrastat-extrastat /home/odoo/odoodev12/source/2-OCA/intrastat-extrastat"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/data-protection /home/odoo/odoodev12/source/2-OCA/data-protection"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/brand /home/odoo/odoodev12/source/2-OCA/brand"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/mis-builder /home/odoo/odoodev12/source/2-OCA/mis-builder"
+
 
 su - odoo -c "git clone -b 12.0-mig-account_bank_statement_import_qif --single-branch https://github.com/erick-tejada/bank-statement-import 0-Numigi/erick-tejada"
 
