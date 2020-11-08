@@ -190,7 +190,8 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/part
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/sale  /home/odoo/odoodev12/source/3-ingadhoc/sale"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/account-invoicing  /home/odoo/odoodev12/source/3-ingadhoc/account-invoicing"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/product  /home/odoo/odoodev12/source/3-ingadhoc/product"
-
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/stock  /home/odoo/odoodev12/source/3-ingadhoc/stock"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/multi-company  /home/odoo/odoodev12/source/3-ingadhoc/multi-company"
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/misc-addons  /home/odoo/odoodev12/source/1-it-projects-llc/misc-addons"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/access-addons  /home/odoo/odoodev12/source/1-it-projects-llc/access-addons"
