@@ -110,7 +110,9 @@ echo "Y" | python3 /opt/aeroo/aeroo_docs/aeroo-docs start -c /etc/aeroo-docs.con
 ln -s /opt/aeroo/aeroo_docs/aeroo-docs /etc/init.d/aeroo-docs
 update-rc.d aeroo-docs defaults
 
-su - odoo -c "git clone -b 12.0 https://github.com/ingadhoc/aeroo_reports.git /home/odoo/odoodev12/source/3-ingadhoc/aeroo_reports"
+#su - odoo -c "git clone -b 12.0 https://github.com/ingadhoc/aeroo_reports.git /home/odoo/odoodev12/source/3-ingadhoc/aeroo_reports"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Numigi/aeroo_reports /home/odoo/odoodev12/source/7-Numigi/aeroo_reports"
+
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-tools  /home/odoo/odoodev12/source/2-OCA/server-tools"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/server-ux  /home/odoo/odoodev12/source/2-OCA/server-ux"
@@ -193,11 +195,16 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/prod
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/stock  /home/odoo/odoodev12/source/3-ingadhoc/stock"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/ingadhoc/multi-company  /home/odoo/odoodev12/source/3-ingadhoc/multi-company"
 
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/misc-addons  /home/odoo/odoodev12/source/1-it-projects-llc/misc-addons"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/access-addons  /home/odoo/odoodev12/source/1-it-projects-llc/access-addons"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/pos-addons  /home/odoo/odoodev12/source/1-it-projects-llc/pos-addons"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/website-addons  /home/odoo/odoodev12/source/1-it-projects-llc/website-addons"
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/mail-addons  /home/odoo/odoodev12/source/1-it-projects-llc/mail-addons"
+#su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/misc-addons  /home/odoo/odoodev12/source/1-it-projects-llc/misc-addons"
+#su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/access-addons  /home/odoo/odoodev12/source/1-it-projects-llc/access-addons"
+#su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/pos-addons  /home/odoo/odoodev12/source/1-it-projects-llc/pos-addons"
+#su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/website-addons  /home/odoo/odoodev12/source/1-it-projects-llc/website-addons"
+#su - odoo -c "git clone -b 12.0 --single-branch https://github.com/it-projects-llc/mail-addons  /home/odoo/odoodev12/source/1-it-projects-llc/mail-addons"
+
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/itpp-labs/misc-addons  /home/odoo/odoodev12/source/1-itpp-labs/misc-addons"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/itpp-labs/access-addons  /home/odoo/odoodev12/source/1-itpp-labs/access-addons"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/itpp-labs/website-addons  /home/odoo/odoodev12/source/1-itpp-labs/website-addons"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/itpp-labs/mail-addons  /home/odoo/odoodev12/source/1-itpp-labs/mail-addons"
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/vauxoo/addons-vauxoo /home/odoo/odoodev12/source/5-vauxoo/addons-vauxoo"
 
@@ -238,9 +245,9 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Openworx/back
 
 
 #su - odoo -c "git clone -b 12.0-mig-l10n_it_ricevute_bancarie https://github.com/scigghia/l10n-italy /home/odoo/odoodev12/source/0-scigghia/l10n-italy"
-su - odoo -c "git clone -b 12.0_ricevute_bancarie https://github.com/As400it/l10n-italy /home/odoo/odoodev12/source/0-As400it/l10n-italy"
-su - odoo -c "git clone -b 12.0-mig-l10n_it_withholding_tax_payment https://github.com/linkitspa/l10n-italy /home/odoo/odoodev12/source/0-linkitspa-1/l10n-italy"
-su - odoo -c "git clone -b 12.0-mig-letsencrypt --single-branch https://github.com/eLBati/server-tools/ /home/odoo/odoodev12/source/0-eLBati/l10n-italy"
+#su - odoo -c "git clone -b 12.0_ricevute_bancarie https://github.com/As400it/l10n-italy /home/odoo/odoodev12/source/0-As400it/l10n-italy"
+#su - odoo -c "git clone -b 12.0-mig-l10n_it_withholding_tax_payment https://github.com/linkitspa/l10n-italy /home/odoo/odoodev12/source/0-linkitspa-1/l10n-italy"
+#su - odoo -c "git clone -b 12.0-mig-letsencrypt --single-branch https://github.com/eLBati/server-tools/ /home/odoo/odoodev12/source/0-eLBati/l10n-italy"
 
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/product-pack  /home/odoo/odoodev12/source/2-OCA/product-pack"
@@ -261,8 +268,6 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/OCA/mis-build
 
 
 su - odoo -c "git clone -b 12.0-mig-account_bank_statement_import_qif --single-branch https://github.com/erick-tejada/bank-statement-import 0-Numigi/erick-tejada"
-
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Numigi/aeroo_reports /home/odoo/odoodev12/source/7-Numigi/aeroo_reports"
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/dhongu/deltatech /home//odoo/odoodev12/source/5-dhongu/deltatech"
 
@@ -304,6 +309,6 @@ pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/aeroo_reports/requirement
 pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/reporting-engine/requirements.txt
 pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/argentina-sale/requirements.txt
 pip3 install -r /home/odoo/odoodev12/source/3-ingadhoc/account-payment/requirements.txt
-pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/misc-addons/requirements.txt
-pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/pos-addons/requirements.txt
-pip3 install -r /home/odoo/odoodev12/source/1-it-projects-llc/website-addons/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/1-itpp-labs/misc-addons/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/1-itpp-labs/pos-addons/requirements.txt
+pip3 install -r /home/odoo/odoodev12/source/1-itpp-labs/website-addons/requirements.txt
