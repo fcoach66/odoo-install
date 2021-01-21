@@ -280,6 +280,8 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/muk-it/muk_dm
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/CybroOdoo/CybroAddons /home//odoo/odoodev12/source/5-CybroOdoo/CybroAddons"
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/odoomates/odooapps /home//odoo/odoodev12/source/5-odoomates/odooapps"
 
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/Smile-SA/odoo_addons /home//odoo/odoodev12/source/5-Smile-SA/odoo_addons"
+
 
 
 
