@@ -210,7 +210,10 @@ su - odoo -c "git clone -b 12.0 --single-branch https://github.com/vauxoo/addons
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/onesteinbv/addons-onestein  /home/odoo/odoodev12/source/6-onesteinbv/addons-onestein"
 
-su - odoo -c "git clone -b 12.0 --single-branch https://github.com/efatto/efatto /home/odoo/odoodev12/source/6-efatto/efatto"
+#su - odoo -c "git clone -b 12.0 --single-branch https://github.com/efatto/efatto /home/odoo/odoodev12/source/6-efatto/efatto"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/sergiocorato/efatto /home/odoo/odoodev12/source/6-sergiocorato/efatto"
+su - odoo -c "git clone -b 12.0 --single-branch https://github.com/sergiocorato/e-efatto /home/odoo/odoodev12/source/6-sergiocorato/e-efatto"
+
 
 su - odoo -c "git clone -b 12.0 --single-branch https://github.com/fcoach66/odoo-italy-extra  /home/odoo/odoodev12/source/7-fcoach66/odoo-italy-extra"
 
